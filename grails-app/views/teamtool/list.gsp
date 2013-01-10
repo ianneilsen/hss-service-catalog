@@ -8,19 +8,22 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#list-teamtool" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
+    <div class="eso-inner">
+		<div class="navbar" role="navigation">
+			<ul class="nav">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
+
 		<div id="list-teamtool" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
+		<div class="breadcrumb"><h1><g:message code="default.list.label" args="[entityName]" /></h1> </div>
+
+            <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<table>
+
+            <table class="eso-table">
 				<thead>
 					<tr>
 					
@@ -54,5 +57,6 @@
 				<g:paginate total="${teamtoolInstanceTotal}" />
 			</div>
 		</div>
+    </div>
 	</body>
 </html>

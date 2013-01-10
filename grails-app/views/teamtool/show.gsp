@@ -9,7 +9,6 @@
 	</head>
 	<body>
     <div class="eso-inner">
-		%{--<a href="#show-teamtool" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>--}%
 		<div class="navbar" role="navigation">
 			<ul class="nav">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
@@ -24,45 +23,49 @@
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<ol class="property-list teamtool">
+
+            <div class="formArea" >
+                <div class="form-horizontal">
+                    <div class="dl-horizontal">
 			
 				<g:if test="${teamtoolInstance?.toolname}">
-				<li class="fieldcontain">
-					<span id="toolname-label" class="property-label"><g:message code="teamtool.toolname.label" default="Tool Name" /></span>
+
+				<dt><span id="toolname-label" class="property-label"><g:message code="teamtool.toolname.label" default="Tool Name" /></span></dt>
+
+                    <dd><span class="property-value" aria-labelledby="toolname-label"><g:fieldValue bean="${teamtoolInstance}" field="toolname"/></span></dd>
 					
-						<span class="property-value" aria-labelledby="toolname-label"><g:fieldValue bean="${teamtoolInstance}" field="toolname"/></span>
-					
-				</li>
+
 				</g:if>
 			
 				<g:if test="${teamtoolInstance?.tooluse}">
-				<li class="fieldcontain">
-					<span id="tooluse-label" class="property-label"><g:message code="teamtool.tooluse.label" default="Tool Use" /></span>
+
+				<dt><span id="tooluse-label" class="property-label"><g:message code="teamtool.tooluse.label" default="Tool Use" /></span></dt>
 					
-						<span class="property-value" aria-labelledby="tooluse-label"><g:fieldValue bean="${teamtoolInstance}" field="tooluse"/></span>
+						<dd><span class="property-value" aria-labelledby="tooluse-label"><g:fieldValue bean="${teamtoolInstance}" field="tooluse"/></span></dd>
 					
-				</li>
+
 				</g:if>
 			
 				<g:if test="${teamtoolInstance?.toolmotivation}">
-				<li class="fieldcontain">
-					<span id="toolmotivation-label" class="property-label"><g:message code="teamtool.toolmotivation.label" default="Tool Motivation" /></span>
+
+					<dt><span id="toolmotivation-label" class="property-label"><g:message code="teamtool.toolmotivation.label" default="Tool Motivation" /></span></dt>
 					
-						<span class="property-value" aria-labelledby="toolmotivation-label"><g:fieldValue bean="${teamtoolInstance}" field="toolmotivation"/></span>
+						<dd><span class="property-value" aria-labelledby="toolmotivation-label"><g:fieldValue bean="${teamtoolInstance}" field="toolmotivation"/></span></dd>
 					
-				</li>
+
 				</g:if>
 			
 				<g:if test="${teamtoolInstance?.teamservices}">
-				<li class="fieldcontain">
-					<span id="teamservices-label" class="property-label"><g:message code="teamtool.teamservices.label" default="Team Service" /></span>
+
+					<dt><span id="teamservices-label" class="property-label"><g:message code="teamtool.teamservices.label" default="Team Service" /></span></dt>
 					
-						<span class="property-value" aria-labelledby="teamservices-label"><g:link controller="teamservice" action="show" id="${teamtoolInstance?.teamservices?.id}">${teamtoolInstance?.teamservices?.encodeAsHTML()}</g:link></span>
+						<dd><span class="property-value" aria-labelledby="teamservices-label"><g:link controller="teamservice" action="show" id="${teamtoolInstance?.teamservices?.id}">${teamtoolInstance?.teamservices?.encodeAsHTML()}</g:link></span></dd>
 					
-				</li>
 				</g:if>
-			
-			</ol>
+
+            </div>
+            </div>
+            </div>
 			<g:form>
 				<fieldset class="buttons">
 					<g:hiddenField name="id" value="${teamtoolInstance?.id}" />

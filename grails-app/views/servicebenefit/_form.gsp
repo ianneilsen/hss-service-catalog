@@ -1,28 +1,35 @@
 <%@ page import="hss.service.catalog.Servicebenefit" %>
 
 
-
+<div class="control-group">
 <div class="fieldcontain ${hasErrors(bean: servicebenefitInstance, field: 'benefit', 'error')} ">
-	<label for="benefit">
+	<label class="control-label" for="benefit">
 		<g:message code="servicebenefit.benefit.label" default="Service Benefit" />
 		
 	</label>
-	<g:textArea name="benefit" cols="40" rows="5" maxlength="1000" value="${servicebenefitInstance?.benefit}"/>
+	<div class="controls"><g:textArea name="benefit" cols="40" rows="5" maxlength="1000" value="${servicebenefitInstance?.benefit}"/>
+    <p class="help-block">What benefit do you receive?</p></div>
+    </div>
 </div>
 
+<div class="control-group">
 <div class="fieldcontain ${hasErrors(bean: servicebenefitInstance, field: 'benefitmeasure', 'error')} ">
-	<label for="benefitmeasure">
+	<label class="control-label" for="benefitmeasure">
 		<g:message code="servicebenefit.benefitmeasure.label" default="Service benefit measure" />
 		
 	</label>
-	<g:textArea name="benefitmeasure" cols="40" rows="5" maxlength="1000" value="${servicebenefitInstance?.benefitmeasure}"/>
+	<div class="controls"><g:textArea name="benefitmeasure" cols="40" rows="5" maxlength="1000" value="${servicebenefitInstance?.benefitmeasure}"/>
+    <p class="help-block">How do you measure the benefit</p></div>
+</div>
 </div>
 
+<div class="control-group">
 <div class="fieldcontain ${hasErrors(bean: servicebenefitInstance, field: 'teamservices', 'error')} required">
-	<label for="teamservices">
+	<label class="control-label" for="teamservices">
 		<g:message code="servicebenefit.teamservices.label" default="Team Service" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="teamservices" name="teamservices.id" from="${hss.service.catalog.Teamservice.list()}" optionKey="id" required="" value="${servicebenefitInstance?.teamservices?.id}" class="many-to-one"/>
+	<div class="controls"><g:select id="teamservices" name="teamservices.id" from="${hss.service.catalog.Teamservice.list()}" optionKey="id" required="" value="${servicebenefitInstance?.teamservices?.id}" class="many-to-one"/>
+    </div>
 </div>
-
+</div>
