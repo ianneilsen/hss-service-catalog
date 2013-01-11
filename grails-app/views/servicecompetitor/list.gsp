@@ -8,19 +8,20 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#list-servicecompetitor" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
+    <div class="eso-inner">
+        <div class="navbar" role="navigation">
+            <ul class="nav">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="list-servicecompetitor" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
+            <div class="breadcrumb"><h3><g:message code="default.list.label" args="[entityName]" /></h3> </div>
+
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<table>
+            <table class="eso-table">
 				<thead>
 					<tr>
 					
@@ -35,7 +36,9 @@
 						<g:sortableColumn property="whousescompservice" title="${message(code: 'servicecompetitor.whousescompservice.label', default: 'Who uses comp service')}" />
 					
 						<g:sortableColumn property="competitorsmotivation" title="${message(code: 'servicecompetitor.competitorsmotivation.label', default: 'Competitors motivation')}" />
-					
+
+                        <g:sortableColumn property="competitorsvalue" title="${message(code: 'servicecompetitor.competitorvalue.label', default: 'Competitors value')}" />
+
 					</tr>
 				</thead>
 				<tbody>
@@ -53,6 +56,8 @@
 						<td>${fieldValue(bean: servicecompetitorInstance, field: "whousescompservice")}</td>
 					
 						<td>${fieldValue(bean: servicecompetitorInstance, field: "competitorsmotivation")}</td>
+
+                        <td>${fieldValue(bean: servicecompetitorInstance, field: "competitorvalue")}</td>
 					
 					</tr>
 				</g:each>
@@ -60,7 +65,8 @@
 			</table>
 			<div class="pagination">
 				<g:paginate total="${servicecompetitorInstanceTotal}" />
-			</div>
-		</div>
+            </div>
+            </div>
+        </div>
 	</body>
 </html>

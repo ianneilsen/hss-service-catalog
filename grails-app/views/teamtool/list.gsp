@@ -17,7 +17,7 @@
 		</div>
 
 		<div id="list-teamtool" class="content scaffold-list" role="main">
-		<div class="breadcrumb"><h1><g:message code="default.list.label" args="[entityName]" /></h1> </div>
+		<div class="breadcrumb"><h3><g:message code="default.list.label" args="[entityName]" /></h3> </div>
 
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>

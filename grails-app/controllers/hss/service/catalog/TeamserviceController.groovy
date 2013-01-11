@@ -13,7 +13,7 @@ class TeamserviceController {
     }
 
     def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+        params.max = Math.min(max ?: 7, 15)
         [teamserviceInstanceList: Teamservice.list(params), teamserviceInstanceTotal: Teamservice.count()]
     }
 

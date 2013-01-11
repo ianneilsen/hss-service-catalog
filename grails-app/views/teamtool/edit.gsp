@@ -15,9 +15,9 @@
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
-    <!-- bread -->
+    <!-- bread n errors -->
 		<div id="edit-teamtool" class="content scaffold-edit" role="main">
-			<div class="breadcrumb"><h1><g:message code="default.edit.label" args="[entityName]" /></h1></div>
+			<div class="breadcrumb"><h3><g:message code="default.edit.label" args="[entityName]" /></h3></div>
 
         <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -43,8 +43,9 @@
 					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" formnovalidate="" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
 			</g:form>
-                </div>
             </div>
+            </div>
+
 		</div>
     </div>
   </body>

@@ -1,6 +1,6 @@
 <%@ page import="hss.service.catalog.Teamservice" %>
 
-
+<div class="formAreaLeft">
 <div class="control-group">
   <div class="fieldcontain ${hasErrors(bean: teamserviceInstance, field: 'servicename', 'error')} ">
 	<label class="control-label" for="servicename">
@@ -45,50 +45,66 @@
 </div>
 </div>
 
-<div class="control-group">
-<div class="fieldcontain ${hasErrors(bean: teamserviceInstance, field: 'tools', 'error')} ">
-    <label class="control-label" for="tools">
-        <g:message code="teamservice.tools.label" default="1. Tools" />
-
-    </label>
-
-    <div class="controls">
-      <ul class="one-to-many">
-        <g:each in="${teamserviceInstance?.tools?}" var="t">
-            <li><g:link controller="teamtool" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></li>
-        </g:each>
-    </div>
-    <div class="controls">
-
-        <li class="add">
-            <g:link controller="teamtool" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'teamtool.label', default: 'Team Tools')])}</g:link>
-        </li>
-    </ul>
+    <div class="control-group">
+        <div class="fieldcontain ${hasErrors(bean: teamserviceInstance, field: 'team', 'error')} required">
+            <label class="control-label" for="team">
+                <g:message code="teamservice.team.label" default="Team" />
+                <span class="required-indicator">*</span>
+            </label>
+            <div class="controls">
+                <g:select id="team" name="team.id" from="${hss.service.catalog.Team.list()}" optionKey="id" required="" value="${teamserviceInstance?.team?.id}" class="many-to-one"/>
+            </div>
+        </div>
     </div>
 </div>
-</div>
 
-<div class="control-group">
-<div class="fieldcontain ${hasErrors(bean: teamserviceInstance, field: 'servicesusers', 'error')} ">
-    <label class="control-label" for="servicesusers">
-        <g:message code="teamservice.servicesusers.label" default="2. Services Users" />
+<div class="formAreaRight">
 
-    </label>
+    <div class="control-group">
+        <div class="fieldcontain ${hasErrors(bean: teamserviceInstance, field: 'tools', 'error')} ">
+            <label class="control-label" for="tools">
+                <g:message code="teamservice.tools.label" default="1. Tools" />
 
-    <div class="controls">
-    <ul class="one-to-many">
-        <g:each in="${teamserviceInstance?.servicesusers?}" var="s">
-            <li><g:link controller="serviceuser" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
-        </g:each>
+            </label>
+
+            <div class="controls">
+                <ul class="one-to-many">
+                    <g:each in="${teamserviceInstance?.tools?}" var="t">
+                        <li><g:link controller="teamtool" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></li>
+                    </g:each>
+            </div>
+            <div class="controls">
+
+                <li class="add">
+                    <g:link controller="teamtool" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'teamtool.label', default: 'Team Tools')])}</g:link>
+                </li>
+            </ul>
+            </div>
+        </div>
     </div>
-    <div class="controls">
-        <li class="add">
-            <g:link controller="serviceuser" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'serviceuser.label', default: 'Service Users')])}</g:link>
-        </li>
-    </ul>
+
+    <div class="control-group">
+        <div class="fieldcontain ${hasErrors(bean: teamserviceInstance, field: 'servicesusers', 'error')} ">
+            <label class="control-label" for="servicesusers">
+                <g:message code="teamservice.servicesusers.label" default="2. Services Users" />
+
+            </label>
+
+            <div class="controls">
+                <ul class="one-to-many">
+                    <g:each in="${teamserviceInstance?.servicesusers?}" var="s">
+                        <li><g:link controller="serviceuser" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
+                    </g:each>
+            </div>
+            <div class="controls">
+                <li class="add">
+                    <g:link controller="serviceuser" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'serviceuser.label', default: 'Service Users')])}</g:link>
+                </li>
+            </ul>
+            </div>
+        </div>
     </div>
-</div>
-</div>
+
 
 
 <div class="control-group">
@@ -196,17 +212,8 @@
     </div>
 </div>
 </div>
+</div>
 
-<div class="control-group">
-<div class="fieldcontain ${hasErrors(bean: teamserviceInstance, field: 'team', 'error')} required">
-	<label class="control-label" for="team">
-		<g:message code="teamservice.team.label" default="Team" />
-		<span class="required-indicator">*</span>
-	</label>
-    <div class="controls">
-	<g:select id="team" name="team.id" from="${hss.service.catalog.Team.list()}" optionKey="id" required="" value="${teamserviceInstance?.team?.id}" class="many-to-one"/>
-    </div>
-</div>
-</div>
+
 
 

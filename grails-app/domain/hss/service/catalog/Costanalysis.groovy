@@ -10,6 +10,8 @@ class Costanalysis {
     String engopscost
     String qecost
     String othercosts
+    Date dateCreated
+    Date lastUpdated
 
     static belongsTo = [teamservices: Teamservice]
 

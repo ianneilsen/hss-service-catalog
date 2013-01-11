@@ -35,10 +35,7 @@
     <g:link controller="teamservice" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link>
 </g:each>
 </div>
-<div class="controls">
-<g:link controller="teamservice" action="create" params="['team.id': teamInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'teamservice.label', default: 'a team service')])}</g:link>
 </ul>
-</div>
 </div>
 </div>
 

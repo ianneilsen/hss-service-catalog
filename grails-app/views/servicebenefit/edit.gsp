@@ -9,14 +9,15 @@
 	<body>
 		<div class="eso-inner">
 		<div class="navbar" role="navigation">
-			<ul class="">
+			<ul class="nav">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+
 			</ul>
 		</div>
+            <!-- bread n errors -->
 		<div id="edit-servicebenefit" class="content scaffold-edit" role="main">
-			<h1><g:message code="default.edit.label" args="[entityName]" /></h1>
+            <div class="breadcrumb"><h3><g:message code="default.edit.label" args="[entityName]" /></h3></div>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -27,6 +28,9 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
+        <!-- form and buttons -->
+            <div class="formArea">
+                <div class="form-horizontal">
 			<g:form method="post" >
 				<g:hiddenField name="id" value="${servicebenefitInstance?.id}" />
 				<g:hiddenField name="version" value="${servicebenefitInstance?.version}" />
@@ -38,7 +42,10 @@
 					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" formnovalidate="" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
 			</g:form>
-		</div>
+                </div>
+            </div>
+
+        </div>
         </div>
 	</body>
 </html>

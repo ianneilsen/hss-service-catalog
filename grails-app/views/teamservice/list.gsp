@@ -17,7 +17,7 @@
 		</div>
 
 		<div id="list-teamservice" class="content scaffold-list" role="main">
-			<div class="breadcrumb"><h1><g:message code="default.list.label" args="[entityName]" /></h1></div>
+			<div class="breadcrumb"><h3><g:message code="default.list.label" args="[entityName]" /></h3></div>
 
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -36,6 +36,8 @@
 						<g:sortableColumn property="competencyalignment" title="${message(code: 'teamservice.competencyalignment.label', default: 'Competency Alignment')}" />
 					
 						<th><g:message code="teamservice.team.label" default="Team" /></th>
+
+                        <g:sortableColumn property="lastUpdated" title="${message(code: 'teamservice.lastUpdated.label', default: 'Last Updated')}" />
 					
 					</tr>
 				</thead>
@@ -52,6 +54,8 @@
 						<td>${fieldValue(bean: teamserviceInstance, field: "competencyalignment")}</td>
 					
 						<td>${fieldValue(bean: teamserviceInstance, field: "team")}</td>
+
+                        <td>${fieldValue(bean: teamserviceInstance, field: "lastUpdated")}</td>
 					
 					</tr>
 				</g:each>
@@ -59,8 +63,8 @@
 			</table>
 			<div class="pagination">
 				<g:paginate total="${teamserviceInstanceTotal}" />
-			</div>
-		</div>
+            </div>
+        </div>
         </div>
 	</body>
 </html>

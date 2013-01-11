@@ -1,4 +1,6 @@
-class UrlMappings {
+import hss.service.catalog.Team
+
+class   UrlMappings {
 
 	static mappings = {
 		"/$controller/$action?/$id?"{
@@ -7,7 +9,8 @@ class UrlMappings {
 			}
 		}
 
-		"/"(view:"/index")
+		"/" (controller: 'Team', action: 'index')
 		"500"(view:'/error')
+
 	}
 }

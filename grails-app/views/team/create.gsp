@@ -16,7 +16,7 @@
 		</div>
     <!--action breadcrumb and error msgs-->
         <div id="create-team" class="content scaffold-create" role="main">
-			<div class="breadcrumb"> <h1><g:message code="default.create.label" args="[entityName]" /></h1></div>
+			<div class="breadcrumb"> <h3><g:message code="default.create.label" args="[entityName]" /></h3> </div>
                 <g:if test="${flash.message}">
 			        <div class="message" role="status">${flash.message}</div>
 			    </g:if>
@@ -30,9 +30,9 @@
 			    </ul>
 			</g:hasErrors>
     <!--form-->
-            <div class="formArea">
+ 			<div class="formArea">
             <div class="form-horizontal">
-			<g:form action="save" >
+            <g:form action="save" >
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>

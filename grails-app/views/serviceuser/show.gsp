@@ -8,74 +8,77 @@
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#show-serviceuser" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+    <div class="eso-inner">
+        <div class="navbar" role="navigation">
+            <ul class="nav">
+				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
+				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link>
+
 			</ul>
 		</div>
 		<div id="show-serviceuser" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
+			<div class="breadcrumb"><h3><g:message code="default.show.label" args="[entityName]" /></h3>   </div>
+
+            <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<ol class="property-list serviceuser">
+
 			
 				<g:if test="${serviceuserInstance?.users}">
-				<li class="fieldcontain">
-					<span id="users-label" class="property-label"><g:message code="serviceuser.users.label" default="Users" /></span>
+
+				<dt>	<span id="users-label" class="property-label"><g:message code="serviceuser.users.label" default="Users" /></span>  </dt>
 					
-						<span class="property-value" aria-labelledby="users-label"><g:fieldValue bean="${serviceuserInstance}" field="users"/></span>
+				<dd>		<span class="property-value" aria-labelledby="users-label"><g:fieldValue bean="${serviceuserInstance}" field="users"/></span>     </dd>
 					
-				</li>
+				
 				</g:if>
 			
 				<g:if test="${serviceuserInstance?.role}">
-				<li class="fieldcontain">
-					<span id="role-label" class="property-label"><g:message code="serviceuser.role.label" default="Role" /></span>
+
+                    <dt><span id="role-label" class="property-label"><g:message code="serviceuser.role.label" default="Role" /></span>     </dt>
+
+                    <dd>	<span class="property-value" aria-labelledby="role-label"><g:fieldValue bean="${serviceuserInstance}" field="role"/></span>    </dd>
 					
-						<span class="property-value" aria-labelledby="role-label"><g:fieldValue bean="${serviceuserInstance}" field="role"/></span>
-					
-				</li>
+				
 				</g:if>
 			
 				<g:if test="${serviceuserInstance?.howtheyuse}">
-				<li class="fieldcontain">
-					<span id="howtheyuse-label" class="property-label"><g:message code="serviceuser.howtheyuse.label" default="How they use service" /></span>
+
+                    <dt><span id="howtheyuse-label" class="property-label"><g:message code="serviceuser.howtheyuse.label" default="How they use service" /></span> </dt>
+
+                    <dd><span class="property-value" aria-labelledby="howtheyuse-label"><g:fieldValue bean="${serviceuserInstance}" field="howtheyuse"/></span>  </dd>
 					
-						<span class="property-value" aria-labelledby="howtheyuse-label"><g:fieldValue bean="${serviceuserInstance}" field="howtheyuse"/></span>
-					
-				</li>
+				
 				</g:if>
 			
 				<g:if test="${serviceuserInstance?.motivation}">
-				<li class="fieldcontain">
-					<span id="motivation-label" class="property-label"><g:message code="serviceuser.motivation.label" default="Motivation" /></span>
+
+                    <dt><span id="motivation-label" class="property-label"><g:message code="serviceuser.motivation.label" default="Motivation" /></span>    </dt>
+
+                    <dd><span class="property-value" aria-labelledby="motivation-label"><g:fieldValue bean="${serviceuserInstance}" field="motivation"/></span>  </dd>
 					
-						<span class="property-value" aria-labelledby="motivation-label"><g:fieldValue bean="${serviceuserInstance}" field="motivation"/></span>
-					
-				</li>
+				
 				</g:if>
 			
 				<g:if test="${serviceuserInstance?.teamservices}">
-				<li class="fieldcontain">
-					<span id="teamservices-label" class="property-label"><g:message code="serviceuser.teamservices.label" default="Team Services" /></span>
+
+                    <dt><span id="teamservices-label" class="property-label"><g:message code="serviceuser.teamservices.label" default="Team Services" /></span>   </dt>
+
+                    <dd><span class="property-value" aria-labelledby="teamservices-label"><g:link controller="teamservice" action="show" id="${serviceuserInstance?.teamservices?.id}">${serviceuserInstance?.teamservices?.encodeAsHTML()}</g:link></span>  </dd>
 					
-						<span class="property-value" aria-labelledby="teamservices-label"><g:link controller="teamservice" action="show" id="${serviceuserInstance?.teamservices?.id}">${serviceuserInstance?.teamservices?.encodeAsHTML()}</g:link></span>
-					
-				</li>
+				
 				</g:if>
 			
-			</ol>
+
 			<g:form>
-				<fieldset class="buttons">
+				<fieldset class="btn">
 					<g:hiddenField name="id" value="${serviceuserInstance?.id}" />
 					<g:link class="edit" action="edit" id="${serviceuserInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
 					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'This will delete the service user?')}');" />
 				</fieldset>
 			</g:form>
+            </div>
+
 		</div>
 	</body>
 </html>

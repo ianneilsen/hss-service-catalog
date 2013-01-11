@@ -15,9 +15,9 @@
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
-
+        <!-- bread n errors -->
     <div id="edit-teamservice" class="content scaffold-edit" role="main">
-	    <div class="breadcrumb"><h1><g:message code="default.edit.label" args="[entityName]" /></h1>
+	    <div class="breadcrumb"><h3><g:message code="default.edit.label" args="[entityName]" /></h3>
 
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -29,7 +29,7 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-
+        <!-- form and buttons -->
     <div class="formArea">
         <div class="form-horizontal">
             <g:form method="post" >
@@ -44,8 +44,9 @@
 				</fieldset>
 			</g:form>
         </div>
-            </div>
-		</div>
+    </div>
+
+        </div>
     </div>
   </body>
 </html>

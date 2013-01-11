@@ -13,12 +13,19 @@
 			<ul class="nav">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+                <li><g:link controller="teamtool" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: '1. Add service tools', args: [message(code: 'teamtool.label', default: 'Team Tools')])}</g:link></li>
+                <li><g:link controller="serviceuser" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: '2. Add service users', args: [message(code: 'serviceuser.label', default: 'Service Users')])}</g:link></li>
+                <li><g:link controller="costanalysis" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: '3. Add costs', args: [message(code: 'costanalysis.label', default: 'Cost Analysis')])}</g:link></li>
+                <li><g:link controller="servicebenefit" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: '4. Add service benefits', args: [message(code: 'servicebenefit.label', default: 'Service Benefits')])}</g:link></li>
+                <li><g:link controller="servicecompetitor" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: '5. Add Competitors', args: [message(code: 'servicecompetitor.label', default: 'a service competitor')])}</g:link></li>
+                <li><g:link controller="serviceenvironment" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: '6. Add service enviro', args: [message(code: 'serviceenvironment.label', default: 'Service environments')])}</g:link></li>
+                <li><g:link controller="swot" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: '7. Do SWOT', args: [message(code: 'swot.label', default: 'Swot')])}</g:link></li>
+                <li></li>
 			</ul>
 		</div>
 
 		<div id="show-teamservice" class="content scaffold-show" role="main">
-			<div class="breadcrumb"><h1><g:message code="default.show.label" args="[entityName]" /></h1></div>
+			<div class="breadcrumb"><h3>Service ${teamserviceInstance?.servicename}  for <g:link controller="team" action="show" id="${teamserviceInstance?.team?.id}">${teamserviceInstance?.team?.teamname?.encodeAsHTML()}</g:link></span></h3></div>
 
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -42,7 +49,7 @@
 
                 <dt> <span id="servicedescription-label" class="property-label"><g:message code="teamservice.servicedescription.label" default="Service Description" /></span></dt>
 
-                    <dd><span class="property-value" aria-labelledby="servicedescription-label"><g:fieldValue bean="${teamserviceInstance}" field="servicedescription"/></span></dd>
+                    <dd><span class="property-value" aria-labelledby="servicedescription-label"><markdown:renderHtml><g:fieldValue bean="${teamserviceInstance}" field="servicedescription"/></markdown:renderHtml></span></dd>
 
 
                 </g:if>
@@ -51,7 +58,7 @@
 
                     <dt>	<span id="coreresponsibility-label" class="property-label"><g:message code="teamservice.coreresponsibility.label" default="Core Responsibility" /></span>  </dt>
 
-                    <dd><span class="property-value" aria-labelledby="coreresponsibility-label"><g:fieldValue bean="${teamserviceInstance}" field="coreresponsibility"/></span></dd>
+                    <dd><span class="property-value" aria-labelledby="coreresponsibility-label"><markdown:renderHtml><g:fieldValue bean="${teamserviceInstance}" field="coreresponsibility"/></markdown:renderHtml></span></dd>
 
 
                 </g:if>
@@ -60,7 +67,7 @@
 
                     <dt>	<span id="competencyalignment-label" class="property-label"><g:message code="teamservice.competencyalignment.label" default="Competency Alignment" /></span>    </dt>
 
-                    <dd><span class="property-value" aria-labelledby="competencyalignment-label"><g:fieldValue bean="${teamserviceInstance}" field="competencyalignment"/></span></dd>
+                    <dd><span class="property-value" aria-labelledby="competencyalignment-label"><markdown:renderHtml><g:fieldValue bean="${teamserviceInstance}" field="competencyalignment"/></markdown:renderHtml></span></dd>
 
 
                 </g:if>
@@ -72,11 +79,10 @@
                         <g:each in="${teamserviceInstance.tools}" var="t">
                             <dd><span class="property-value" aria-labelledby="tools-label"><g:link controller="teamtool" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></span></dd>
                         </g:each>
-
-
                 </g:if>
 
-                <g:if test="${teamserviceInstance?.servicesusers}">
+
+                    <g:if test="${teamserviceInstance?.servicesusers}">
 
                     <dt>        <span id="servicesusers-label" class="property-label"><g:message code="teamservice.servicesusers.label" default="2. Service Users" /></span>  </dt>
 
@@ -103,7 +109,7 @@
                     <dt>       <span id="servicebenefits-label" class="property-label"><g:message code="teamservice.servicebenefits.label" default="4. Service Benefits" /></span>   </dt>
 
                     <g:each in="${teamserviceInstance.servicebenefits}" var="s">
-                        <dd><span class="property-value" aria-labelledby="servicebenefits-label"><g:link controller="servicebenefit" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></span></dd>
+                        <dd><span class="property-value" aria-labelledby="servicebenefits-label"><markdown:renderHtml><g:link controller="servicebenefit" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></markdown:renderHtml></span></dd>
                     </g:each>
 
 
@@ -114,7 +120,7 @@
                     <dt>	<span id="competitors-label" class="property-label"><g:message code="teamservice.competitors.label" default="5. Competitors" /></span> </dt>
 					
 						<g:each in="${teamserviceInstance.competitors}" var="c">
-                            <dd><span class="property-value" aria-labelledby="competitors-label"><g:link controller="servicecompetitor" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span></dd>
+                            <dd><span class="property-value" aria-labelledby="competitors-label"><markdown:renderHtml><g:link controller="servicecompetitor" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></markdown:renderHtml></span></dd>
                         </g:each>
 					
 
@@ -125,7 +131,7 @@
                     <dt>   <span id="serviceenvironments-label" class="property-label"><g:message code="teamservice.serviceenvironments.label" default="6. Service environment" /></span> </dt>
 
                         <g:each in="${teamserviceInstance.serviceenvironments}" var="e">
-                            <dd><span class="property-value" aria-labelledby="serviceenvironment-label"><g:link controller="serviceenvironment" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></span></dd>
+                            <dd><span class="property-value" aria-labelledby="serviceenvironment-label"><markdown:renderHtml><g:link controller="serviceenvironment" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></markdown:renderHtml></span></dd>
                         </g:each>
 
 
@@ -146,10 +152,19 @@
 
                     <dt>	<span id="team-label" class="property-label"><g:message code="teamservice.team.label" default="Team" /></span>        </dt>
 					
-					<dd><span class="property-value" aria-labelledby="team-label"><g:link controller="team" action="show" id="${teamserviceInstance?.team?.id}">${teamserviceInstance?.team?.encodeAsHTML()}</g:link></span></dd>
+					<dd><span class="property-value" aria-labelledby="team-label"><g:link controller="team" action="show" id="${teamserviceInstance?.team?.id}">${teamserviceInstance?.team?.teamname?.encodeAsHTML()}</g:link></span></dd>
 
 
                 </g:if>
+
+                    <g:if test="${teamserviceInstance?.lastUpdated}">
+
+                        <dt> <span id="lastUpdated-label" class="property-label"><g:message code="teamservice.lastUpdated.label" default="Last Updated" /></span></dt>
+
+                        <dd><span class="property-value" aria-labelledby="lastUpdated-label"><g:fieldValue bean="${teamserviceInstance}" field="lastUpdated"/></span></dd>
+
+
+                    </g:if>
 			 </dl>
 
 			<g:form>
@@ -159,6 +174,8 @@
 					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'This will delete the entire service?')}');" />
 				</fieldset>
 			</g:form>
+            </div>
+            </div>
 		</div>
         </div>
 	</body>

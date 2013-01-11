@@ -1,5 +1,6 @@
 
 <%@ page import="hss.service.catalog.Team" %>
+<%@ page import="hss.service.catalog.*" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -13,12 +14,20 @@
 			<ul class="nav">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><g:link controller="teamtool" class="list" action="list"><g:message code="Tool List" args="[entityName]" /></g:link></li>
+                <li><g:link controller="serviceuser" class="list" action="list"><g:message code="Service Users" args="[entityName]" /></g:link></li>
+                <li><g:link controller="servicebenefit" class="list" action="list"><g:message code="Service Benefits" args="[entityName]" /></g:link></li>
+                <li><g:link controller="costanalysis" class="list" action="list"><g:message code="Costs for services" args="[entityName]" /></g:link></li>
+                <li><g:link controller="servicecompetitor" class="list" action="list"><g:message code="Service Competitiors" args="[entityName]" /></g:link></li>
+                <li><g:link controller="serviceenvironment" class="list" action="list"><g:message code="Service Environment" args="[entityName]" /></g:link></li>
+                <li><g:link controller="swot" class="list" action="list"><g:message code="SWOT" args="[entityName]" /></g:link></li>
+                <li><g:link controller="teamservice" action="create" params="['team.id': teamInstance?.id]">${message(code: 'ADD a new service', args: [message(code: 'teamservice.label', default: 'a team service')])}</g:link></li>
 			</ul>
 		</div>
 
 		<div id="show-team" class="content scaffold-show" role="main">
-		<div class="breadcrumb"><h1><g:message code="default.show.label" args="[entityName]" /></h1> </div>
+		<div class="breadcrumb"><h3><g:message code="default.show.label" args="[entityName]" /></h3> </div>
+
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -45,6 +54,15 @@
 					
 
 				</g:if>
+
+                <g:if test="${teamInstance?.lastUpdated}">
+
+                    <dt>	<span id="lastUpdated-label" class="property-label"><g:message code="team.lastUpdated.label" default="Last Updated" /></span>   </dt>
+
+                    <dd>		<span class="property-value" aria-labelledby="lastUpdated-label"><g:fieldValue bean="${teamInstance}" field="lastUpdated"/></span>    </dd>
+
+
+                </g:if>
 			
 				<g:if test="${teamInstance?.teamservices}">
 
@@ -58,7 +76,46 @@
 				</g:if>
 
             </dl>
+                <g:link controller="teamservice" action="create" params="['team.id': teamInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'teamservice.label', default: 'a team service')])}</g:link>
+                <table class="eso-table">
+                    <thead>
+                    <tr>
 
+                        <g:sortableColumn property="servicename" title="${message(code: 'teamservice.servicename.label', default: 'Service Name')}" />
+
+                        <g:sortableColumn property="servicedescription" title="${message(code: 'teamservice.servicedescription.label', default: 'Service Description')}" />
+
+                        <g:sortableColumn property="coreresponsibility" title="${message(code: 'teamservice.coreresponsibility.label', default: 'Core Responsibility')}" />
+
+                        <g:sortableColumn property="competencyalignment" title="${message(code: 'teamservice.competencyalignment.label', default: 'Competency Alignment')}" />
+
+                        <th><g:message code="teamservice.team.label" default="Team" /></th>
+
+                        <g:sortableColumn property="lastUpdated" title="${message(code: 'teamservice.lastUpdated.label', default: 'Last Updated')}" />
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <g:each in="${teamInstance?.teamservices}" status="i" var="teamserviceInstance">
+                        <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+
+                            <td><g:link action="show" id="${teamInstance.teamservices.id}">${fieldValue(bean: teamserviceInstance, field: "servicename")}</g:link></td>
+
+
+                            <td>${fieldValue(bean: teamserviceInstance, field: "servicedescription")}</td>
+
+                            <td>${fieldValue(bean: teamserviceInstance, field: "coreresponsibility")}</td>
+
+                            <td>${fieldValue(bean: teamserviceInstance, field: "competencyalignment")}</td>
+
+                            <td>${fieldValue(bean: teamserviceInstance, field: "team")}</td>
+
+                            <td>${fieldValue(bean: teamserviceInstance, field: "lastUpdated")}</td>
+
+                        </tr>
+                    </g:each>
+                    </tbody>
+                </table>
             </div>
                 <g:form>
 				<fieldset class="btn">

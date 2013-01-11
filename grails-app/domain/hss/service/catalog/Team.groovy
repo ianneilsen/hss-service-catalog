@@ -4,6 +4,8 @@ class Team {
 
     String teamname
     String teamdivision
+    Date dateCreated
+    Date lastUpdated
 
     static  hasMany = [teamservices: Teamservice]
 

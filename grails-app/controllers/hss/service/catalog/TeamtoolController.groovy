@@ -13,7 +13,7 @@ class TeamtoolController {
     }
 
     def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+        params.max = Math.min(max ?: 5, 20)
         [teamtoolInstanceList: Teamtool.list(params), teamtoolInstanceTotal: Teamtool.count()]
     }
 

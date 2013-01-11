@@ -6,6 +6,8 @@ class Teamservice {
     String servicedescription
     String coreresponsibility
     String competencyalignment
+    Date dateCreated
+    Date lastUpdated
 
     static hasMany = [tools: Teamtool, servicesusers: Serviceuser, costs: Costanalysis, servicebenefits: Servicebenefit, competitors: Servicecompetitor, serviceenvironments: Serviceenvironment, swots: Swot]
     static belongsTo = [team: Team]

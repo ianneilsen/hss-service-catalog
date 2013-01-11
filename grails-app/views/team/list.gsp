@@ -17,19 +17,24 @@
 		</div>
         <div class="content">
 		<div id="list-team" class="content scaffold-list" role="main">
-			<div class="breadcrumb"> <h1><g:message code="default.list.label" args="[entityName]" /></h1></div>
+			<div class="breadcrumb"> <h3><g:message code="default.list.label" args="[entityName]" /></h3></div>
+
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 
-            <div class="eso-table">
-			<table>
+            <table class="eso-table">
+
 				<thead>
 					<tr>
 					
 						<g:sortableColumn property="teamname" title="${message(code: 'team.teamname.label', default: 'Team Name')}" />
 					
 						<g:sortableColumn property="teamdivision" title="${message(code: 'team.teamdivision.label', default: 'Team Division')}" />
+
+                        <g:sortableColumn property="dateCreated" title="${message(code: 'team.dateCreated.lable', default: 'Date Created')}"/>
+
+                        <g:sortableColumn property="lastUpdated" title="${message(code: 'team.lastUpdated.lable', default: 'Last Updated')}"/>
 					
 					</tr>
 				</thead>
@@ -40,6 +45,12 @@
 						<td><g:link action="show" id="${teamInstance.id}">${fieldValue(bean: teamInstance, field: "teamname")}</g:link></td>
 					
 						<td>${fieldValue(bean: teamInstance, field: "teamdivision")}</td>
+
+                        <td>${fieldValue(bean: teamInstance, field: "dateCreated")}</td>
+
+                        <td>${fieldValue(bean: teamInstance, field: "lastUpdated")}</td>
+
+
 					
 					</tr>
 				</g:each>

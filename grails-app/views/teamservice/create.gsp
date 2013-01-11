@@ -16,12 +16,11 @@
 		</div>
 
 		<div id="create-teamservice" class="content scaffold-create" role="main">
-			<div class="breadcrumb"><h1><g:message code="default.create.label" args="[entityName]" /></h1></div>
+			<div class="breadcrumb"> <h3><g:message code="default.create.label" args="[entityName]" /></h3> </div>
 
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-
             <g:hasErrors bean="${teamserviceInstance}">
 			<ul class="errors" role="alert">
 				<g:eachError bean="${teamserviceInstance}" var="error">
@@ -39,11 +38,11 @@
 				<fieldset class="buttons">
 					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
 				</fieldset>
-			</g:form>
+			    </g:form>
               </div>
             </div>
 
 		</div>
-      </div>
+    </div>
 	</body>
 </html>

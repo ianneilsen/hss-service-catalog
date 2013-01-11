@@ -18,7 +18,8 @@
 		</div>
 
 		<div id="show-teamtool" class="content scaffold-show" role="main">
-			<div class="breadcrumb"> <h1><g:message code="default.show.label" args="[entityName]" /></h1>   </div>
+            <div class="breadcrumb"><h3> Service tool ${teamtoolInstance?.toolname}  for service <g:link controller="teamservice" action="show" id="${teamtoolInstance?.teamservices?.id}">${teamtoolInstance?.teamservices?.encodeAsHTML()}</g:link></span></h3></div>
+
 
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -67,12 +68,14 @@
             </div>
             </div>
 			<g:form>
-				<fieldset class="buttons">
+				<fieldset class="btn">
 					<g:hiddenField name="id" value="${teamtoolInstance?.id}" />
-					<g:link class="edit" action="edit" id="${teamtoolInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+					<div class="btn btn-primary"> <g:link class="edit" action="edit" id="${teamtoolInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link> </div>
 					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
 			</g:form>
+            </div>
+            </div>
 		</div>
     </div>
     </body>

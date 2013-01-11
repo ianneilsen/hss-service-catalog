@@ -17,7 +17,7 @@
 		</div>
         <!-- bread -->
 		<div id="create-teamtool" class="content scaffold-create" role="main">
-			<div class="breadcrumb"><h1><g:message code="default.create.label" args="[entityName]" /></h1> </div>
+			<div class="breadcrumb"> <h3><g:message code="default.create.label" args="[entityName]" /></h3> </div>
         <!-- error msgs -->
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -31,7 +31,7 @@
 			</g:hasErrors>
         <!-- form -->
             <div class="formArea">
-                <div class="form-horizontal"></div>
+                <div class="form-horizontal">
                 <g:form action="save" >
 				<fieldset class="form">
 					<g:render template="form"/>
@@ -40,8 +40,9 @@
 					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
 				</fieldset>
 			</g:form>
-              </div>
+                 </div>
             </div>
+
 		</div>
     </div>
   </body>
