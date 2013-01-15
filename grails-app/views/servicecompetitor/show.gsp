@@ -23,7 +23,9 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 
-			  <dl class="dl-horizontal">
+            <div class="formArea">
+                <div class="form-horizontal">
+                   <dl class="dl-horizontal">
 				<g:if test="${servicecompetitorInstance?.competitorname}">
 
                     <dt><span id="competitorname-label" class="property-label"><g:message code="servicecompetitor.competitorname.label" default="Competitor name" /></span> </dt>
@@ -104,7 +106,8 @@
 				</fieldset>
 			</g:form>
             </div>
-
+            </div>
+            </div>
 		</div>
 	</body>
 </html>

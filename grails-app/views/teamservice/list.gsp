@@ -35,7 +35,9 @@
 					
 						<g:sortableColumn property="competencyalignment" title="${message(code: 'teamservice.competencyalignment.label', default: 'Competency Alignment')}" />
 					
-						<th><g:message code="teamservice.team.label" default="Team" /></th>
+						<th><g:message code="team.teamname.label" default="Team Name" /></th>
+
+                        <th><g:message code="team.team.label" default="Division" /></th>
 
                         <g:sortableColumn property="lastUpdated" title="${message(code: 'teamservice.lastUpdated.label', default: 'Last Updated')}" />
 					
@@ -54,6 +56,8 @@
 						<td>${fieldValue(bean: teamserviceInstance, field: "competencyalignment")}</td>
 					
 						<td>${fieldValue(bean: teamserviceInstance, field: "team")}</td>
+
+                        <td>${fieldValue(bean: teamserviceInstance, field: "team")}</td>
 
                         <td>${fieldValue(bean: teamserviceInstance, field: "lastUpdated")}</td>
 					

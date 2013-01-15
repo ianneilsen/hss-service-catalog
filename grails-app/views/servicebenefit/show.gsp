@@ -23,12 +23,15 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 
-			
+            <div class="formArea">
+                <div class="form-horizontal">
+                    <dl class="dl-horizontal">
+
 				<g:if test="${servicebenefitInstance?.benefit}">
 
                     <dt><span id="benefit-label" class="property-label"><g:message code="servicebenefit.benefit.label" default="Service  Benefit" /></span>   </dt>
 
-                    <dd>	<span class="property-value" aria-labelledby="benefit-label"><markdown:renderHtml><g:fieldValue bean="${servicebenefitInstance}" field="benefit"/></markdown:renderHtml></span>  </dd>
+                    <dd><span class="property-value" aria-labelledby="benefit-label"><markdown:renderHtml><g:fieldValue bean="${servicebenefitInstance}" field="benefit"/></markdown:renderHtml></span>  </dd>
 					
 
 				</g:if>
@@ -37,7 +40,7 @@
 
                     <dt><span id="benefitmeasure-label" class="property-label"><g:message code="servicebenefit.benefitmeasure.label" default="Service benefit measure" /></span>   </dt>
 
-                    <dd>	<span class="property-value" aria-labelledby="benefitmeasure-label"><markdown:renderHtml><g:fieldValue bean="${servicebenefitInstance}" field="benefitmeasure"/></markdown:renderHtml></span></dd>
+                    <dd><span class="property-value" aria-labelledby="benefitmeasure-label"><markdown:renderHtml><g:fieldValue bean="${servicebenefitInstance}" field="benefitmeasure"/></markdown:renderHtml></span></dd>
 					
 
 				</g:if>
@@ -46,11 +49,12 @@
 
                     <dt><span id="teamservices-label" class="property-label"><g:message code="servicebenefit.teamservices.label" default="Team service" /></span>   </dt>
 
-                    <dd>	<span class="property-value" aria-labelledby="teamservices-label"><g:link controller="teamservice" action="show" id="${servicebenefitInstance?.teamservices?.id}">${servicebenefitInstance?.teamservices?.encodeAsHTML()}</g:link></span> </dd>
+                    <dd><span class="property-value" aria-labelledby="teamservices-label"><g:link controller="teamservice" action="show" id="${servicebenefitInstance?.teamservices?.id}">${servicebenefitInstance?.teamservices?.encodeAsHTML()}</g:link></span> </dd>
 					
 
 				</g:if>
 			
+             </dl>
 
 			<g:form>
 				<fieldset class="btn">
@@ -60,6 +64,8 @@
 				</fieldset>
 			</g:form>
         </div>
+                </div>
+            </div>
     </div>
 	</body>
 </html>

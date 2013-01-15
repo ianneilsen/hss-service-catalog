@@ -17,18 +17,21 @@
 			</ul>
 		</div>
 		<div id="show-swot" class="content scaffold-show" role="main">
-            <div class="breadcrumb"> <h3><g:message code="default.show.label" args="[entityName]" /></h3>   </div>
+            <div class="breadcrumb"> <h3><g:message code="default.show.label" args="[entityName]" /> for team service <g:link controller="teamservice" action="show" id="${swotInstance?.teamservices?.id}">${swotInstance?.teamservices?.encodeAsHTML()}</g:link></h3>   </div>
 
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 
-			
+            <div class="formArea">
+                <div class="form-horizontal">
+                    <dl class="dl-horizontal">
+
 				<g:if test="${swotInstance?.swotnumber}">
 
                     <dt><span id="swotnumber-label" class="property-label"><g:message code="swot.swotnumber.label" default="Swot number" /></span>    </dt>
 
-                    <dd><span class="property-value" aria-labelledby="swotnumber-label"><g:fieldValue bean="${swotInstance}" field="swotnumber"/></span>  </dd>
+                    <dd><span class="property-value" aria-labelledby="swotnumber-label"><markdown:renderHtml><g:fieldValue bean="${swotInstance}" field="swotnumber"/></markdown:renderHtml></span>  </dd>
 					
 
 				</g:if>
@@ -37,7 +40,7 @@
 
                     <dt><span id="strength-label" class="property-label"><g:message code="swot.strength.label" default="Strengths" /></span>    </dt>
 
-                    <dd><span class="property-value" aria-labelledby="strength-label"><g:fieldValue bean="${swotInstance}" field="strength"/></span> </dd>
+                    <dd><span class="property-value" aria-labelledby="strength-label"><markdown:renderHtml><g:fieldValue bean="${swotInstance}" field="strength"/></markdown:renderHtml></span> </dd>
 					
 
 				</g:if>
@@ -46,7 +49,7 @@
 
                     <dt><span id="opportunities-label" class="property-label"><g:message code="swot.opportunities.label" default="Opportunities" /></span> </dt>
 
-                    <dd><span class="property-value" aria-labelledby="opportunities-label"><g:fieldValue bean="${swotInstance}" field="opportunities"/></span>  </dd>
+                    <dd><span class="property-value" aria-labelledby="opportunities-label"><markdown:renderHtml><g:fieldValue bean="${swotInstance}" field="opportunities"/></markdown:renderHtml></span>  </dd>
 					
 
 				</g:if>
@@ -55,7 +58,7 @@
 
                     <dt><span id="weaknesses-label" class="property-label"><g:message code="swot.weaknesses.label" default="Weaknesses" /></span>      </dt>
 
-                    <dd><span class="property-value" aria-labelledby="weaknesses-label"><g:fieldValue bean="${swotInstance}" field="weaknesses"/></span> </dd>
+                    <dd><span class="property-value" aria-labelledby="weaknesses-label"><markdown:renderHtml><g:fieldValue bean="${swotInstance}" field="weaknesses"/></markdown:renderHtml></span> </dd>
 					
 
 				</g:if>
@@ -64,7 +67,7 @@
 
                     <dt><span id="threats-label" class="property-label"><g:message code="swot.threats.label" default="Threats" /></span>   </dt>
 
-                    <dd><span class="property-value" aria-labelledby="threats-label"><g:fieldValue bean="${swotInstance}" field="threats"/></span>  </dd>
+                    <dd><span class="property-value" aria-labelledby="threats-label"><markdown:renderHtml><g:fieldValue bean="${swotInstance}" field="threats"/></markdown:renderHtml></span>  </dd>
 
 
 				</g:if>
@@ -73,7 +76,7 @@
 
                     <dt><span id="gaps-label" class="property-label"><g:message code="swot.gaps.label" default="Gaps" /></span>      </dt>
 
-                    <dd><span class="property-value" aria-labelledby="gaps-label"><g:fieldValue bean="${swotInstance}" field="gaps"/></span>  </dd>
+                    <dd><span class="property-value" aria-labelledby="gaps-label"><markdown:renderHtml><g:fieldValue bean="${swotInstance}" field="gaps"/></markdown:renderHtml></span>  </dd>
 					
 
 				</g:if>
@@ -87,7 +90,7 @@
 
 				</g:if>
 			
-
+            </dl>
 			<g:form>
 				<fieldset class="btn">
 					<g:hiddenField name="id" value="${swotInstance?.id}" />
@@ -96,7 +99,8 @@
 				</fieldset>
 			</g:form>
             </div>
-
+            </div>
+            </div>
 		</div>
 	</body>
 </html>

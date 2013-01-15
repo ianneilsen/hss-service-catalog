@@ -39,6 +39,8 @@
 
                         <g:sortableColumn property="competitorsvalue" title="${message(code: 'servicecompetitor.competitorvalue.label', default: 'Competitors value')}" />
 
+                        <g:sortableColumn property="teamservice" title="${message(code: 'servicecompetitor.teamservices.label', default: 'Service Link')}"/>
+
 					</tr>
 				</thead>
 				<tbody>
@@ -58,6 +60,8 @@
 						<td>${fieldValue(bean: servicecompetitorInstance, field: "competitorsmotivation")}</td>
 
                         <td>${fieldValue(bean: servicecompetitorInstance, field: "competitorvalue")}</td>
+
+                        <td>${fieldValue(bean: servicecompetitorInstance.teamservices, field:"servicename")}</td>
 					
 					</tr>
 				</g:each>

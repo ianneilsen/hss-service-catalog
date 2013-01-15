@@ -61,7 +61,10 @@
               <div class="pagination">
 				<g:paginate total="${teamInstanceTotal}" />
 			  </div>
+            <h2>Total teams in service capture: ${teamInstanceTotal}</h2>
+            <h2>Total services captured: ${hss.service.catalog.Teamservice.count}</h2>
 		    </div>
+
         </div>
     </div>
 </body>

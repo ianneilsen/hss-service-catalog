@@ -124,7 +124,7 @@ section{ margin-bottom:50px; margin:15px 15px 50px 15px;}
 .container-fluid {padding-right: 20px;padding-left: 20px;*zoom: 1;}
 .container-fluid:before, .container-fluid:after {display: table;content: "";}
 .container-fluid:after {clear: both;}
-.page-header {padding-bottom: 17px;margin: 18px 0;border-bottom: 1px solid #eeeeee;}
+.page-header {padding-bottom: 5px;margin: 18px 0;border-bottom: 1px solid #eeeeee;}
 .page-header h1 {line-height: 1;}
 
 /* Typographic ============================================================ */

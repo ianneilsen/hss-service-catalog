@@ -23,8 +23,10 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 
-			<div class="content">
-            <dl class="dl-horizontal">
+            <div class="formArea">
+                <div class="form-horizontal">
+                    <dl class="dl-horizontal">
+
 				<g:if test="${serviceenvironmentInstance?.successfactors}">
 
                     <dt><span id="successfactors-label" class="property-label"><g:message code="serviceenvironment.successfactors.label" default="Success factors" /></span>   </dt>
@@ -38,7 +40,7 @@
 
                     <dt><span id="successmeasure-label" class="property-label"><g:message code="serviceenvironment.successmeasure.label" default="Success measure" /></span>   </dt>
 
-                    <dd><span class="property-value" aria-labelledby="successmeasure-label"><g:fieldValue bean="${serviceenvironmentInstance}" field="successmeasure"/></span> </dd>
+                    <dd><span class="property-value" aria-labelledby="successmeasure-label"><markdown:renderHtml><g:fieldValue bean="${serviceenvironmentInstance}" field="successmeasure"/></markdown:renderHtml></span> </dd>
 					
 
 				</g:if>
@@ -61,6 +63,8 @@
 					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'This will delete service environment entry?')}');" />
 				</fieldset>
 			</g:form>
+        </div>
+            </div>
         </div>
     </div>
 	</body>

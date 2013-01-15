@@ -14,11 +14,12 @@
 			<ul class="nav">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link controller="teamtool" class="list" action="list"><g:message code="Tool List" args="[entityName]" /></g:link></li>
-                <li><g:link controller="serviceuser" class="list" action="list"><g:message code="Service Users" args="[entityName]" /></g:link></li>
-                <li><g:link controller="servicebenefit" class="list" action="list"><g:message code="Service Benefits" args="[entityName]" /></g:link></li>
-                <li><g:link controller="costanalysis" class="list" action="list"><g:message code="Costs for services" args="[entityName]" /></g:link></li>
-                <li><g:link controller="servicecompetitor" class="list" action="list"><g:message code="Service Competitiors" args="[entityName]" /></g:link></li>
+                <li><g:link controller="teamservice" class="list" action="list"><g:message code="Service list" args="[entityName]" /></g:link></li>
+				<li><g:link controller="teamtool" class="list" action="list"><g:message code="Tool list" args="[entityName]" /></g:link></li>
+                <li><g:link controller="serviceuser" class="list" action="list"><g:message code="Service Users list" args="[entityName]" /></g:link></li>
+                <li><g:link controller="servicebenefit" class="list" action="list"><g:message code="Service Benefits list" args="[entityName]" /></g:link></li>
+                <li><g:link controller="costanalysis" class="list" action="list"><g:message code="Costs for services list" args="[entityName]" /></g:link></li>
+                <li><g:link controller="servicecompetitor" class="list" action="list"><g:message code="Service Competitiors list" args="[entityName]" /></g:link></li>
                 <li><g:link controller="serviceenvironment" class="list" action="list"><g:message code="Service Environment" args="[entityName]" /></g:link></li>
                 <li><g:link controller="swot" class="list" action="list"><g:message code="SWOT" args="[entityName]" /></g:link></li>
                 <li><g:link controller="teamservice" action="create" params="['team.id': teamInstance?.id]">${message(code: 'ADD a new service', args: [message(code: 'teamservice.label', default: 'a team service')])}</g:link></li>
@@ -39,7 +40,7 @@
 
 				<g:if test="${teamInstance?.teamname}">
 
-				<dt>	<span id="teamname-label" class="property-label"><g:message code="team.teamname.label" default="Team Name" /></span>   </dt>
+				<dt>	<span id="teamname-label" class="property-label"><g:message code="team.teamname.label" default="Team Name   " /></span>   </dt>
 
 				<dd>		<span class="property-value" aria-labelledby="teamname-label"><g:fieldValue bean="${teamInstance}" field="teamname"/></span>    </dd>
 
@@ -71,11 +72,14 @@
 						<g:each in="${teamInstance.teamservices}" var="t">
 				<dd><span class="property-value" aria-labelledby="teamservices-label"><g:link controller="teamservice" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></span>  </dd>
 						</g:each>
-					
 
 				</g:if>
 
+                <dt>	<span id="teamservicescount-label" class="property-label"><g:message code="Services total" default="Services Total" /></span>      </dt>
+                <dd>${teamInstance?.teamservices?.size()}</dd>
+
             </dl>
+
                 <g:link controller="teamservice" action="create" params="['team.id': teamInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'teamservice.label', default: 'a team service')])}</g:link>
                 <table class="eso-table">
                     <thead>
@@ -99,7 +103,7 @@
                     <g:each in="${teamInstance?.teamservices}" status="i" var="teamserviceInstance">
                         <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-                            <td><g:link action="show" id="${teamInstance.teamservices.id}">${fieldValue(bean: teamserviceInstance, field: "servicename")}</g:link></td>
+                            <td><g:link controller="teamservice" action="show" id="${teamserviceInstance.id}">${fieldValue(bean: teamserviceInstance, field: "servicename")}</g:link></td>
 
 
                             <td>${fieldValue(bean: teamserviceInstance, field: "servicedescription")}</td>
@@ -117,6 +121,7 @@
                     </tbody>
                 </table>
             </div>
+
                 <g:form>
 				<fieldset class="btn">
 					<g:hiddenField name="id" value="${teamInstance?.id}" />

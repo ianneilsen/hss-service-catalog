@@ -17,13 +17,16 @@
 			</ul>
 		</div>
 		<div id="show-serviceuser" class="content scaffold-show" role="main">
-			<div class="breadcrumb"><h3><g:message code="default.show.label" args="[entityName]" /></h3>   </div>
+			<div class="breadcrumb"><h3><g:message code="default.show.label" args="[entityName]" /> for <g:link controller="teamservice" action="show" id="${serviceuserInstance?.teamservices?.id}">${serviceuserInstance?.teamservices?.encodeAsHTML()}</g:link></h3>   </div>
 
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 
-			
+            <div class="formArea">
+                <div class="form-horizontal">
+                    <dl class="dl-horizontal">
+
 				<g:if test="${serviceuserInstance?.users}">
 
 				<dt>	<span id="users-label" class="property-label"><g:message code="serviceuser.users.label" default="Users" /></span>  </dt>
@@ -68,7 +71,7 @@
 					
 				
 				</g:if>
-			
+			 </dl>
 
 			<g:form>
 				<fieldset class="btn">
@@ -78,7 +81,8 @@
 				</fieldset>
 			</g:form>
             </div>
-
+                  </div>
+            </div>
 		</div>
 	</body>
 </html>

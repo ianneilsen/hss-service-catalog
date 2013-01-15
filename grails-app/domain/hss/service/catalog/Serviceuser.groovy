@@ -6,6 +6,8 @@ class Serviceuser {
     String role
     String howtheyuse
     String motivation
+    String peakusetimes
+    String frequencyofserviceoffering
 
     static belongsTo = [teamservices: Teamservice]
 
@@ -17,5 +19,6 @@ class Serviceuser {
     }
     String toString(){
      users
+     role
     }
 }
