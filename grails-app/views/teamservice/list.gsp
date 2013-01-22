@@ -34,6 +34,8 @@
 						<g:sortableColumn property="coreresponsibility" title="${message(code: 'teamservice.coreresponsibility.label', default: 'Core Responsibility')}" />
 					
 						<g:sortableColumn property="competencyalignment" title="${message(code: 'teamservice.competencyalignment.label', default: 'Competency Alignment')}" />
+
+                        <g:sortableColumn property="servicecontact" title="${message(code: 'teamservice.servicecontact.label', default: 'Service Contact')}" />
 					
 						<th><g:message code="team.teamname.label" default="Team Name" /></th>
 
@@ -54,7 +56,9 @@
 						<td>${fieldValue(bean: teamserviceInstance, field: "coreresponsibility")}</td>
 					
 						<td>${fieldValue(bean: teamserviceInstance, field: "competencyalignment")}</td>
-					
+
+                        <td>${fieldValue(bean: teamserviceInstance, field: "servicecontact")}</td>
+
 						<td>${fieldValue(bean: teamserviceInstance, field: "team")}</td>
 
                         <td>${fieldValue(bean: teamserviceInstance, field: "team")}</td>

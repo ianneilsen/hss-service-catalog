@@ -1,4 +1,4 @@
-<%@ page import="hss.service.catalog.Teamservice" %>
+<%@ page import="hss.service.catalog.Servicecategory; hss.service.catalog.Teamservice; hss.service.catalog.Servicecategory" %>
 
 <div class="formAreaLeft">
 <div class="control-group">
@@ -7,8 +7,8 @@
 		<g:message code="teamservice.servicename.label" default="Service Name" />
 		
 	</label>
-	<div class="controls"> <g:textField name="servicename" value="${teamserviceInstance?.servicename}"/>
-        <p class="help-block">Teams name for service</p></div>
+	<div class="controls"> <g:textField style="width: 400px;" name="servicename" value="${teamserviceInstance?.servicename}"/>
+        <p class="help-block">Name of the service</p></div>
   </div>
 </div>
 
@@ -18,7 +18,7 @@
 		<g:message code="teamservice.servicedescription.label" default="Service Description" />
 		
 	</label>
-	<div class="controls"> <g:textArea name="servicedescription" cols="40" rows="5" maxlength="1000" value="${teamserviceInstance?.servicedescription}"/>
+	<div class="controls"> <g:textArea style="width: 400px;" name="servicedescription" cols="40" rows="5" maxlength="1000" value="${teamserviceInstance?.servicedescription}"/>
     <p class="help-block">Description of your service</p> </div>
 </div>
 </div>
@@ -29,8 +29,8 @@
 		<g:message code="teamservice.coreresponsibility.label" default="Core Responsibility" />
 		
 	</label>
-	<div class="controls"> <g:textArea name="coreresponsibility" cols="40" rows="5" maxlength="1000" value="${teamserviceInstance?.coreresponsibility}"/>
-    <p class="help-block">Core responsibility this service relates to</p></div>
+	<div class="controls"> <g:textArea style="width: 400px;" name="coreresponsibility" cols="40" rows="5" maxlength="1000" value="${teamserviceInstance?.coreresponsibility}"/>
+    <p class="help-block">Core responsibility from your team compass</p></div>
 </div>
 </div>
 
@@ -40,11 +40,33 @@
 		<g:message code="teamservice.competencyalignment.label" default="Competency Alignment" />
 		
 	</label>
-	<div class="controls"> <g:textArea name="competencyalignment" cols="40" rows="5" maxlength="1000" value="${teamserviceInstance?.competencyalignment}"/>
-    <p class="help-block">Competency this service relates to</p> </div>
+	<div class="controls"> <g:textArea style="width: 400px;" name="competencyalignment" cols="40" rows="5" maxlength="1000" value="${teamserviceInstance?.competencyalignment}"/>
+    <p class="help-block">Competency alignment from your team compass</p> </div>
 </div>
-</div>
+</div>                                         <!-- todo - find better way or provide link to compass as short term measure to help explain the above RH alignments-->
 
+    <div class="control-group">
+        <div class="fieldcontain ${hasErrors(bean: teamserviceInstance, field: 'servicecontact', 'error')} ">
+            <label class="control-label" for="servicecontact">
+                <g:message code="teamservice.servicecontact.label" default="Service Contact" />
+
+            </label>
+            <div class="controls"> <g:textArea name="servicecontact" cols="40" rows="5" maxlength="1000" value="${teamserviceInstance?.servicecontact}"/>
+                <p class="help-block">Who is the main contact for this service?</p> </div>
+        </div>
+    </div>
+
+%{--    <div class="control-group">
+        <div class="fieldcontain ${hasErrors(bean: servicecategory, field: 'servicecategory', 'error')} ">
+            <label class="control-label" for="servicecategory">
+                <g:message code="teamservice.servicecategory.label" default="Service Category" />
+
+            </label>
+            <div class="controls"><g:select  name="servicecategory.id" from="${servicecategory.list()}" optionKey="id" required="" value="${servicecategory?.id}" class="many-to-many"/>
+                <p class="help-block">Service categories are unqiue and setup by your admin.</br> If you need a new category email support.</p> </div>
+        </div>
+    </div>--}%
+   %{-- <g:select  name="pubproduct.id" from="${spotlight.content.Pubproduct.list()}" optionKey="id" required="" value="${publicationInstance?.pubproduct?.id}" class="many-to-one"/>--}%
     <div class="control-group">
         <div class="fieldcontain ${hasErrors(bean: teamserviceInstance, field: 'team', 'error')} required">
             <label class="control-label" for="team">
@@ -52,13 +74,13 @@
                 <span class="required-indicator">*</span>
             </label>
             <div class="controls">
-                <g:select id="team" name="team.id" from="${hss.service.catalog.Team.list()}" optionKey="id" required="" value="${teamserviceInstance?.team?.id}" class="many-to-one"/>
+                <g:select style="width: 255px;" id="team" name="team.id" from="${hss.service.catalog.Team.list()}" optionKey="id" required="" value="${teamserviceInstance?.team?.id}" class="many-to-one"/>
             </div>
         </div>
     </div>
 </div>
 
-<div class="formAreaRight">
+%{--<div class="formAreaRight">
 
     <div class="control-group">
         <div class="fieldcontain ${hasErrors(bean: teamserviceInstance, field: 'tools', 'error')} ">
@@ -168,8 +190,8 @@
     </ul>
     </div>
 </div>
-</div>
-
+</div>--}%
+%{--
 <div class="control-group">
     <div class="fieldcontain ${hasErrors(bean: teamserviceInstance, field: 'serviceenvironments', 'error')} ">
         <label class="control-label" for="serviceenvironments">
@@ -189,14 +211,14 @@
         </ul>
         </div>
     </div>
-</div>
+</div>--}%
 
 
-<div class="control-group">
+%{--<div class="control-group">
 <div class="fieldcontain ${hasErrors(bean: teamserviceInstance, field: 'swots', 'error')} ">
 	<label class="control-label" for="swots">
 		<g:message code="teamservice.swots.label" default="7. Swot" />
-		
+
 	</label>
 	<div class="controls">
       <ul class="one-to-many">
@@ -204,7 +226,7 @@
           <li><g:link controller="swot" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
         </g:each>
     </div>
-    <div class="controls">
+        <div class="controls">
         <li class="add">
             <g:link controller="swot" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'swot.label', default: 'Swot')])}</g:link>
         </li>
@@ -212,7 +234,7 @@
     </div>
 </div>
 </div>
-</div>
+</div>--}%
 
 
 

@@ -13,6 +13,15 @@
 			<ul class="nav">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+                <li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+                <li><g:link controller="teamservice" class="list" action="list"><g:message code="Service list" args="[entityName]" /></g:link></li>
+                <li><g:link controller="teamtool" class="list" action="list"><g:message code="Tool list" args="[entityName]" /></g:link></li>
+                <li><g:link controller="serviceuser" class="list" action="list"><g:message code="Service Users list" args="[entityName]" /></g:link></li>
+                <li><g:link controller="servicebenefit" class="list" action="list"><g:message code="Service Benefits list" args="[entityName]" /></g:link></li>
+                <li><g:link controller="costanalysis" class="list" action="list"><g:message code="Costs for services list" args="[entityName]" /></g:link></li>
+                <li><g:link controller="servicecompetitor" class="list" action="list"><g:message code="Service Competitiors list" args="[entityName]" /></g:link></li>
+                <li><g:link controller="serviceenvironment" class="list" action="list"><g:message code="Service Environment" args="[entityName]" /></g:link></li>
+                <li><g:link controller="swot" class="list" action="list"><g:message code="SWOT" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
         <div class="content">
@@ -50,7 +59,8 @@
 
                         <td>${fieldValue(bean: teamInstance, field: "lastUpdated")}</td>
 
-
+                     <!-- TODO need project name -->
+                     <!-- todo - prepopulate team name and division from orgchart -java boy speak to-->
 					
 					</tr>
 				</g:each>

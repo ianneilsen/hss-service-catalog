@@ -47,3 +47,5 @@
     </div>
   </body>
 </html>
+    <!--todo -redirect after new and edit back to teamservice show page -->
+<!-- todo - ensure that service name is selected in session when adding in tools, costs etc for new and edit pages on teamtool -->

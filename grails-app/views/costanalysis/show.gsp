@@ -94,7 +94,7 @@
 
                     <dt><span id="othercosts-label" class="property-label"><g:message code="costanalysis.othercosts.label" default="Other costs" /></span>    </dt>
 
-                    <dd>	<span class="property-value" aria-labelledby="othercosts-label"><g:fieldValue bean="${costanalysisInstance}" field="othercosts"/></span></dd>
+                    <dd>	<span class="property-value" aria-labelledby="othercosts-label"><markdown:renderHtml><g:fieldValue bean="${costanalysisInstance}" field="othercosts"/></span></dd></markdown:renderHtml>
 					
 
 				</g:if>

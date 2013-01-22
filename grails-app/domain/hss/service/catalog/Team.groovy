@@ -4,6 +4,7 @@ class Team {
 
     String teamname
     String teamdivision
+    String teamcontact
     Date dateCreated
     Date lastUpdated
 

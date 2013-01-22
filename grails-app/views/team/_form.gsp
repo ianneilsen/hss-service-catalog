@@ -22,7 +22,17 @@
     <p class="help-block">i.e. Hosted and Shared Services or HSS</p> </div>
 </div>
 </div>
-<!-- services -->
+<div class="control-group">
+    <div class="fieldcontain ${hasErrors(bean: teamInstance, field: 'teamcontact', 'error')} required">
+        <label class="control-label" for="teamcontact">
+            <g:message code="team.teamcontact.label" default="Team Contact" />
+            <span class="required-indicator">*</span>
+        </label>
+        <div class="controls"><g:textField name="teamcontact" required="" value="${teamInstance?.teamcontact}"/>
+            <p class="help-block">The teams main contact person</p> </div>
+    </div>
+</div>
+<!-- services -->          <!-- todo take out teamservices link at botttom of create new team page -->
 <div class="control-group">
 <div class="fieldcontain ${hasErrors(bean: teamInstance, field: 'teamservices', 'error')} ">
 	<label class="control-label" for="teamservices">

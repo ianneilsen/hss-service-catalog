@@ -51,7 +51,7 @@
 
 					<dt><span id="toolmotivation-label" class="property-label"><g:message code="teamtool.toolmotivation.label" default="Tool Motivation" /></span></dt>
 					
-						<dd><span class="property-value" aria-labelledby="toolmotivation-label"><g:fieldValue bean="${teamtoolInstance}" field="toolmotivation"/></span></dd>
+						<dd><span class="property-value" aria-labelledby="toolmotivation-label"><markdown:renderHtml><g:fieldValue bean="${teamtoolInstance}" field="toolmotivation"/></span></dd> </markdown:renderHtml>
 					
 
 				</g:if>

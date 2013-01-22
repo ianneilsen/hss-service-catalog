@@ -41,6 +41,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<div class="controls"><g:select id="teamservices" name="teamservices.id" from="${hss.service.catalog.Teamservice.list()}" optionKey="id" required="" value="${teamtoolInstance?.teamservices?.id}" class="many-to-one"/>
-    <p class="help-block">Services for this tool</p></div>
+    %{--<p class="help-block">Services for this tool</p>--}%</div>
 </div>
 </div>

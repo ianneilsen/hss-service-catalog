@@ -13,7 +13,7 @@
 		<div class="navbar" role="navigation">
 			<ul class="nav">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+%{--				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
                 <li><g:link controller="teamservice" class="list" action="list"><g:message code="Service list" args="[entityName]" /></g:link></li>
 				<li><g:link controller="teamtool" class="list" action="list"><g:message code="Tool list" args="[entityName]" /></g:link></li>
                 <li><g:link controller="serviceuser" class="list" action="list"><g:message code="Service Users list" args="[entityName]" /></g:link></li>
@@ -21,7 +21,7 @@
                 <li><g:link controller="costanalysis" class="list" action="list"><g:message code="Costs for services list" args="[entityName]" /></g:link></li>
                 <li><g:link controller="servicecompetitor" class="list" action="list"><g:message code="Service Competitiors list" args="[entityName]" /></g:link></li>
                 <li><g:link controller="serviceenvironment" class="list" action="list"><g:message code="Service Environment" args="[entityName]" /></g:link></li>
-                <li><g:link controller="swot" class="list" action="list"><g:message code="SWOT" args="[entityName]" /></g:link></li>
+                <li><g:link controller="swot" class="list" action="list"><g:message code="SWOT" args="[entityName]" /></g:link></li>--}%
                 <li><g:link controller="teamservice" action="create" params="['team.id': teamInstance?.id]">${message(code: 'ADD a new service', args: [message(code: 'teamservice.label', default: 'a team service')])}</g:link></li>
 			</ul>
 		</div>
@@ -56,6 +56,15 @@
 
 				</g:if>
 
+                <g:if test="${teamInstance?.teamcontact}">
+
+                    <dt>	<span id="teamcontact-label" class="property-label"><g:message code="team.teamcontact.label" default="Team Contact" /></span>     </dt>
+
+                    <dd>		<span class="property-value" aria-labelledby="teamcontact-label"><g:fieldValue bean="${teamInstance}" field="teamcontact"/></span>    </dd>
+
+
+                </g:if>
+
                 <g:if test="${teamInstance?.lastUpdated}">
 
                     <dt>	<span id="lastUpdated-label" class="property-label"><g:message code="team.lastUpdated.label" default="Last Updated" /></span>   </dt>
@@ -79,6 +88,13 @@
                 <dd>${teamInstance?.teamservices?.size()}</dd>
 
             </dl>
+                <g:form>
+                    <fieldset class="btn">
+                        <g:hiddenField name="id" value="${teamInstance?.id}" />
+                        <div class="btn btn-primary"> <g:link class="edit" action="edit" id="${teamInstance?.id}"><g:message code="default.button.edit.label" default="Edit Team" /></g:link></div>
+                        <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                    </fieldset>
+                </g:form>
 
                 <g:link controller="teamservice" action="create" params="['team.id': teamInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'teamservice.label', default: 'a team service')])}</g:link>
                 <table class="eso-table">
@@ -122,15 +138,10 @@
                 </table>
             </div>
 
-                <g:form>
-				<fieldset class="btn">
-					<g:hiddenField name="id" value="${teamInstance?.id}" />
-					<div class="btn btn-primary"> <g:link class="edit" action="edit" id="${teamInstance?.id}"><g:message code="default.button.edit.label" default="Edit Team" /></g:link></div>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
-			    </g:form>
+
 		</div>
       </div>
     </div>
   </body>
 </html>
+       <!-- todo move edit and delete buttons inside table -->

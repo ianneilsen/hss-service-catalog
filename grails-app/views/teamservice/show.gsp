@@ -51,6 +51,15 @@
                     <dd><markdown:renderHtml><g:fieldValue bean="${teamserviceInstance}" field="servicedescription"/></markdown:renderHtml></dd>
 
                 </g:if>
+
+                <g:if test="${teamserviceInstance?.servicecontact}">
+
+                    <dt>	<span id="servicecontact-label" class="property-label"><g:message code="teamservice.servicecontact.label" default="service Contact" /></span>    </dt>
+
+                    <dd><span class="property-value" aria-labelledby="servicecontact-label"><g:fieldValue bean="${teamserviceInstance}" field="servicecontact"/></span></dd>
+
+
+                </g:if>
 			
 				<g:if test="${teamserviceInstance?.coreresponsibility}">
 
@@ -81,6 +90,7 @@
                             <dd><span class="property-value" aria-labelledby="tools-label"><g:link controller="teamtool" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></span></dd>
                         </g:each>--}%
                 </g:if>
+                <div class="btn btn-info"><g:link controller="teamtool" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add a tool', args: [message(code: 'teamtool.label', default: 'Team Tools')])}</g:link></div>
                     <table class="eso-table">
                         <thead>
                         <tr>
@@ -111,6 +121,7 @@
                         </g:each>
                         </tbody>
                     </table>
+
 
                     <g:if test="${teamserviceInstance?.servicesusers}">
 
@@ -303,3 +314,5 @@
         </div>
 	</body>
 </html>
+               <!--todo add in create links for new tools, costs, etc etc in show page -->
+<!-- todo - add in deleted button to each table of tools, cost etc to allow user easy delete option -->
