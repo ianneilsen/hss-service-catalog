@@ -10,7 +10,7 @@ class Teamservice {
     Date dateCreated
     Date lastUpdated
 
-    static hasMany = [tools: Teamtool, servicesusers: Serviceuser, costs: Costanalysis, servicebenefits: Servicebenefit, competitors: Servicecompetitor, serviceenvironments: Serviceenvironment, swots: Swot]
+    static hasMany = [tools: Teamtool, servicesusers: Serviceuser, costs: Costanalysis, servicebenefits: Servicebenefit, competitors: Servicecompetitor, serviceenvironments: Serviceenvironment, swots: Swot, servicelevels: Servicelevel]
     static belongsTo = [team: Team]
     /*Servicecategory servicecategory*/
 

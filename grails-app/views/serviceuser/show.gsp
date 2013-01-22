@@ -62,6 +62,24 @@
 					
 				
 				</g:if>
+
+                        <g:if test="${serviceuserInstance?.peakusetimes}">
+
+                            <dt><span id="peakusetimes-label" class="property-label"><g:message code="serviceuser.peakusetimes.label" default="Peak use times" /></span>    </dt>
+
+                            <dd><span class="property-value" aria-labelledby="peakusetimes-label"><g:fieldValue bean="${serviceuserInstance}" field="peakusetimes"/></span>  </dd>
+
+
+                        </g:if>
+
+                        <g:if test="${serviceuserInstance?.frequencyofserviceoffering}">
+
+                            <dt><span id="frequencyofserviceoffering-label" class="property-label"><g:message code="serviceuser.frequencyofserviceoffering.label" default="Frequency of service offering" /></span>    </dt>
+
+                            <dd><span class="property-value" aria-labelledby="frequencyofserviceoffering-label"><g:fieldValue bean="${serviceuserInstance}" field="frequencyofserviceoffering"/></span>  </dd>
+
+
+                        </g:if>
 			
 				<g:if test="${serviceuserInstance?.teamservices}">
 

@@ -123,7 +123,7 @@
                         </tbody>
                     </table>
 
-        <div class="btn btn-info"><g:link controller="serviceuser" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add users', args: [message(code: 'serviceuser.label', default: 'Service Users')])}</g:link></div>
+
                     <g:if test="${teamserviceInstance?.servicesusers}">
 
                         <div class="page-header"><h4><span class="badge badge-warning">2</span><g:message code="teamservice.serviceusers.label" default="2. Service Users" /></h4></div>
@@ -133,11 +133,10 @@
                         <g:each in="${teamserviceInstance.servicesusers}" var="s">
                             <dd><span class="property-value" aria-labelledby="servicesusers-label"><g:link controller="serviceuser" action="show" id="${s.id}">${s?.users?.encodeAsHTML()} - ${s?.role?.encodeAsHTML()}</g:link></span></dd>
                         </g:each>
-
-
                 </g:if>
+        <div class="btn btn-info"><g:link controller="serviceuser" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add users', args: [message(code: 'serviceuser.label', default: 'Service Users')])}</g:link></div>
 
-        <div class="btn btn-info"><g:link controller="costanalysis" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add costs', args: [message(code: 'costanalysis.label', default: 'Cost Analysis')])}</g:link></div>
+
                 <g:if test="${teamserviceInstance?.costs}">
 
                     <div class="page-header"><h4><span class="badge badge-warning">3</span><g:message code="teamservice.costs.label" default="Costs" /></h4></div>
@@ -146,10 +145,10 @@
                             <dd><span class="property-value" aria-labelledby="costs-label"><g:link controller="costanalysis" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span></dd>
                         </g:each>--}%
                 </g:if>
+        <div class="btn btn-info"><g:link controller="costanalysis" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add costs', args: [message(code: 'costanalysis.label', default: 'Cost Analysis')])}</g:link></div>
                 <table class="eso-table">
                     <thead>
                     <tr>
-
                         <g:sortableColumn property="costname" title="${message(code: 'costanalysis.costname.label', default: 'Cost Name')}" />
 
                         <g:sortableColumn property="rapcost" title="${message(code: 'costanalysis.rapcost.label', default: 'RAP Cost')}" />
@@ -165,7 +164,6 @@
                         <g:sortableColumn property="qecosts" title="${message(code: 'costanalysis.qecost.label', default: 'QE Cost')}" />
 
                         <g:sortableColumn property="othercosts" title="${message(code: 'costanalysis.othercosts.label', default: 'Other Costs')}" />
-
                     </tr>
                     </thead>
                     <tbody>
@@ -187,11 +185,11 @@
                             <td>${fieldValue(bean: costanalysisInstance, field: "qecost")}</td>
 
                             <td>${fieldValue(bean: costanalysisInstance, field: "othercosts")}</td>
-
                         </tr>
                     </g:each>
                     </tbody>
                 </table>
+
 
                 <g:if test="${teamserviceInstance?.servicebenefits}">
 
@@ -203,8 +201,8 @@
                         <dd><span class="property-value" aria-labelledby="servicebenefits-label"><markdown:renderHtml><g:link controller="servicebenefit" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></markdown:renderHtml></span></dd>
                     </g:each>
 
-
                 </g:if>
+        <div class="btn btn-info"><g:link controller="servicebenefit" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add service benefits', args: [message(code: 'servicebenefit.label', default: 'Service Benefits')])}</g:link></div>
 
 				<g:if test="${teamserviceInstance?.competitors}">
 
@@ -215,9 +213,9 @@
 						<g:each in="${teamserviceInstance.competitors}" var="c">
                             <dd><span class="property-value" aria-labelledby="competitors-label"><markdown:renderHtml><g:link controller="servicecompetitor" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></markdown:renderHtml></span></dd>
                         </g:each>
-					
-
 				</g:if>
+        <div class="btn btn-info"><g:link controller="servicecompetitor" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add Competitors', args: [message(code: 'servicecompetitor.label', default: 'a service competitor')])}</g:link></div>
+
 
                 <g:if test="${teamserviceInstance?.serviceenvironments}">
 
@@ -228,11 +226,11 @@
                         <g:each in="${teamserviceInstance.serviceenvironments}" var="e">
                             <dd><span class="property-value" aria-labelledby="serviceenvironment-label"><markdown:renderHtml><g:link controller="serviceenvironment" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></markdown:renderHtml></span></dd>
                         </g:each>
-
-
                 </g:if>
+        <div class="btn btn-info"><g:link controller="serviceenvironment" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add service enviro', args: [message(code: 'serviceenvironment.label', default: 'Service environments')])}</g:link></div>
 
-				<g:if test="${teamserviceInstance?.swots}">
+
+        <g:if test="${teamserviceInstance?.swots}">
 
                     <div class="page-header"><h4><span class="badge badge-warning">7</span><g:message code="teamservice.swots.label" default="Swot" /></h4></div>
 
@@ -244,7 +242,8 @@
 					
 --}%
 				</g:if>
-                <table class="eso-table">
+        <div class="btn btn-info"><g:link controller="swot" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Do SWOT', args: [message(code: 'swot.label', default: 'Swot')])}</g:link></div>
+              <table class="eso-table">
                     <thead>
                     <tr>
 
@@ -282,7 +281,52 @@
                     </g:each>
                     </tbody>
                 </table>
-			
+
+
+        <g:if test="${teamserviceInstance?.servicelevels}">
+            <div class="page-header"><h4><span class="badge badge-warning">8</span><g:message code="teamservice.servicelevels.label" default="Service levels" /></h4></div>
+        </g:if>
+        <div class="btn btn-info"><g:link controller="servicelevel" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add SLA', args: [message(code: 'servicelevel.label', default: 'Service Levels')])}</g:link></div>
+
+        <table class="eso-table">
+            <thead>
+            <tr>
+                <g:sortableColumn property="slaname" title="${message(code: 'servicelevel.slaname.label', default: 'Level Name')}" />
+                <g:sortableColumn property="slatype" title="${message(code: 'servicelevel.slatype.label', default: 'Type')}" />
+                <g:sortableColumn property="servicehours" title="${message(code: 'servicelevel.servicehours.label', default: 'SOB')}" />
+                <g:sortableColumn property="businesshours" title="${message(code: 'servicelevel.businesshours.label', default: 'BO')}" />
+                <g:sortableColumn property="peakusage" title="${message(code: 'servicelevel.peakusage.label', default: 'Peak')}" />
+                <g:sortableColumn property="responsetime" title="${message(code: 'servicelevel.responsetime.label', default: 'Response')}" />
+                <g:sortableColumn property="peakusers" title="${message(code: 'servicelevel.peakusers.label', default: 'Peak Users')}" />
+                <g:sortableColumn property="offpeakusers" title="${message(code: 'servicelevel.offpeakusers.label', default: 'Off Peak')}" />
+                <g:sortableColumn property="whatifnoservice" title="${message(code: 'servicelevel.whatifnoservice.label', default: 'No Service')}" />
+                <g:sortableColumn property="slareview" title="${message(code: 'servicelevel.slareview.label', default: 'Review time')}" />
+                <g:sortableColumn property="implementrequire" title="${message(code: 'servicelevel.implementrequire.label', default: 'Implement')}" />
+                <g:sortableColumn property="servicelifetime" title="${message(code: 'servicelevel.servicelifetime.label', default: 'Lifetime')}" />
+                <g:sortableColumn property="frequencyservice" title="${message(code: 'servicelevel.frequencyservice.label', default: 'Frequency')}" />
+            </tr>
+            </thead>
+            <tbody>
+            <g:each in="${teamserviceInstance.servicelevels}" status="i" var="servicelevelInstance">
+                <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+                    <td><g:link controller="servicelevel" action="show" id="${servicelevelInstance.id}">${fieldValue(bean: servicelevelInstance, field: "slaname")}</g:link></td>
+                    <td>${fieldValue(bean: servicelevelInstance, field: "slatype")}</td>
+                    <td>${fieldValue(bean: servicelevelInstance, field: "servicehours")}</td>
+                    <td>${fieldValue(bean: servicelevelInstance, field: "businesshours")}</td>
+                    <td>${fieldValue(bean: servicelevelInstance, field: "peakusage")}</td>
+                    <td>${fieldValue(bean: servicelevelInstance, field: "responsetime")}</td>
+                    <td>${fieldValue(bean: servicelevelInstance, field: "peakusers")}</td>
+                    <td>${fieldValue(bean: servicelevelInstance, field: "offpeakusers")}</td>
+                    <td>${fieldValue(bean: servicelevelInstance, field: "whatifnoservice")}</td>
+                    <td>${fieldValue(bean: servicelevelInstance, field: "slareview")}</td>
+                    <td>${fieldValue(bean: servicelevelInstance, field: "implementrequire")}</td>
+                    <td>${fieldValue(bean: servicelevelInstance, field: "servicelifetime")}</td>
+                    <td>${fieldValue(bean: servicelevelInstance, field: "frequencyservice")}</td>
+                </tr>
+            </g:each>
+            </tbody>
+        </table>
+
 				<g:if test="${teamserviceInstance?.team}">
 
                     <dt>	<span id="team-label" class="property-label"><g:message code="teamservice.team.label" default="Team" /></span>        </dt>

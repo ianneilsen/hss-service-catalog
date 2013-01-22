@@ -46,6 +46,28 @@
 </div>
 
 <div class="control-group">
+    <div class="fieldcontain ${hasErrors(bean: serviceuserInstance, field: 'peakusetimes', 'error')} required">
+        <label class="control-label" for="peakusetimes">
+            <g:message code="serviceuser.peakusetimes.label" default="Peak use times" />
+            <span class="required-indicator">*</span>
+        </label>
+        <div class="controls"><g:textArea style="width: 400px;" name="peakusetimes" required="" value="${serviceuserInstance?.peakusetimes}"/></div>
+    </div>
+
+</div>
+
+<div class="control-group">
+    <div class="fieldcontain ${hasErrors(bean: serviceuserInstance, field: 'frequencyofserviceoffering', 'error')} required">
+        <label class="control-label" for="frequencyofserviceoffering">
+            <g:message code="serviceuser.frequencyofserviceoffering.label" default="Frequency of service offering" />
+            <span class="required-indicator">*</span>
+        </label>
+        <div class="controls"><g:textArea style="width: 400px;" name="frequencyofserviceoffering" required="" value="${serviceuserInstance?.frequencyofserviceoffering}"/></div>
+    </div>
+
+</div>
+
+<div class="control-group">
 <div class="fieldcontain ${hasErrors(bean: serviceuserInstance, field: 'teamservices', 'error')} required">
 	<label class="control-label" for="teamservices">
 		<g:message code="serviceuser.teamservices.label" default="Service used by this user" />

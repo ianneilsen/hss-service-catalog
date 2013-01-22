@@ -16,6 +16,8 @@ class Serviceuser {
         role(blank: false)
         howtheyuse(blank: false, size: 2..1000)
         motivation(blank: false, size: 2..1000)
+        peakusetimes(size: 2..150)
+        frequencyofserviceoffering(size: 2..100)
     }
     String toString(){
      users
