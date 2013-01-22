@@ -13,7 +13,7 @@
 			<ul class="nav">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-                <li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+                    %{--<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>--}%
                 <li><g:link controller="teamservice" class="list" action="list"><g:message code="Service list" args="[entityName]" /></g:link></li>
                 <li><g:link controller="teamtool" class="list" action="list"><g:message code="Tool list" args="[entityName]" /></g:link></li>
                 <li><g:link controller="serviceuser" class="list" action="list"><g:message code="Service Users list" args="[entityName]" /></g:link></li>
@@ -26,7 +26,7 @@
 		</div>
         <div class="content">
 		<div id="list-team" class="content scaffold-list" role="main">
-			<div class="breadcrumb"> <h3><g:message code="default.list.label" args="[entityName]" /></h3></div>
+			<div class="breadcrumb"> <h3>%{--<g:message code="default.list.label" args="[entityName]" />--}%Service Provider list</h3></div>
 
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -37,9 +37,9 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="teamname" title="${message(code: 'team.teamname.label', default: 'Team Name')}" />
+						<g:sortableColumn property="teamname" title="${message(code: 'team.teamname.label', default: 'Service Provider')}" />
 					
-						<g:sortableColumn property="teamdivision" title="${message(code: 'team.teamdivision.label', default: 'Team Division')}" />
+						<g:sortableColumn property="teamdivision" title="${message(code: 'team.teamdivision.label', default: 'Business Group')}" />
 
                         <g:sortableColumn property="dateCreated" title="${message(code: 'team.dateCreated.lable', default: 'Date Created')}"/>
 
@@ -71,8 +71,8 @@
               <div class="pagination">
 				<g:paginate total="${teamInstanceTotal}" />
 			  </div>
-           <p><span class="badge badge-success"> Total teams in service capture: ${teamInstanceTotal}</span></p>
-           <p><span class="badge badge-success"> Total services captured: ${hss.service.catalog.Teamservice.count}</span></p>
+           <p><span class="badge badge-success"> Total teams as service providers: ${teamInstanceTotal}</span></p>
+           <p><span class="badge badge-success"> Total services provided: ${hss.service.catalog.Teamservice.count}</span></p>
 		    </div>
 
         </div>

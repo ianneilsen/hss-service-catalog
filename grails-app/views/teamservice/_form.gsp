@@ -7,7 +7,7 @@
 		<g:message code="teamservice.servicename.label" default="Service Name" />
 		
 	</label>
-	<div class="controls"> <g:textField style="width: 400px;" name="servicename" value="${teamserviceInstance?.servicename}"/>
+	<div class="controls"> <g:field type="text" autofocus="true" style="width: 400px;" name="servicename" value="${teamserviceInstance?.servicename}"/>
         <p class="help-block">Name of the service</p></div>
   </div>
 </div>
@@ -51,7 +51,7 @@
                 <g:message code="teamservice.servicecontact.label" default="Service Contact" />
 
             </label>
-            <div class="controls"> <g:textArea name="servicecontact" cols="40" rows="5" maxlength="1000" value="${teamserviceInstance?.servicecontact}"/>
+            <div class="controls"> <g:field name="servicecontact" value="${teamserviceInstance?.servicecontact}" type="text"/>
                 <p class="help-block">Who is the main contact for this service?</p> </div>
         </div>
     </div>

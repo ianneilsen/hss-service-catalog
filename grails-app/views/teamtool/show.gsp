@@ -12,13 +12,15 @@
 		<div class="navbar" role="navigation">
 			<ul class="nav">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				%{--<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>--}%
+                %{--<li><g:message code="Back to " args="[entityName]" /><g:link controller="teamservice" action="show" id="${teamtoolInstance?.teamservices?.id}">${teamtoolInstance?.teamservices?.encodeAsHTML()}</g:link></li>--}%
+                <li><g:link  action="show" controller="teamservice" id="${teamtoolInstance?.teamservices?.id}"><g:message code="Back to ${teamtoolInstance?.teamservices?.encodeAsHTML()}" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 
 		<div id="show-teamtool" class="content scaffold-show" role="main">
-            <div class="breadcrumb"><h3> Service tool ${teamtoolInstance?.toolname}  for service <g:link controller="teamservice" action="show" id="${teamtoolInstance?.teamservices?.id}">${teamtoolInstance?.teamservices?.encodeAsHTML()}</g:link></span></h3></div>
+            <div class="breadcrumb"><h3>Updated service tool "${teamtoolInstance?.toolname}"  for service <g:link controller="teamservice" action="show" id="${teamtoolInstance?.teamservices?.id}">${teamtoolInstance?.teamservices?.encodeAsHTML()}</g:link></span></h3></div>
 
 
             <g:if test="${flash.message}">

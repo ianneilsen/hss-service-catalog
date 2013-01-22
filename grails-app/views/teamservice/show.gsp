@@ -20,12 +20,13 @@
                 <li><g:link controller="servicecompetitor" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: '5. Add Competitors', args: [message(code: 'servicecompetitor.label', default: 'a service competitor')])}</g:link></li>
                 <li><g:link controller="serviceenvironment" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: '6. Add service enviro', args: [message(code: 'serviceenvironment.label', default: 'Service environments')])}</g:link></li>
                 <li><g:link controller="swot" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: '7. Do SWOT', args: [message(code: 'swot.label', default: 'Swot')])}</g:link></li>
+                <li><g:link controller="servicelevel" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: '8. Service Levels', args: [message(code: 'servicelevel.label', default: 'Service Levels')])}</g:link></li>
                 <li></li>
 			</ul>
 		</div>
 
 		<div id="show-teamservice" class="content scaffold-show" role="main">
-			<div class="breadcrumb"><h3>Service ${teamserviceInstance?.servicename}  for <g:link controller="team" action="show" id="${teamserviceInstance?.team?.id}">${teamserviceInstance?.team?.teamname?.encodeAsHTML()}</g:link></span></h3></div>
+			<div class="breadcrumb"><h3>Service provider <g:link controller="team" action="show" id="${teamserviceInstance?.team?.id}">${teamserviceInstance?.team?.teamname?.encodeAsHTML()}</g:link> for service ${teamserviceInstance?.servicename}</h3></div>
 
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -33,9 +34,9 @@
 
 
         <div class="formArea">
-            <div class="form-horizontal">
+        <div class="form-horizontal">
 
-                <dl class="dl-horizontal">
+        <dl class="dl-horizontal">
 			
 				        <g:if test="${teamserviceInstance?.servicename}">
 
@@ -54,7 +55,7 @@
 
                 <g:if test="${teamserviceInstance?.servicecontact}">
 
-                    <dt>	<span id="servicecontact-label" class="property-label"><g:message code="teamservice.servicecontact.label" default="service Contact" /></span>    </dt>
+                    <dt>	<span id="servicecontact-label" class="property-label"><g:message code="teamservice.servicecontact.label" default="Service Contact" /></span>    </dt>
 
                     <dd><span class="property-value" aria-labelledby="servicecontact-label"><g:fieldValue bean="${teamserviceInstance}" field="servicecontact"/></span></dd>
 
@@ -122,7 +123,7 @@
                         </tbody>
                     </table>
 
-
+        <div class="btn btn-info"><g:link controller="serviceuser" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add users', args: [message(code: 'serviceuser.label', default: 'Service Users')])}</g:link></div>
                     <g:if test="${teamserviceInstance?.servicesusers}">
 
                         <div class="page-header"><h4><span class="badge badge-warning">2</span><g:message code="teamservice.serviceusers.label" default="2. Service Users" /></h4></div>
@@ -136,6 +137,7 @@
 
                 </g:if>
 
+        <div class="btn btn-info"><g:link controller="costanalysis" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add costs', args: [message(code: 'costanalysis.label', default: 'Cost Analysis')])}</g:link></div>
                 <g:if test="${teamserviceInstance?.costs}">
 
                     <div class="page-header"><h4><span class="badge badge-warning">3</span><g:message code="teamservice.costs.label" default="Costs" /></h4></div>

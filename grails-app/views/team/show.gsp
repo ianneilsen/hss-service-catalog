@@ -27,7 +27,7 @@
 		</div>
 
 		<div id="show-team" class="content scaffold-show" role="main">
-		<div class="breadcrumb"><h3><g:message code="default.show.label" args="[entityName]" /></h3> </div>
+		<div class="breadcrumb"><h3>Service provider information</h3> </div>
 
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -40,7 +40,7 @@
 
 				<g:if test="${teamInstance?.teamname}">
 
-				<dt>	<span id="teamname-label" class="property-label"><g:message code="team.teamname.label" default="Team Name   " /></span>   </dt>
+				<dt>	<span id="teamname-label" class="property-label"><g:message code="team.teamname.label" default="Service provider" /></span>   </dt>
 
 				<dd>		<span class="property-value" aria-labelledby="teamname-label"><g:fieldValue bean="${teamInstance}" field="teamname"/></span>    </dd>
 
@@ -49,7 +49,7 @@
 			
 				<g:if test="${teamInstance?.teamdivision}">
 
-				<dt>	<span id="teamdivision-label" class="property-label"><g:message code="team.teamdivision.label" default="Team Division" /></span>     </dt>
+				<dt>	<span id="teamdivision-label" class="property-label"><g:message code="team.teamdivision.label" default="Business Group" /></span>     </dt>
 					
 				<dd>		<span class="property-value" aria-labelledby="teamdivision-label"><g:fieldValue bean="${teamInstance}" field="teamdivision"/></span>    </dd>
 					
@@ -76,7 +76,7 @@
 			
 				<g:if test="${teamInstance?.teamservices}">
 
-				<dt>	<span id="teamservices-label" class="property-label"><g:message code="team.teamservices.label" default="Teamservices" /></span>      </dt>
+				<dt>	<span id="teamservices-label" class="property-label"><g:message code="team.teamservices.label" default="Team Services list" /></span>      </dt>
 					
 						<g:each in="${teamInstance.teamservices}" var="t">
 				<dd><span class="property-value" aria-labelledby="teamservices-label"><g:link controller="teamservice" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></span>  </dd>
@@ -84,7 +84,7 @@
 
 				</g:if>
 
-                <dt>	<span id="teamservicescount-label" class="property-label"><g:message code="Services total" default="Services Total" /></span>      </dt>
+                <dt>	<span id="teamservicescount-label" class="property-label"><g:message code="Services total" default="Total services" /></span>      </dt>
                 <dd>${teamInstance?.teamservices?.size()}</dd>
 
             </dl>
@@ -145,3 +145,4 @@
   </body>
 </html>
        <!-- todo move edit and delete buttons inside table -->
+<!--todo show service categories on landing page -->

@@ -12,12 +12,12 @@
         <div class="navbar" role="navigation">
 			<ul class="nav">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+				%{--<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>--}%
 			</ul>
 		</div>
         <!-- bread -->
 		<div id="create-teamtool" class="content scaffold-create" role="main">
-			<div class="breadcrumb"> <h3><g:message code="default.create.label" args="[entityName]" /></h3> </div>
+			<div class="breadcrumb"> <h3><g:message code="Create new service tool" args="[entityName]" /></h3> </div>
         <!-- error msgs -->
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>

@@ -18,6 +18,5 @@ class Team {
     }
     String toString(){
      teamname
-     teamdivision
-    }
+         }
 }
