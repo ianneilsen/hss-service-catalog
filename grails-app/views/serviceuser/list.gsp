@@ -32,6 +32,8 @@
 					
 						<g:sortableColumn property="motivation" title="${message(code: 'serviceuser.motivation.label', default: 'Motivation')}" />
 
+                        <g:sortableColumn property="estimatedusers" title="${message(code: 'serviceuser.estimatedusers.label', default: 'Estimated total users')}" />
+
                         <g:sortableColumn property="peakusetimes" title="${message(code: 'serviceuser.peakusetimes.label', default: 'Peak use times')}" />
 
                         <g:sortableColumn property="frequencyofserviceoffering" title="${message(code: 'serviceuser.frequencyofserviceoffering.label', default: 'frequencyofserviceoffering')}" />
@@ -51,12 +53,14 @@
 						<td>${fieldValue(bean: serviceuserInstance, field: "howtheyuse")}</td>
 					
 						<td>${fieldValue(bean: serviceuserInstance, field: "motivation")}</td>
-					
-						<td>${fieldValue(bean: serviceuserInstance, field: "teamservices")}</td>
 
-                        <td>${fieldValue(bean: serviceuserInstance, field: "peakusetimes")}</td>
+                        <td>${fieldValue(bean: serviceuserInstance, field: "estimatedusers")}</td>
+					
+						<td>${fieldValue(bean: serviceuserInstance, field: "peakusetimes")}</td>
 
                         <td>${fieldValue(bean: serviceuserInstance, field: "frequencyofserviceoffering")}</td>
+
+                        <td>${fieldValue(bean: serviceuserInstance, field: "teamservices")}</td>
 					
 					</tr>
 				</g:each>

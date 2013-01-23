@@ -12,8 +12,9 @@
         <div class="navbar" role="navigation">
             <ul class="nav">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+%{--				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>--}%
+                <li><g:link  action="show" controller="teamservice" id="${servicecompetitorInstance?.teamservices?.id}"><g:message code="Back to ${servicecompetitorInstance?.teamservices?.encodeAsHTML()}" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="show-servicecompetitor" class="content scaffold-show" role="main">

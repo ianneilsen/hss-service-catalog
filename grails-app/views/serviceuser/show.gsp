@@ -12,8 +12,8 @@
         <div class="navbar" role="navigation">
             <ul class="nav">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link>
-
+%{--				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link>--}%
+                <li><g:link  action="show" controller="teamservice" id="${serviceuserInstance?.teamservices?.id}"><g:message code="Back to ${serviceuserInstance?.teamservices?.encodeAsHTML()}" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="show-serviceuser" class="content scaffold-show" role="main">
@@ -62,6 +62,16 @@
 					
 				
 				</g:if>
+
+
+                        <g:if test="${serviceuserInstance?.estimatedusers}">
+
+                            <dt><span id="estimatedusers-label" class="property-label"><g:message code="serviceuser.estimatedusers.label" default="Estimate total users" /></span>    </dt>
+
+                            <dd><span class="property-value" aria-labelledby="estimatedusers-label"><g:fieldValue bean="${serviceuserInstance}" field="estimatedusers"/></span>  </dd>
+
+
+                        </g:if>
 
                         <g:if test="${serviceuserInstance?.peakusetimes}">
 

@@ -60,7 +60,8 @@
                         <td>${fieldValue(bean: teamInstance, field: "lastUpdated")}</td>
 
                      <!-- TODO need project name -->
-                     <!-- todo - prepopulate team name and division from orgchart -java boy speak to-->
+                     <!-- todo - prepopulate team name and division from orgchart -java cristiano speak to-->
+                        <!-- todo - got xml-rpc and jar file from maitai -->
 					
 					</tr>
 				</g:each>

@@ -26,7 +26,8 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-			<div class="formArea">
+
+            <div class="formArea">
             <div class="form-horizontal">
             <g:form action="save" >
 				<fieldset class="form">

@@ -6,20 +6,22 @@
 		<g:set var="entityName" value="${message(code: 'servicecompetitor.label', default: 'Service competitor')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
-	<body>
+<body>
     <div class="eso-inner">
 		<div class="navbar" role="navigation">
 			<ul class="nav">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+			%{--	<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>--}%
 			</ul>
-		</div>
-		<div id="create-servicecompetitor" class="content scaffold-create" role="main">
+    	</div>
+
+        <div id="create-servicecompetitor" class="content scaffold-create" role="main">
 			<div class="breadcrumb"> <h3><g:message code="default.create.label" args="[entityName]" /></h3> </div>
 
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
+
 			<g:hasErrors bean="${servicecompetitorInstance}">
 			<ul class="errors" role="alert">
 				<g:eachError bean="${servicecompetitorInstance}" var="error">
@@ -28,19 +30,20 @@
 			</ul>
 			</g:hasErrors>
 
-			<div class="formArea">
-              <div class="form-horizontal">
-                <g:form action="save" >
-				<fieldset class="form">
-					<g:render template="form"/>
-				</fieldset>
-				<fieldset class="buttons">
-					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-				</fieldset>
-			</g:form>
+            <div class="formArea">
+                <div class="form-horizontal">
+                    <g:form action="save" >
+                        <fieldset class="form">
+                            <g:render template="form"/>
+                        </fieldset>
+                        <fieldset class="buttons">
+                            <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+                        </fieldset>
+                    </g:form>
+                </div>
             </div>
-            </div>
-		</div>
-    </div>
+
+        </div>
+      </div>
 	</body>
 </html>

@@ -46,6 +46,17 @@
 </div>
 
 <div class="control-group">
+    <div class="fieldcontain ${hasErrors(bean: serviceuserInstance, field: 'estimatedusers', 'error')} required">
+        <label class="control-label" for="estimatedusers">
+            <g:message code="serviceuser.estimatedusers.label" default="Approximate total number of users" />
+            <span class="required-indicator">*</span>
+        </label>
+        <div class="controls"><g:field type="number" style="width: 100px;" name="estimatedusers" required="" value="${serviceuserInstance?.estimatedusers}"/></div>
+    </div>
+
+</div>
+
+<div class="control-group">
     <div class="fieldcontain ${hasErrors(bean: serviceuserInstance, field: 'peakusetimes', 'error')} required">
         <label class="control-label" for="peakusetimes">
             <g:message code="serviceuser.peakusetimes.label" default="Peak use times" />

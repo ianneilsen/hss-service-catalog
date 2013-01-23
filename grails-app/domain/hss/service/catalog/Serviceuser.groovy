@@ -6,6 +6,7 @@ class Serviceuser {
     String role
     String howtheyuse
     String motivation
+    Integer estimatedusers
     String peakusetimes
     String frequencyofserviceoffering
 
