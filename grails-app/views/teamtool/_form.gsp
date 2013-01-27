@@ -7,7 +7,7 @@
 		<g:message code="teamtool.toolname.label" default="Tool Name" />
 		
 	</label>
-	<div class="controls"><g:textField name="toolname" value="${teamtoolInstance?.toolname}"/>
+	<div class="controls"><g:textField style="width: 400px;" name="toolname" value="${teamtoolInstance?.toolname}" autofocus="true"/>
     <p class="help-block">Name of tool used?</p></div>
 </div>
 </div>
@@ -18,7 +18,7 @@
 		<g:message code="teamtool.tooluse.label" default="Tool Use" />
 		
 	</label>
-	<div class="controls"><g:textArea name="tooluse" cols="40" rows="5" maxlength="1000" value="${teamtoolInstance?.tooluse}"/>
+	<div class="controls"><g:textArea style="width: 400px;" name="tooluse" cols="40" rows="5" maxlength="1000" value="${teamtoolInstance?.tooluse}"/>
     <p class="help-block">How does the team use the tool?</p></div>
 </div>
 </div>
@@ -29,7 +29,7 @@
 		<g:message code="teamtool.toolmotivation.label" default="Tool Motivation" />
 		
 	</label>
-	<div class="controls"><g:textArea name="toolmotivation" cols="40" rows="5" maxlength="1000" value="${teamtoolInstance?.toolmotivation}"/>
+	<div class="controls"><g:textArea style="width: 400px;" name="toolmotivation" cols="40" rows="5" maxlength="1000" value="${teamtoolInstance?.toolmotivation}"/>
     <p class="help-block">What motivates your team to use this tool?</p></div>
 </div>
 </div>

@@ -7,7 +7,7 @@
 		<g:message code="team.teamname.label" default="Team Name" />
 		<span class="required-indicator">*</span>
 	</label>
-    <div class="controls"><g:textField name="teamname" required="" value="${teamInstance?.teamname}"/>
+    <div class="controls"><g:textField style="width: 400px;" name="teamname" required="" value="${teamInstance?.teamname}"/>
     <p class="help-block">Your internal OrgChart group name</p> </div>
 </div>
 </div>
@@ -18,7 +18,7 @@
 		<g:message code="team.teamdivision.label" default="Team Division" />
 		<span class="required-indicator">*</span>
 	</label>
-	<div class="controls"> <g:textField name="teamdivision" required="" value="${teamInstance?.teamdivision}"/>
+	<div class="controls"> <g:textField style="width: 400px;" name="teamdivision" required="" value="${teamInstance?.teamdivision}"/>
     <p class="help-block">Your internal OrgChart parent group - i.e. HSS</p> </div>
 </div>
 </div>
@@ -28,7 +28,7 @@
             <g:message code="team.teamcontact.label" default="Team Contact" />
             <span class="required-indicator">*</span>
         </label>
-        <div class="controls"><g:textField name="teamcontact" required="" value="${teamInstance?.teamcontact}"/>
+        <div class="controls"><g:textField style="width: 200px;" name="teamcontact" required="" value="${teamInstance?.teamcontact}"/>
             <p class="help-block">The team managers name</p> </div>
     </div>
 </div>

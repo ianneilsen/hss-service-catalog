@@ -19,7 +19,7 @@
 		<g:message code="costanalysis.rapcost.label" default="Rap Cost" />
 		
 	</label>
-	<div class="controls"><g:textArea name="rapcost" cols="40" rows="5" maxlength="500" value="${costanalysisInstance?.rapcost}"/>
+	<div class="controls"><g:textArea style="width: 270px;" name="rapcost" cols="40" rows="5" maxlength="500" value="${costanalysisInstance?.rapcost}"/>
     </div>
 </div>
 </div>
@@ -31,7 +31,7 @@
 		<g:message code="costanalysis.eipcost.label" default="EIP Cost" />
 		
 	</label>
-    <div class="controls"><g:textArea name="eipcost" cols="40" rows="5" maxlength="500" value="${costanalysisInstance?.eipcost}"/></div>
+    <div class="controls"><g:textArea style="width: 270px;" name="eipcost" cols="40" rows="5" maxlength="500" value="${costanalysisInstance?.eipcost}"/></div>
 </div>
 </div>
 
@@ -41,7 +41,7 @@
 		<g:message code="costanalysis.pacost.label" default="PA Cost" />
 		
 	</label>
-    <div class="controls"><g:textArea name="pacost" cols="40" rows="5" maxlength="500" value="${costanalysisInstance?.pacost}"/></div>
+    <div class="controls"><g:textArea style="width: 270px;" name="pacost" cols="40" rows="5" maxlength="500" value="${costanalysisInstance?.pacost}"/></div>
 </div>
 </div>
 </div>
@@ -53,7 +53,7 @@
 		<g:message code="costanalysis.iedcost.label" default="IED Cost" />
 		
 	</label>
-    <div class="controls"><g:textArea name="iedcost" cols="40" rows="5" maxlength="500" value="${costanalysisInstance?.iedcost}"/> </div>
+    <div class="controls"><g:textArea style="width: 270px;" name="iedcost" cols="40" rows="5" maxlength="500" value="${costanalysisInstance?.iedcost}"/> </div>
 </div>
 </div>
 
@@ -63,7 +63,7 @@
 		<g:message code="costanalysis.engopscost.label" default="Eng-Ops Cost" />
 		
 	</label>
-    <div class="controls"><g:textArea name="engopscost" cols="40" rows="5" maxlength="500" value="${costanalysisInstance?.engopscost}"/></div>
+    <div class="controls"><g:textArea style="width: 270px;" name="engopscost" cols="40" rows="5" maxlength="500" value="${costanalysisInstance?.engopscost}"/></div>
 </div>
 </div>
 
@@ -73,7 +73,7 @@
 		<g:message code="costanalysis.qecost.label" default="QE Cost" />
 		
 	</label>
-    <div class="controls"><g:textArea name="qecost" cols="40" rows="5" maxlength="500" value="${costanalysisInstance?.qecost}"/> </div>
+    <div class="controls"><g:textArea style="width: 270px;" name="qecost" cols="40" rows="5" maxlength="500" value="${costanalysisInstance?.qecost}"/> </div>
 </div>
 </div>
 
@@ -83,7 +83,7 @@
 		<g:message code="costanalysis.othercosts.label" default="Other costs" />
 		
 	</label>
-    <div class="controls"><g:textArea name="othercosts" cols="40" rows="5" maxlength="500" value="${costanalysisInstance?.othercosts}"/></div>
+    <div class="controls"><g:textArea style="width: 270px;" name="othercosts" cols="40" rows="5" maxlength="500" value="${costanalysisInstance?.othercosts}"/></div>
 </div>
 </div>
 

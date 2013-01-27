@@ -32,9 +32,9 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 
-
+%{--
         <div class="formArea">
-        <div class="form-horizontal">
+        <div class="form-horizontal">--}%
 
         <dl class="dl-horizontal">
 			
@@ -85,7 +85,7 @@
         <g:else test="${teamserviceInstance?.tools < 0}">
             <p class="text-warning">You need to add in some tools</p>
         </g:else>
-                <div class="btn btn-info"><g:link controller="teamtool" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add a tool', args: [message(code: 'teamtool.label', default: 'Team Tools')])}</g:link></div>
+                <div class="btn btn-mini"><g:link controller="teamtool" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add a tool', args: [message(code: 'teamtool.label', default: 'Team Tools')])}</g:link></div>
                     <table class="eso-table">
                         <thead>
                         <tr>
@@ -127,7 +127,7 @@
         <g:else test="${teamserviceInstance?.tools < 0}">
             <p class="text-warning">You need to add who uses your service</p>
         </g:else>
-            <div class="btn btn-info"><g:link controller="serviceuser" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add users', args: [message(code: 'serviceuser.label', default: 'Service Users')])}</g:link></div>
+            <div class="btn btn-mini"><g:link controller="serviceuser" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add users', args: [message(code: 'serviceuser.label', default: 'Service Users')])}</g:link></div>
         <table class="eso-table">
             <thead>
             <tr>
@@ -182,7 +182,7 @@
             <p class="text-warning">You need to add in your costs</p>
         </g:else>
 
-            <div class="btn btn-info"><g:link controller="costanalysis" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add costs', args: [message(code: 'costanalysis.label', default: 'Cost Analysis')])}</g:link></div>
+            <div class="btn btn-mini"><g:link controller="costanalysis" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add costs', args: [message(code: 'costanalysis.label', default: 'Cost Analysis')])}</g:link></div>
                 <table class="eso-table">
                     <thead>
                     <tr>
@@ -236,7 +236,7 @@
         <g:else test="${teamserviceInstance?.tools < 0}">
             <p class="text-warning">You need to add what benefits your service offers to others</p>
         </g:else>
-            <div class="btn btn-info"><g:link controller="servicebenefit" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add service benefits', args: [message(code: 'servicebenefit.label', default: 'Service Benefits')])}</g:link></div>
+            <div class="btn btn-mini"><g:link controller="servicebenefit" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add service benefits', args: [message(code: 'servicebenefit.label', default: 'Service Benefits')])}</g:link></div>
         <table class="eso-table">
             <thead>
             <tr>
@@ -271,7 +271,7 @@
         <g:else test="${teamserviceInstance?.tools < 0}">
             <p class="text-warning">You still need to add in your competitors</p>
         </g:else>
-            <div class="btn btn-info"><g:link controller="servicecompetitor" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add Competitors', args: [message(code: 'servicecompetitor.label', default: 'a service competitor')])}</g:link></div>
+            <div class="btn btn-mini"><g:link controller="servicecompetitor" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add Competitors', args: [message(code: 'servicecompetitor.label', default: 'a service competitor')])}</g:link></div>
         <table class="eso-table">
             <thead>
             <tr>
@@ -329,7 +329,7 @@
         <g:else test="${teamserviceInstance?.tools < 0}">
             <p class="text-warning">You need to add your service environments</p>
         </g:else>
-            <div class="btn btn-info"><g:link controller="serviceenvironment" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add service enviro', args: [message(code: 'serviceenvironment.label', default: 'Service environments')])}</g:link></div>
+            <div class="btn btn-mini"><g:link controller="serviceenvironment" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add service enviro', args: [message(code: 'serviceenvironment.label', default: 'Service environments')])}</g:link></div>
         <table class="eso-table">
             <thead>
             <tr>
@@ -367,7 +367,7 @@
         <g:else test="${teamserviceInstance?.tools < 0}">
             <p class="text-warning">You need to build a SWOT for this service</p>
         </g:else>
-            <div class="btn btn-info"><g:link controller="swot" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Do SWOT', args: [message(code: 'swot.label', default: 'Swot')])}</g:link></div>
+            <div class="btn btn-mini"><g:link controller="swot" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Do SWOT', args: [message(code: 'swot.label', default: 'Swot')])}</g:link></div>
                   <table class="eso-table">
                     <thead>
                     <tr>
@@ -413,7 +413,7 @@
         <g:else test="${teamserviceInstance?.tools < 0}">
             <p class="text-warning">You need to build your SLA for this service</p>
         </g:else>
-            <div class="btn btn-info"><g:link controller="servicelevel" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add SLA', args: [message(code: 'servicelevel.label', default: 'Service Levels')])}</g:link></div>
+            <div class="btn btn-mini"><g:link controller="servicelevel" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add SLA', args: [message(code: 'servicelevel.label', default: 'Service Levels')])}</g:link></div>
 
                 <table class="eso-table">
                     <thead>
