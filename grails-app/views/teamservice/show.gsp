@@ -20,7 +20,7 @@
                 <li><g:link controller="servicecompetitor" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: '5. Add Competitors', args: [message(code: 'servicecompetitor.label', default: 'a service competitor')])}</g:link></li>
                 <li><g:link controller="serviceenvironment" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: '6. Add service enviro', args: [message(code: 'serviceenvironment.label', default: 'Service environments')])}</g:link></li>
                 <li><g:link controller="swot" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: '7. Do SWOT', args: [message(code: 'swot.label', default: 'Swot')])}</g:link></li>
-                <li><g:link controller="servicelevel" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: '8. Service Levels', args: [message(code: 'servicelevel.label', default: 'Service Levels')])}</g:link></li>
+                <li><g:link controller="servicelevel" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: '8. Add Service Levels', args: [message(code: 'servicelevel.label', default: 'Service Levels')])}</g:link></li>
                 <li></li>
 			</ul>
 		</div>
@@ -54,14 +54,14 @@
 
             <g:if test="${teamserviceInstance?.servicecontact}">
 
-                    <dt><span id="servicecontact-label" class="property-label"><g:message code="teamservice.servicecontact.label" default="Service Contact" /></span>    </dt>
+                    <dt><span id="servicecontact-label" class="property-label"><g:message code="teamservice.servicecontact.label" default="Service Contact:" /></span>    </dt>
                     <dd><span class="property-value" aria-labelledby="servicecontact-label"><g:fieldValue bean="${teamserviceInstance}" field="servicecontact"/></span></dd>
 
             </g:if>
 			
 			<g:if test="${teamserviceInstance?.coreresponsibility}">
 
-                    <dt><span id="coreresponsibility-label" class="property-label"><g:message code="teamservice.coreresponsibility.label" default="Core Responsibility" /></span>  </dt>
+                    <dt><span id="coreresponsibility-label" class="property-label"><g:message code="teamservice.coreresponsibility.label" default="Core Responsibility:" /></span>  </dt>
 
                     <dd><span class="property-value" aria-labelledby="coreresponsibility-label"><markdown:renderHtml><g:fieldValue bean="${teamserviceInstance}" field="coreresponsibility"/></markdown:renderHtml></span></dd>
 
@@ -69,11 +69,59 @@
 			
 			<g:if test="${teamserviceInstance?.competencyalignment}">
 
-                    <dt><span id="competencyalignment-label" class="property-label"><g:message code="teamservice.competencyalignment.label" default="Competency Alignment" /></span>    </dt>
+                    <dt><span id="competencyalignment-label" class="property-label"><g:message code="teamservice.competencyalignment.label" default="Competency Alignment:" /></span>    </dt>
 
                     <dd><span class="property-value" aria-labelledby="competencyalignment-label"><markdown:renderHtml><g:fieldValue bean="${teamserviceInstance}" field="competencyalignment"/></markdown:renderHtml></span></dd>
 
             </g:if>
+
+        <g:if test="${teamserviceInstance?.servicecatagory}">
+
+            <dt><span id="servicecatagory-label" class="property-label"><g:message code="teamservice.servicecatagory.label" default="Service catagory:" /></span>    </dt>
+
+            <dd><span class="property-value" aria-labelledby="servicecatagory-label"><g:fieldValue bean="${teamserviceInstance}" field="servicecatagory"/></span></dd>
+
+        </g:if>
+
+        <g:if test="${teamserviceInstance?.baselevelservices}">
+
+            <dt><span id="baselevelservices-label" class="property-label"><g:message code="teamservice.baselevelservices.label" default="Base level of service offering:" /></span>    </dt>
+
+            <dd><span class="property-value" aria-labelledby="baselevelservices-label"><g:fieldValue bean="${teamserviceInstance}" field="baselevelservices"/></span></dd>
+
+        </g:if>
+
+        <g:if test="${teamserviceInstance?.notincludeservices}">
+
+            <dt><span id="notincludeservices-label" class="property-label"><g:message code="teamservice.notincludeservices.label" default="Not included in this service:" /></span>    </dt>
+
+            <dd><span class="property-value" aria-labelledby="notincludeservices-label"><g:fieldValue bean="${teamserviceInstance}" field="notincludeservices"/></span></dd>
+
+        </g:if>
+
+        <g:if test="${teamserviceInstance?.serviceowner}">
+
+            <dt><span id="serviceowner-label" class="property-label"><g:message code="teamservice.serviceowner.label" default="Key owner of this service:" /></span>    </dt>
+
+            <dd><span class="property-value" aria-labelledby="serviceowner-label"><g:fieldValue bean="${teamserviceInstance}" field="serviceowner"/></span></dd>
+
+        </g:if>
+
+        <g:if test="${teamserviceInstance?.serviceactive}">
+
+            <dt><span id="serviceactive-label" class="property-label"><g:message code="teamservice.serviceactive.label" default="Service active:" /></span>    </dt>
+
+            <dd><span class="property-value" aria-labelledby="serviceactive-label"><g:fieldValue bean="${teamserviceInstance}" field="serviceactive"/></span></dd>
+
+        </g:if>
+
+        <g:if test="${teamserviceInstance?.servicedocumentation}">
+
+            <dt><span id="servicedocumentation-label" class="property-label"><g:message code="teamservice.servicedocumentation.label" default="Link to documents" /></span></dt>
+
+            <dd><span class="property-value" aria-labelledby="servicedocumentation-label"><g:fieldValue bean="${teamserviceInstance}" field="servicedocumentation"/></span></dd>
+
+        </g:if>
 
             <g:if test="${teamserviceInstance?.tools}">
 
@@ -95,7 +143,7 @@
 
                             <g:sortableColumn property="toolmotivation" title="${message(code: 'teamtool.toolmotivation.label', default: 'Tool Motivation')}" />
 
-                            <th><g:message code="teamtool.teamservices.label" default="Teamservices" /></th>
+                            %{--<th><g:message code="teamtool.teamservices.label" default="Teamservices" /></th>--}%
                         </tr>
                         </thead>
                         <tbody>
@@ -108,7 +156,7 @@
 
                                 <td>${fieldValue(bean: teamtoolInstance, field: "toolmotivation")}</td>
 
-                                <td>${fieldValue(bean: teamtoolInstance, field: "teamservices")}</td>
+                               %{-- <td>${fieldValue(bean: teamtoolInstance, field: "teamservices")}</td>--}%
 
                             </tr>
                         </g:each>
@@ -143,9 +191,9 @@
 
                 <g:sortableColumn property="peakusetimes" title="${message(code: 'serviceuser.peakusetimes.label', default: 'Peak use times')}" />
 
-                <g:sortableColumn property="frequencyofserviceoffering" title="${message(code: 'serviceuser.frequencyofserviceoffering.label', default: 'frequencyofserviceoffering')}" />
+                <g:sortableColumn property="frequencyofserviceoffering" title="${message(code: 'serviceuser.frequencyofserviceoffering.label', default: 'Frequency of service use')}" />
 
-                <th><g:message code="serviceuser.teamservices.label" default="Team Service" /></th>
+                %{--<th><g:message code="serviceuser.teamservices.label" default="Team Service" /></th>--}%
 
             </tr>
             </thead>
@@ -167,7 +215,7 @@
 
                     <td>${fieldValue(bean: serviceuserInstance, field: "frequencyofserviceoffering")}</td>
 
-                    <td>${fieldValue(bean: serviceuserInstance, field: "teamservices")}</td>
+                    %{--<td>${fieldValue(bean: serviceuserInstance, field: "teamservices")}</td>--}%
 
                 </tr>
             </g:each>
@@ -243,7 +291,7 @@
                 <g:sortableColumn property="benefit" title="${message(code: 'servicebenefit.benefit.label', default: 'Service Benefit')}" />
                 <g:sortableColumn property="benefitmeasure" title="${message(code: 'servicebenefit.benefitmeasure.label', default: 'Service benefit measure')}" />
 
-            <th><g:message code="servicebenefit.teamservices.label" default="Team service" /></th>
+            %{--<th><g:message code="servicebenefit.teamservices.label" default="Team service" /></th>--}%
             </tr>
             </thead>
             <tbody>
@@ -254,7 +302,7 @@
 
                     <td>${fieldValue(bean: servicebenefitInstance, field: "benefitmeasure")}</td>
 
-                    <td>${fieldValue(bean: servicebenefitInstance, field: "teamservices")}</td>
+                    %{--<td>${fieldValue(bean: servicebenefitInstance, field: "teamservices")}</td>--}%
 
                 </tr>
             </g:each>
@@ -338,7 +386,7 @@
 
                 <g:sortableColumn property="successmeasure" title="${message(code: 'serviceenvironment.successmeasure.label', default: 'Success measures')}" />
 
-                <th><g:message code="serviceenvironment.teamservices.label" default="Team service" /></th>
+                %{--<th><g:message code="serviceenvironment.teamservices.label" default="Team service" /></th>--}%
 
             </tr>
             </thead>
@@ -350,7 +398,7 @@
 
                     <td>${fieldValue(bean: serviceenvironmentInstance, field: "successmeasure")}</td>
 
-                    <td>${fieldValue(bean: serviceenvironmentInstance, field: "teamservices")}</td>
+                    %{--<td>${fieldValue(bean: serviceenvironmentInstance, field: "teamservices")}</td>--}%
 
                 </tr>
             </g:each>
@@ -418,19 +466,19 @@
                 <table class="eso-table">
                     <thead>
                         <tr>
-                <g:sortableColumn property="slaname" title="${message(code: 'servicelevel.slaname.label', default: 'Level Name')}" />
-                <g:sortableColumn property="slatype" title="${message(code: 'servicelevel.slatype.label', default: 'Type')}" />
-                <g:sortableColumn property="servicehours" title="${message(code: 'servicelevel.servicehours.label', default: 'SOB')}" />
-                <g:sortableColumn property="businesshours" title="${message(code: 'servicelevel.businesshours.label', default: 'BO')}" />
-                <g:sortableColumn property="peakusage" title="${message(code: 'servicelevel.peakusage.label', default: 'Peak')}" />
-                <g:sortableColumn property="responsetime" title="${message(code: 'servicelevel.responsetime.label', default: 'Response')}" />
-                <g:sortableColumn property="peakusers" title="${message(code: 'servicelevel.peakusers.label', default: 'Peak Users')}" />
-                <g:sortableColumn property="offpeakusers" title="${message(code: 'servicelevel.offpeakusers.label', default: 'Off Peak')}" />
-                <g:sortableColumn property="whatifnoservice" title="${message(code: 'servicelevel.whatifnoservice.label', default: 'No Service')}" />
-                <g:sortableColumn property="slareview" title="${message(code: 'servicelevel.slareview.label', default: 'Review time')}" />
-                <g:sortableColumn property="implementrequire" title="${message(code: 'servicelevel.implementrequire.label', default: 'Implement')}" />
-                <g:sortableColumn property="servicelifetime" title="${message(code: 'servicelevel.servicelifetime.label', default: 'Lifetime')}" />
-                <g:sortableColumn property="frequencyservice" title="${message(code: 'servicelevel.frequencyservice.label', default: 'Frequency')}" />
+                <g:sortableColumn property="slaname" title="${message(code: 'servicelevel.slaname.label', default: 'SLA Name')}" />
+                <g:sortableColumn property="slatype" title="${message(code: 'servicelevel.slatype.label', default: 'SLA Type')}" />
+                <g:sortableColumn property="servicehours" title="${message(code: 'servicelevel.servicehours.label', default: 'Service Hours')}" />
+                <g:sortableColumn property="businesshours" title="${message(code: 'servicelevel.businesshours.label', default: 'Business Hours')}" />
+                <g:sortableColumn property="peakusage" title="${message(code: 'servicelevel.peakusage.label', default: 'Peak usage time')}" />
+                <g:sortableColumn property="responsetime" title="${message(code: 'servicelevel.responsetime.label', default: 'Response time')}" />
+                <g:sortableColumn property="peakusers" title="${message(code: 'servicelevel.peakusers.label', default: 'Peak # of Users')}" />
+                <g:sortableColumn property="offpeakusers" title="${message(code: 'servicelevel.offpeakusers.label', default: 'Off Peak # Users')}" />
+                <g:sortableColumn property="whatifnoservice" title="${message(code: 'servicelevel.whatifnoservice.label', default: 'If no Service avail')}" />
+                <g:sortableColumn property="slareview" title="${message(code: 'servicelevel.slareview.label', default: 'SLA reviewed every')}" />
+                <g:sortableColumn property="implementrequire" title="${message(code: 'servicelevel.implementrequire.label', default: 'Implementation required')}" />
+                <g:sortableColumn property="servicelifetime" title="${message(code: 'servicelevel.servicelifetime.label', default: 'Lifetime of service')}" />
+                <g:sortableColumn property="frequencyservice" title="${message(code: 'servicelevel.frequencyservice.label', default: 'Frequency of service')}" />
                         </tr>
                     </thead>
                 <tbody>

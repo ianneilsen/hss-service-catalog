@@ -26,44 +26,61 @@
             <table class="eso-table">
 				<thead>
 					<tr>
-					
-						<g:sortableColumn property="servicename" title="${message(code: 'teamservice.servicename.label', default: 'Service Name')}" />
+
+                        <g:sortableColumn property="id" title="${message(code: 'teamservice.id.label', default: 'Id')}" />
+
+                        <g:sortableColumn property="servicename" title="${message(code: 'teamservice.servicename.label', default: 'Service Name')}" />
 					
 						<g:sortableColumn property="servicedescription" title="${message(code: 'teamservice.servicedescription.label', default: 'Service Description')}" />
+
+                        <g:sortableColumn property="catagoryname" title="${message(code: 'teamservice.catagoryname.label', default: 'Service Catagory')}" />
+
+                        <g:sortableColumn property="baselevelservices" title="${message(code: 'teamservice.baselevelservices.label', default: 'Base service offering')}" />
 					
 						<g:sortableColumn property="coreresponsibility" title="${message(code: 'teamservice.coreresponsibility.label', default: 'Core Responsibility')}" />
 					
-						<g:sortableColumn property="competencyalignment" title="${message(code: 'teamservice.competencyalignment.label', default: 'Competency Alignment')}" />
+						%{--<g:sortableColumn property="competencyalignment" title="${message(code: 'teamservice.competencyalignment.label', default: 'Competency Alignment')}" />--}%
 
                         <g:sortableColumn property="servicecontact" title="${message(code: 'teamservice.servicecontact.label', default: 'Service Contact')}" />
 					
 						<th><g:message code="team.teamname.label" default="Team Name" /></th>
 
-                        <th><g:message code="team.team.label" default="Division" /></th>
+                        <th><g:message code="team.teamdivision.label" default="Team Parent Division" /></th>
 
                         <g:sortableColumn property="lastUpdated" title="${message(code: 'teamservice.lastUpdated.label', default: 'Last Updated')}" />
+
+                        <g:sortableColumn property="version" title="${message(code: 'teamservice.version.label', default: 'Version')}" />
 					
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${teamserviceInstanceList}" status="i" var="teamserviceInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${teamserviceInstance.id}">${fieldValue(bean: teamserviceInstance, field: "servicename")}</g:link></td>
+
+                        <td>${fieldValue(bean: teamserviceInstance, field: "id")}</td>
+
+                        <td><g:link action="show" id="${teamserviceInstance.id}">${fieldValue(bean: teamserviceInstance, field: "servicename")}</g:link></td>
 					
 						<td>${fieldValue(bean: teamserviceInstance, field: "servicedescription")}</td>
+
+                        <td>${fieldValue(bean: teamserviceInstance.servicecatagory, field: "catagoryname")}</td>
+
+                        <td>${fieldValue(bean: teamserviceInstance, field: "baselevelservices")}</td>
 					
 						<td>${fieldValue(bean: teamserviceInstance, field: "coreresponsibility")}</td>
 					
-						<td>${fieldValue(bean: teamserviceInstance, field: "competencyalignment")}</td>
+						%{--<td>${fieldValue(bean: teamserviceInstance, field: "competencyalignment")}</td>--}%
 
                         <td>${fieldValue(bean: teamserviceInstance, field: "servicecontact")}</td>
 
 						<td>${fieldValue(bean: teamserviceInstance, field: "team")}</td>
 
-                        <td>${fieldValue(bean: teamserviceInstance, field: "team")}</td>
+                        %{--<td>${fieldValue(bean: teamserviceInstance, field: "team")}</td>--}%
+                        <td>${teamserviceInstance?.team?.teamdivision}</td>
 
                         <td>${fieldValue(bean: teamserviceInstance, field: "lastUpdated")}</td>
+
+                        <td>${fieldValue(bean: teamserviceInstance, field: "version")}</td>
 					
 					</tr>
 				</g:each>

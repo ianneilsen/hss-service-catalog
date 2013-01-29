@@ -1,4 +1,5 @@
-<%@ page import="hss.service.catalog.Servicecategory; hss.service.catalog.Teamservice; hss.service.catalog.Servicecategory" %>
+<%@ page import="hss.service.catalog.Teamservice" %>
+<%@ page import="hss.service.catalog.Servicecategory" %>
 
 <div class="formAreaLeft">
 <div class="control-group">
@@ -56,17 +57,66 @@
         </div>
     </div>
 
-%{--    <div class="control-group">
-        <div class="fieldcontain ${hasErrors(bean: servicecategory, field: 'servicecategory', 'error')} ">
-            <label class="control-label" for="servicecategory">
-                <g:message code="teamservice.servicecategory.label" default="Service Category" />
+    <div class="control-group">
+        <label class="control-label">Service Catagory:</label>
+        <div class="controls"><g:select name="servicecatagory.id" from="${hss.service.catalog.Servicecatagory.list()}" optionKey="id" value="${teamserviceInstance?.servicecatagory?.id}"/> </div>
+    </div>
+   %{-- <g:select  name="pubproduct.id" from="${spotlight.content.Pubproduct.list()}" optionKey="id" required="" value="${publicationInstance?.pubproduct?.id}" class="many-to-one"/>--}%
+    <div class="control-group">
+        <div class="fieldcontain ${hasErrors(bean: teamserviceInstance, field: 'baselevelservices', 'error')} ">
+            <label class="control-label" for="baselevelservices">
+                <g:message code="teamservice.baselevelservices.label" default="Base level services" />
 
             </label>
-            <div class="controls"><g:select  name="servicecategory.id" from="${servicecategory.list()}" optionKey="id" required="" value="${servicecategory?.id}" class="many-to-many"/>
-                <p class="help-block">Service categories are unqiue and setup by your admin.</br> If you need a new category email support.</p> </div>
+            <div class="controls"> <g:textArea style="width: 400px;" cols="40" rows="5" name="baselevelservices" value="${teamserviceInstance?.baselevelservices}" type="text"/>
+                <p class="help-block">The base level offering by this service?</p> </div>
         </div>
-    </div>--}%
-   %{-- <g:select  name="pubproduct.id" from="${spotlight.content.Pubproduct.list()}" optionKey="id" required="" value="${publicationInstance?.pubproduct?.id}" class="many-to-one"/>--}%
+    </div>
+
+    <div class="control-group">
+        <div class="fieldcontain ${hasErrors(bean: teamserviceInstance, field: 'notincludeservices', 'error')} ">
+            <label class="control-label" for="notincludeservices">
+                <g:message code="teamservice.notincludeservices.label" default="Not included     in this service" />
+
+            </label>
+            <div class="controls"> <g:textArea style="width: 400px;" cols="40" rows="5" name="notincludeservices" value="${teamserviceInstance?.notincludeservices}" type="text"/>
+                <p class="help-block">This service does not include the following</p> </div>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="fieldcontain ${hasErrors(bean: teamserviceInstance, field: 'serviceowner', 'error')} ">
+            <label class="control-label" for="serviceowner">
+                <g:message code="teamservice.serviceowner.label" default="Key service owner" />
+
+            </label>
+            <div class="controls"> <g:field name="serviceowner" value="${teamserviceInstance?.serviceowner}" type="text"/>
+                <p class="help-block">The key person who owns this service if applicable</p> </div>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="fieldcontain ${hasErrors(bean: teamserviceInstance, field: 'serviceactive', 'error')} ">
+            <label class="control-label" for="serviceactive">
+                <g:message code="teamservice.serviceactive.label" default="Is the service active?" />
+
+            </label>
+            <div class="controls"><g:select style="width: 200px;" name="serviceactive" from="${teamserviceInstance.constraints.serviceactive.inList}" required="" value="${teamserviceInstance?.serviceactive}" valueMessagePrefix="teamservice.serviceactive"/>
+                <p class="help-block">Is the service active?</p> </div>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="fieldcontain ${hasErrors(bean: teamserviceInstance, field: 'servicedocumentation', 'error')} ">
+            <label class="control-label" for="servicedocumentation">
+                <g:message code="teamservice.servicedocumentation.label" default="Link to service documentation" />
+
+            </label>
+            <div class="controls"> <g:field name="servicedocumentation" value="${teamserviceInstance?.servicedocumentation}" type="url"/>
+                <p class="help-block">URL link to service docs</p> </div>
+        </div>
+    </div>
+
     <div class="control-group">
         <div class="fieldcontain ${hasErrors(bean: teamserviceInstance, field: 'team', 'error')} required">
             <label class="control-label" for="team">

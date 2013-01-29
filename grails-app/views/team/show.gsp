@@ -33,14 +33,14 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 
-            <div class="formArea">
-            <div class="form-horizontal">
+           %{-- <div class="formArea">--}%
+            %{--<div class="form-horizontal">--}%
 
             <dl class="dl-horizontal">
 
 				<g:if test="${teamInstance?.teamname}">
 
-				<dt>	<span id="teamname-label" class="property-label"><g:message code="team.teamname.label" default="Service provider" /></span>   </dt>
+				<dt>	<span id="teamname-label" class="property-label"><g:message code="team.teamname.label" default="Service provider/Owner" /></span>   </dt>
 
 				<dd>		<span class="property-value" aria-labelledby="teamname-label"><g:fieldValue bean="${teamInstance}" field="teamname"/></span>    </dd>
 
@@ -74,7 +74,7 @@
 
                 </g:if>
 			
-				<g:if test="${teamInstance?.teamservices}">
+	%{--			<g:if test="${teamInstance?.teamservices}">
 
 				<dt>	<span id="teamservices-label" class="property-label"><g:message code="team.teamservices.label" default="Team Services list" /></span>      </dt>
 					
@@ -82,7 +82,7 @@
 				<dd><span class="property-value" aria-labelledby="teamservices-label"><g:link controller="teamservice" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></span>  </dd>
 						</g:each>
 
-				</g:if>
+				</g:if>--}%
 
                 <dt>	<span id="teamservicescount-label" class="property-label"><g:message code="Services total" default="Total services" /></span>      </dt>
                 <dd>${teamInstance?.teamservices?.size()}</dd>
@@ -101,17 +101,25 @@
                     <thead>
                     <tr>
 
+                        <g:sortableColumn property="id" title="${message(code: 'teamservice.id.label', default: 'Id')}" />
+
                         <g:sortableColumn property="servicename" title="${message(code: 'teamservice.servicename.label', default: 'Service Name')}" />
 
                         <g:sortableColumn property="servicedescription" title="${message(code: 'teamservice.servicedescription.label', default: 'Service Description')}" />
 
+                        <g:sortableColumn property="catagoryname" title="${message(code: 'teamservice.catagoryname.label', default: 'Service Catagory')}" />
+
+                        <g:sortableColumn property="baselevelservices" title="${message(code: 'teamservice.baselevelservices.label', default: 'Base service offering')}" />
+
                         <g:sortableColumn property="coreresponsibility" title="${message(code: 'teamservice.coreresponsibility.label', default: 'Core Responsibility')}" />
 
-                        <g:sortableColumn property="competencyalignment" title="${message(code: 'teamservice.competencyalignment.label', default: 'Competency Alignment')}" />
-
-                        <th><g:message code="teamservice.team.label" default="Team" /></th>
+                        %{--<g:sortableColumn property="competencyalignment" title="${message(code: 'teamservice.competencyalignment.label', default: 'Competency Alignment')}" />--}%
 
                         <g:sortableColumn property="lastUpdated" title="${message(code: 'teamservice.lastUpdated.label', default: 'Last Updated')}" />
+
+                        <g:sortableColumn property="serviceactive" title="${message(code: 'teamservice.serviceactive.label', default: 'Service Active')}" />
+
+                        <g:sortableColumn property="version" title="${message(code: 'teamservice.version.label', default: 'Version')}" />
 
                     </tr>
                     </thead>
@@ -119,18 +127,26 @@
                     <g:each in="${teamInstance?.teamservices}" status="i" var="teamserviceInstance">
                         <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
+                            <td>${fieldValue(bean: teamserviceInstance, field: "id")}</td>
+
                             <td><g:link controller="teamservice" action="show" id="${teamserviceInstance.id}">${fieldValue(bean: teamserviceInstance, field: "servicename")}</g:link></td>
 
 
                             <td>${fieldValue(bean: teamserviceInstance, field: "servicedescription")}</td>
 
+                            <td>${fieldValue(bean: teamserviceInstance.servicecatagory, field: "catagoryname")}</td>
+
+                            <td>${fieldValue(bean: teamserviceInstance, field: "baselevelservices")}</td>
+
                             <td>${fieldValue(bean: teamserviceInstance, field: "coreresponsibility")}</td>
 
-                            <td>${fieldValue(bean: teamserviceInstance, field: "competencyalignment")}</td>
-
-                            <td>${fieldValue(bean: teamserviceInstance, field: "team")}</td>
+                            %{--<td>${fieldValue(bean: teamserviceInstance, field: "competencyalignment")}</td>--}%
 
                             <td>${fieldValue(bean: teamserviceInstance, field: "lastUpdated")}</td>
+
+                            <td>${fieldValue(bean: teamserviceInstance, field: "serviceactive")}</td>
+
+                            <td>${fieldValue(bean: teamserviceInstance, field: "version")}</td>
 
                         </tr>
                     </g:each>
@@ -140,8 +156,8 @@
 
 
 		</div>
-      </div>
-    </div>
+    %{--  </div>
+    </div>--}%
   </body>
 </html>
        <!-- todo move edit and delete buttons inside table -->

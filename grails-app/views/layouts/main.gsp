@@ -21,7 +21,7 @@
 	<body>
 
     <div class="eso-body">
-        <div class="eso-logo>"><a href="https://dart.qe.lab.eng.bne.redhat.com/"><img src="${resource(dir: 'images', file: 'RAP_logo_col_sml_w5.png')}" alt="PA Team"/></a></div>
+        <div class="eso-logo>"><a href="https://dart.qe.lab.eng.bne.redhat.com/"><img style="padding-left: 70px;" src="${resource(dir: 'images', file: 'RAP_logo_col_sml_w5.png')}" alt="PA Team"/>Blueprint</a></div>
            <div class="eso-inner">
 
             <g:layoutBody/>
@@ -29,7 +29,7 @@
         <div class="footer" role="contentinfo"></div>
         <div class="copyright">
             <p><a>Project Management service capture tool version <g:meta name="app.version"/></a></p>
-            <p><a> Copyright 2013 Red Hat, Inc. All rights reserved.<a></p>
+            <p><a>Copyright 2013 Red Hat, Inc. All rights reserved.<a></p>
             <p><a>INTERNAL USE ONLY</a></p>
         </div>
         <div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>

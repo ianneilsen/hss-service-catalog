@@ -14,14 +14,16 @@
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
                     %{--<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>--}%
-                <li><g:link controller="teamservice" class="list" action="list"><g:message code="Service list" args="[entityName]" /></g:link></li>
-                <li><g:link controller="teamtool" class="list" action="list"><g:message code="Tool list" args="[entityName]" /></g:link></li>
+                <li><g:link controller="teamservice" class="list" action="list"><g:message code="Services list" args="[entityName]" /></g:link></li>
+                <li><g:link controller="teamtool" class="list" action="list"><g:message code="Tools list" args="[entityName]" /></g:link></li>
                 <li><g:link controller="serviceuser" class="list" action="list"><g:message code="Service Users list" args="[entityName]" /></g:link></li>
                 <li><g:link controller="servicebenefit" class="list" action="list"><g:message code="Service Benefits list" args="[entityName]" /></g:link></li>
                 <li><g:link controller="costanalysis" class="list" action="list"><g:message code="Costs for services list" args="[entityName]" /></g:link></li>
                 <li><g:link controller="servicecompetitor" class="list" action="list"><g:message code="Service Competitiors list" args="[entityName]" /></g:link></li>
-                <li><g:link controller="serviceenvironment" class="list" action="list"><g:message code="Service Environment" args="[entityName]" /></g:link></li>
-                <li><g:link controller="swot" class="list" action="list"><g:message code="SWOT" args="[entityName]" /></g:link></li>
+                <li><g:link controller="serviceenvironment" class="list" action="list"><g:message code="Service Environment list" args="[entityName]" /></g:link></li>
+                <li><g:link controller="swot" class="list" action="list"><g:message code="SWOT lists" args="[entityName]" /></g:link></li>
+                <li><g:link controller="servicelevel" class="list" action="list"><g:message code="SLAs" args="[entityName]" /></g:link></li>
+                <li><g:link controller="servicecatagory" class="list" action="list"><g:message code="Config catagories list" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
         <div class="content">
@@ -77,6 +79,8 @@
 		    </div>
 
         </div>
+    <div class="catagory-list">
+        Placeholder for service catagory display - allow users to choose from catagories to dislay list of service by service providers.
     </div>
 </body>
 </html>
