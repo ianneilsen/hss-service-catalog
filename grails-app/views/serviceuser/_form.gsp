@@ -70,10 +70,11 @@
 <div class="control-group">
     <div class="fieldcontain ${hasErrors(bean: serviceuserInstance, field: 'frequencyofserviceoffering', 'error')} required">
         <label class="control-label" for="frequencyofserviceoffering">
-            <g:message code="serviceuser.frequencyofserviceoffering.label" default="Frequency of service offering" />
+            <g:message code="serviceuser.frequencyofserviceoffering.label" default="How frequently is service used?" />
             <span class="required-indicator">*</span>
         </label>
-        <div class="controls"><g:textArea style="width: 400px;" name="frequencyofserviceoffering" required="" value="${serviceuserInstance?.frequencyofserviceoffering}"/></div>
+        <div class="controls"><g:textArea style="width: 400px;" name="frequencyofserviceoffering" required="" value="${serviceuserInstance?.frequencyofserviceoffering}"/>
+        <p class="help-block">How often does the users consume the service, i.e. 10 times a year, 20 hours a year</p></div>
     </div>
 
 </div>

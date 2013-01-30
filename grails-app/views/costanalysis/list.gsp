@@ -27,19 +27,11 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="costname" title="${message(code: 'costanalysis.costname.label', default: 'Cost Name')}" />
+						<g:sortableColumn property="role" title="${message(code: 'costanalysis.role.label', default: 'role')}" />
 					
-						<g:sortableColumn property="rapcost" title="${message(code: 'costanalysis.rapcost.label', default: 'RAP Cost')}" />
+						<g:sortableColumn property="reason" title="${message(code: 'costanalysis.reason.label', default: 'Reason')}" />
 					
-						<g:sortableColumn property="eipcost" title="${message(code: 'costanalysis.eipcost.label', default: 'EIP Cost')}" />
-					
-						<g:sortableColumn property="pacost" title="${message(code: 'costanalysis.pacost.label', default: 'PA Cost')}" />
-					
-						<g:sortableColumn property="iedcost" title="${message(code: 'costanalysis.iedcost.label', default: 'IED Cost')}" />
-					
-						<g:sortableColumn property="engopscost" title="${message(code: 'costanalysis.engopscost.label', default: 'Eng-Ops Cost')}" />
-
-                        <g:sortableColumn property="qecosts" title="${message(code: 'costanalysis.qecost.label', default: 'QE Cost')}" />
+						<g:sortableColumn property="cost" title="${message(code: 'costanalysis.cost.label', default: 'Cost')}" />
 
                         <g:sortableColumn property="othercosts" title="${message(code: 'costanalysis.othercosts.label', default: 'Other Costs')}" />
 
@@ -51,17 +43,11 @@
 					
 						<td><g:link action="show" id="${costanalysisInstance.id}">${fieldValue(bean: costanalysisInstance, field: "costname")}</g:link></td>
 					
-						<td>${fieldValue(bean: costanalysisInstance, field: "rapcost")}</td>
+						<td>${fieldValue(bean: costanalysisInstance, field: "role")}</td>
 					
-						<td>${fieldValue(bean: costanalysisInstance, field: "eipcost")}</td>
+						<td>${fieldValue(bean: costanalysisInstance, field: "reason")}</td>
 					
-						<td>${fieldValue(bean: costanalysisInstance, field: "pacost")}</td>
-					
-						<td>${fieldValue(bean: costanalysisInstance, field: "iedcost")}</td>
-					
-						<td>${fieldValue(bean: costanalysisInstance, field: "engopscost")}</td>
-
-                        <td>${fieldValue(bean: costanalysisInstance, field: "qecost")}</td>
+						<td>${fieldValue(bean: costanalysisInstance, field: "cost")}</td>
 
                         <td>${fieldValue(bean: costanalysisInstance, field: "othercosts")}</td>
 					

@@ -3,79 +3,40 @@
 
 <div class="formAreaLeft">
 <div class="control-group">
-<div class="fieldcontain ${hasErrors(bean: costanalysisInstance, field: 'costname', 'error')} required">
-	<label class="control-label" for="costname">
-		<g:message code="costanalysis.costname.label" default="Cost Name" />
+<div class="fieldcontain ${hasErrors(bean: costanalysisInstance, field: 'role', 'error')} required">
+	<label class="control-label" for="role">
+		<g:message code="costanalysis.role.label" default="role" />
 		<span class="required-indicator">*</span>
 	</label>
-	<div class="controls"> <g:textField name="costname" required="" value="${costanalysisInstance?.costname}"/>
-    <p class="help-block">Name your cost, try to align with cost centre.</p></div>
+	<div class="controls"> <g:textField name="role" required="" value="${costanalysisInstance?.role}"/>
+    <p class="help-block">Role needed for this service?</p></div>
 </div>
 </div>
 
 <div class="control-group">
-<div class="fieldcontain ${hasErrors(bean: costanalysisInstance, field: 'rapcost', 'error')} ">
-	<label class="control-label" for="rapcost">
-		<g:message code="costanalysis.rapcost.label" default="Rap Cost" />
+<div class="fieldcontain ${hasErrors(bean: costanalysisInstance, field: 'reason', 'error')} ">
+	<label class="control-label" for="reason">
+		<g:message code="costanalysis.reason.label" default="Reason this service needs this role?" />
 		
 	</label>
-	<div class="controls"><g:textArea style="width: 270px;" name="rapcost" cols="40" rows="5" maxlength="500" value="${costanalysisInstance?.rapcost}"/>
+	<div class="controls"><g:textArea style="width: 270px;" name="reason" cols="40" rows="5" maxlength="500" value="${costanalysisInstance?.reason}"/>
     </div>
 </div>
 </div>
 
 
 <div class="control-group">
-<div class="fieldcontain ${hasErrors(bean: costanalysisInstance, field: 'eipcost', 'error')} ">
-	<label class="control-label" for="eipcost">
-		<g:message code="costanalysis.eipcost.label" default="EIP Cost" />
+<div class="fieldcontain ${hasErrors(bean: costanalysisInstance, field: 'cost', 'error')} ">
+	<label class="control-label" for="cost">
+		<g:message code="costanalysis.cost.label" default="Cost" />
 		
 	</label>
-    <div class="controls"><g:textArea style="width: 270px;" name="eipcost" cols="40" rows="5" maxlength="500" value="${costanalysisInstance?.eipcost}"/></div>
-</div>
-</div>
-
-<div class="control-group">
-<div class="fieldcontain ${hasErrors(bean: costanalysisInstance, field: 'pacost', 'error')} ">
-	<label class="control-label" for="pacost">
-		<g:message code="costanalysis.pacost.label" default="PA Cost" />
-		
-	</label>
-    <div class="controls"><g:textArea style="width: 270px;" name="pacost" cols="40" rows="5" maxlength="500" value="${costanalysisInstance?.pacost}"/></div>
-</div>
+    <div class="controls"><g:textField style="width: 270px;" name="cost" value="${costanalysisInstance?.cost}"/></div>
 </div>
 </div>
 
 <div class="formAreaRight">
-<div class="control-group">
-<div class="fieldcontain ${hasErrors(bean: costanalysisInstance, field: 'iedcost', 'error')} ">
-	<label class="control-label" for="iedcost">
-		<g:message code="costanalysis.iedcost.label" default="IED Cost" />
-		
-	</label>
-    <div class="controls"><g:textArea style="width: 270px;" name="iedcost" cols="40" rows="5" maxlength="500" value="${costanalysisInstance?.iedcost}"/> </div>
-</div>
-</div>
 
-<div class="control-group">
-<div class="fieldcontain ${hasErrors(bean: costanalysisInstance, field: 'engopscost', 'error')} ">
-	<label class="control-label" for="engopscost">
-		<g:message code="costanalysis.engopscost.label" default="Eng-Ops Cost" />
-		
-	</label>
-    <div class="controls"><g:textArea style="width: 270px;" name="engopscost" cols="40" rows="5" maxlength="500" value="${costanalysisInstance?.engopscost}"/></div>
-</div>
-</div>
-
-<div class="control-group">
-<div class="fieldcontain ${hasErrors(bean: costanalysisInstance, field: 'qecost', 'error')} ">
-	<label class="control-label" for="qecost">
-		<g:message code="costanalysis.qecost.label" default="QE Cost" />
-		
-	</label>
-    <div class="controls"><g:textArea style="width: 270px;" name="qecost" cols="40" rows="5" maxlength="500" value="${costanalysisInstance?.qecost}"/> </div>
-</div>
-</div>
 
 <div class="control-group">
 <div class="fieldcontain ${hasErrors(bean: costanalysisInstance, field: 'othercosts', 'error')} ">

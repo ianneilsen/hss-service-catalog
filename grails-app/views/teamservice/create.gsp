@@ -49,3 +49,5 @@
 </html>
      <!--todo ensure service is saved first before allowing user to move on to tools, costs etc -->
 <!-- todo not picking up service id correctly when adding in 1 to 7 items for service -->
+<!-- todo - allow more than one url to be included along with a explanation filed for url -->
+<!-- todo blank out or hide team id field at bottom of form -->

@@ -27,69 +27,33 @@
             <div class="form-horizontal">
             <dl class="dl-horizontal">
 			
-				<g:if test="${costanalysisInstance?.costname}">
+				<g:if test="${costanalysisInstance?.role}">
 
-				<dt><span id="costname-label" class="property-label"><g:message code="costanalysis.costname.label" default="Cost Name" /></span></dt>
+				<dt><span id="role-label" class="property-label"><g:message code="costanalysis.role.label" default="Role" /></span></dt>
 					
-					<dd>	<span class="property-value" aria-labelledby="costname-label"><g:fieldValue bean="${costanalysisInstance}" field="costname"/></span></dd>
-					
-
-				</g:if>
-			
-				<g:if test="${costanalysisInstance?.rapcost}">
-
-                    <dt><span id="rapcost-label" class="property-label"><g:message code="costanalysis.rapcost.label" default="RAP Costs" /></span> </dt>
-
-                    <dd>	<span class="property-value" aria-labelledby="rapcost-label"><g:fieldValue bean="${costanalysisInstance}" field="rapcost"/></span>       </dd>
+					<dd>	<span class="property-value" aria-labelledby="role-label"><g:fieldValue bean="${costanalysisInstance}" field="role"/></span></dd>
 					
 
 				</g:if>
 			
-				<g:if test="${costanalysisInstance?.eipcost}">
+				<g:if test="${costanalysisInstance?.reason}">
 
-                    <dt><span id="eipcost-label" class="property-label"><g:message code="costanalysis.eipcost.label" default="EIP Costs" /></span> </dt>
+                    <dt><span id="reason-label" class="property-label"><g:message code="costanalysis.reason.label" default="Reason" /></span> </dt>
 
-                    <dd>	<span class="property-value" aria-labelledby="eipcost-label"><g:fieldValue bean="${costanalysisInstance}" field="eipcost"/></span>  </dd>
+                    <dd>	<span class="property-value" aria-labelledby="reason-label"><g:fieldValue bean="${costanalysisInstance}" field="reason"/></span>       </dd>
 					
 
 				</g:if>
 			
-				<g:if test="${costanalysisInstance?.pacost}">
+				<g:if test="${costanalysisInstance?.cost}">
 
-                    <dt><span id="pacost-label" class="property-label"><g:message code="costanalysis.pacost.label" default="PA Costs" /></span> </dt>
+                    <dt><span id="cost-label" class="property-label"><g:message code="costanalysis.cost.label" default="Cost" /></span> </dt>
 
-                    <dd>	<span class="property-value" aria-labelledby="pacost-label"><g:fieldValue bean="${costanalysisInstance}" field="pacost"/></span>   </dd>
+                    <dd>	<span class="property-value" aria-labelledby="cost-label"><g:fieldValue bean="${costanalysisInstance}" field="cost"/></span>  </dd>
 					
 
 				</g:if>
-			
-				<g:if test="${costanalysisInstance?.iedcost}">
 
-                    <dt><span id="iedcost-label" class="property-label"><g:message code="costanalysis.iedcost.label" default="IED Costs" /></span>  </dt>
-
-                    <dd>	<span class="property-value" aria-labelledby="iedcost-label"><g:fieldValue bean="${costanalysisInstance}" field="iedcost"/></span> </dd>
-					
-
-				</g:if>
-			
-				<g:if test="${costanalysisInstance?.engopscost}">
-
-                    <dt><span id="engopscost-label" class="property-label"><g:message code="costanalysis.engopscost.label" default="Eng-Ops Costs" /></span> </dt>
-
-                    <dd>	<span class="property-value" aria-labelledby="engopscost-label"><g:fieldValue bean="${costanalysisInstance}" field="engopscost"/></span>   </dd>
-					
-
-				</g:if>
-			
-				<g:if test="${costanalysisInstance?.qecost}">
-
-                    <dt><span id="qecost-label" class="property-label"><g:message code="costanalysis.qecost.label" default="QE Costs" /></span>   </dt>
-
-                    <dd>	<span class="property-value" aria-labelledby="qecost-label"><g:fieldValue bean="${costanalysisInstance}" field="qecost"/></span> </dd>
-					
-
-				</g:if>
-			
 				<g:if test="${costanalysisInstance?.othercosts}">
 
                     <dt><span id="othercosts-label" class="property-label"><g:message code="costanalysis.othercosts.label" default="Other costs" /></span>    </dt>
