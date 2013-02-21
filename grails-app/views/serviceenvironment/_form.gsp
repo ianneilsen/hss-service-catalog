@@ -7,7 +7,7 @@
 		<g:message code="serviceenvironment.successfactors.label" default="Success factors" />
 		<span class="required-indicator">*</span>
 	</label>
-	<div class="controls"> <g:textArea name="successfactors" cols="40" rows="5" maxlength="1000" required="" value="${serviceenvironmentInstance?.successfactors}"/> </div>
+	<div class="controls"> <g:textArea name="successfactors" style="width: 400px;" cols="40" rows="5" maxlength="1000" required="" value="${serviceenvironmentInstance?.successfactors}"/> </div>
 </div>
 </div>
 
@@ -17,7 +17,7 @@
 		<g:message code="serviceenvironment.successmeasure.label" default="Success measure" />
 		
 	</label>
-	<div class="controls"><g:textArea name="successmeasure" cols="40" rows="5" maxlength="1000" value="${serviceenvironmentInstance?.successmeasure}"/>  </div>
+	<div class="controls"><g:textArea name="successmeasure" style="width: 400px;" cols="40" rows="5" maxlength="1000" value="${serviceenvironmentInstance?.successmeasure}"/>  </div>
 </div>
 </div>
 

@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'teamservice.label', default: 'Teamservice')}" />
+		<g:set var="entityName" value="${message(code: 'teamservice.label', default: 'Team service')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
 	<body>
@@ -11,7 +11,11 @@
         <div class="navbar" role="navigation">
             <ul class="nav" role="navigation">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+				%{--<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>--}%
+                <li><g:link  action="show" controller="teamservice" id="${teamserviceInstance.id}">
+                    <g:message code="Cancel ${teamserviceInstance?.id?.encodeAsHTML()}" args="[entityName]" />
+                </g:link>
+                </li>
 			</ul>
 		</div>
 

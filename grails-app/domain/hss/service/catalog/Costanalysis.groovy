@@ -17,6 +17,9 @@ class Costanalysis {
         reason()
         cost(blank: false)
         othercosts()
+        totalmoneycosts()
+        dateCreated()
+        lastUpdated()
 
 
     }

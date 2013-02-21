@@ -96,8 +96,10 @@
                     </fieldset>
                 </g:form>
 
-                <g:link controller="teamservice" action="create" params="['team.id': teamInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'teamservice.label', default: 'a team service')])}</g:link>
-                <table class="eso-table">
+
+            <section>
+                <g:link controller="teamservice" action="create" params="['team.id': teamInstance?.id]">${message(code: '<b>+<b> ADD a new team service', args: [message(code: 'teamservice.label', default: 'a new team service')])}</g:link>
+            <table class="eso-table">
                     <thead>
                     <tr>
 
@@ -120,6 +122,8 @@
                         <g:sortableColumn property="serviceactive" title="${message(code: 'teamservice.serviceactive.label', default: 'Service Active')}" />
 
                         <g:sortableColumn property="version" title="${message(code: 'teamservice.version.label', default: 'Version')}" />
+
+                        <g:sortableColumn title="Action" property="edit" />
 
                     </tr>
                     </thead>
@@ -147,6 +151,8 @@
                             <td>${fieldValue(bean: teamserviceInstance, field: "serviceactive")}</td>
 
                             <td>${fieldValue(bean: teamserviceInstance, field: "version")}</td>
+
+                            <td><g:link controller="teamservice" action="edit" name="edit" id="${teamserviceInstance.id}">+Edit</g:link> </td>
 
                         </tr>
                     </g:each>

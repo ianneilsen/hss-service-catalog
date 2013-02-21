@@ -15,7 +15,10 @@
 				%{--<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>--}%
                 %{--<li><g:message code="Back to " args="[entityName]" /><g:link controller="teamservice" action="show" id="${teamtoolInstance?.teamservices?.id}">${teamtoolInstance?.teamservices?.encodeAsHTML()}</g:link></li>--}%
-                <li><g:link  action="show" controller="teamservice" id="${teamtoolInstance?.teamservices?.id}"><g:message code="Back to ${teamtoolInstance?.teamservices?.encodeAsHTML()}" args="[entityName]" /></g:link></li>
+                <li><g:link  action="show" controller="teamservice" id="${teamtoolInstance?.teamservices?.id}">
+                            <g:message code="Back to ${teamtoolInstance?.teamservices?.encodeAsHTML()}" args="[entityName]" />
+                    </g:link>
+                </li>
 			</ul>
 		</div>
 
@@ -27,6 +30,7 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 
+            <section>
             <div class="formArea" >
                 <div class="form-horizontal">
                     <div class="dl-horizontal">

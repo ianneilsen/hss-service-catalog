@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'servicelevel.label', default: 'Servicelevel')}" />
+		<g:set var="entityName" value="${message(code: 'servicelevel.label', default: 'Service level')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
@@ -17,12 +17,13 @@
 		</div>
 
 		<div id="list-servicelevel" class="content scaffold-list" role="main">
-            <div class="breadcrumb"><h3><g:message code="default.list.label" args="[entityName]" /></h3>
+            <div class="breadcrumb"><h3><g:message code="default.list.label" args="[entityName]" /></h3></div>
 
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 
+                <section>
                 <table class="eso-table">
 				<thead>
 					<tr>

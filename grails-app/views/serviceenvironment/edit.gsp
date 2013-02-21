@@ -29,6 +29,7 @@
 			</ul>
 			</g:hasErrors>
     <!-- form and buttons -->
+        <section>
             <div class="formArea">
                 <div class="form-horizontal">
 			<g:form method="post" >

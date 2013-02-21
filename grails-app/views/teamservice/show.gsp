@@ -35,7 +35,7 @@
 %{--
         <div class="formArea">
         <div class="form-horizontal">--}%
-
+        <section>
         <dl class="dl-horizontal">
 			
             <g:if test="${teamserviceInstance?.servicename}">
@@ -125,7 +125,7 @@
 
             <g:if test="${teamserviceInstance?.tools}">
 
-                    <div class="page-header"><h4><span class="badge badge-warning">1</span><g:message code="teamservice.tools.label" default="Tools Used" /></h4></div>
+                    <div class="page-header"><h4><span class="badge badge-info">1</span><g:message code="teamservice.tools.label" default="Tools Used" /></h4></div>
 
                     <p class="help-block">Number of tools: ${teamserviceInstance?.tools?.size()}</p>
 
@@ -143,7 +143,8 @@
 
                             <g:sortableColumn property="toolmotivation" title="${message(code: 'teamtool.toolmotivation.label', default: 'Tool Motivation')}" />
 
-                            %{--<th><g:message code="teamtool.teamservices.label" default="Teamservices" /></th>--}%
+                            <g:sortableColumn title="Action" property="edit" />
+
                         </tr>
                         </thead>
                         <tbody>
@@ -156,7 +157,7 @@
 
                                 <td>${fieldValue(bean: teamtoolInstance, field: "toolmotivation")}</td>
 
-                               %{-- <td>${fieldValue(bean: teamtoolInstance, field: "teamservices")}</td>--}%
+                                <td><g:link controller="teamtool" action="edit" name="edit" id="${teamtoolInstance.id}">+Edit</g:link> </td>
 
                             </tr>
                         </g:each>
@@ -166,11 +167,8 @@
 
             <g:if test="${teamserviceInstance?.servicesusers}">
 
-                     <div class="page-header"><h4><span class="badge badge-warning">2</span><g:message code="teamservice.serviceusers.label" default="2. Service Users" /></h4></div>
-%{--
-                        <g:each in="${teamserviceInstance.servicesusers}" var="s">
-                            <dd><span class="property-value" aria-labelledby="servicesusers-label"><g:link controller="serviceuser" action="show" id="${s.id}">${s?.users?.encodeAsHTML()} - ${s?.role?.encodeAsHTML()}</g:link></span></dd>
-                        </g:each>--}%
+                     <div class="page-header"><h4><span class="badge badge-info">2</span><g:message code="teamservice.serviceusers.label" default="Service Users" /></h4></div>
+
             </g:if>
         <g:else test="${teamserviceInstance?.tools < 0}">
             <p class="text-warning">You need to add who uses your service</p>
@@ -193,7 +191,7 @@
 
                 <g:sortableColumn property="frequencyofserviceoffering" title="${message(code: 'serviceuser.frequencyofserviceoffering.label', default: 'Frequency of service use')}" />
 
-                %{--<th><g:message code="serviceuser.teamservices.label" default="Team Service" /></th>--}%
+                <g:sortableColumn title="Action" property="edit" />
 
             </tr>
             </thead>
@@ -215,7 +213,7 @@
 
                     <td>${fieldValue(bean: serviceuserInstance, field: "frequencyofserviceoffering")}</td>
 
-                    %{--<td>${fieldValue(bean: serviceuserInstance, field: "teamservices")}</td>--}%
+                    <td><g:link controller="serviceuser" action="edit" name="edit" id="${serviceuserInstance.id}">+Edit</g:link> </td>
 
                 </tr>
             </g:each>
@@ -224,7 +222,7 @@
 
 <g:if test="${teamserviceInstance?.costs}">
 
-            <div class="page-header"><h4><span class="badge badge-warning">3</span><g:message code="teamservice.costs.label" default="Costs" /></h4></div>
+            <div class="page-header"><h4><span class="badge badge-info">3</span><g:message code="teamservice.costs.label" default="Costs" /></h4></div>
             </g:if>
         <g:else test="${teamserviceInstance?.tools < 0}">
             <p class="text-warning">You need to add in your costs</p>
@@ -234,42 +232,38 @@
                 <table class="eso-table">
                     <thead>
                     <tr>
-                        <g:sortableColumn property="costname" title="${message(code: 'costanalysis.costname.label', default: 'Cost Name')}" />
 
-                        <g:sortableColumn property="rapcost" title="${message(code: 'costanalysis.rapcost.label', default: 'RAP Cost')}" />
 
-                        <g:sortableColumn property="eipcost" title="${message(code: 'costanalysis.eipcost.label', default: 'EIP Cost')}" />
+                       <g:sortableColumn property="role" title="${message(code: 'costanalysis.role.label', default: 'Cost Role')}" />
 
-                        <g:sortableColumn property="pacost" title="${message(code: 'costanalysis.pacost.label', default: 'PA Cost')}" />
+                        <g:sortableColumn property="reason" title="${message(code: 'costanalysis.reason.label', default: 'reason for this Cost')}" />
 
-                        <g:sortableColumn property="iedcost" title="${message(code: 'costanalysis.iedcost.label', default: 'IED Cost')}" />
+                        <g:sortableColumn property="cost" title="${message(code: 'costanalysis.cost.label', default: 'Cost in Hrs')}" />
 
-                        <g:sortableColumn property="engopscost" title="${message(code: 'costanalysis.engopscost.label', default: 'Eng-Ops Cost')}" />
+                        <g:sortableColumn property="othercosts" title="${message(code: 'costanalysis.othercosts.label', default: 'Other costs')}" />
 
-                        <g:sortableColumn property="qecosts" title="${message(code: 'costanalysis.qecost.label', default: 'QE Cost')}" />
+                        <g:sortableColumn property="totalmoneycosts" title="${message(code: 'costanalysis.totalmoneycosts.label', default: 'Total $ costs')}" />
 
-                        <g:sortableColumn property="othercosts" title="${message(code: 'costanalysis.othercosts.label', default: 'Other Costs')}" />
+                       <g:sortableColumn title="Action" property="edit" />
+
                     </tr>
                     </thead>
                     <tbody>
                     <g:each in="${teamserviceInstance.costs}" status="i" var="costanalysisInstance">
                         <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-                            <td><g:link  controller="costanalysis" action="show" id="${costanalysisInstance.id}">${fieldValue(bean: costanalysisInstance, field: "costname")}</g:link></td>
+                            <td><g:link  controller="costanalysis" action="show" id="${costanalysisInstance.id}">${fieldValue(bean: costanalysisInstance, field: "role")}</g:link></td>
 
-                            <td>${fieldValue(bean: costanalysisInstance, field: "rapcost")}</td>
+                            <td>${fieldValue(bean: costanalysisInstance, field: "reason")}</td>
 
-                            <td>${fieldValue(bean: costanalysisInstance, field: "eipcost")}</td>
-
-                            <td>${fieldValue(bean: costanalysisInstance, field: "pacost")}</td>
-
-                            <td>${fieldValue(bean: costanalysisInstance, field: "iedcost")}</td>
-
-                            <td>${fieldValue(bean: costanalysisInstance, field: "engopscost")}</td>
-
-                            <td>${fieldValue(bean: costanalysisInstance, field: "qecost")}</td>
+                            <td>${fieldValue(bean: costanalysisInstance, field: "cost")}</td>
 
                             <td>${fieldValue(bean: costanalysisInstance, field: "othercosts")}</td>
+
+                            <td>${fieldValue(bean: costanalysisInstance, field: "totalmoneycosts")}</td>
+
+                            <td><g:link controller="costanalysis" action="edit" name="edit" id="${costanalysisInstance.id}">+Edit</g:link> </td>
+
                         </tr>
                     </g:each>
                     </tbody>
@@ -278,7 +272,7 @@
 
 <g:if test="${teamserviceInstance?.servicebenefits}">
 
-                    <div class="page-header"><h4><span class="badge badge-warning">4</span><g:message code="teamservice.servicebenefits.label" default="Service Benefits" /></h4></div>
+                    <div class="page-header"><h4><span class="badge badge-info">4</span><g:message code="teamservice.servicebenefits.label" default="Service Benefits" /></h4></div>
 
             </g:if>
         <g:else test="${teamserviceInstance?.tools < 0}">
@@ -289,9 +283,12 @@
             <thead>
             <tr>
                 <g:sortableColumn property="benefit" title="${message(code: 'servicebenefit.benefit.label', default: 'Service Benefit')}" />
+
                 <g:sortableColumn property="benefitmeasure" title="${message(code: 'servicebenefit.benefitmeasure.label', default: 'Service benefit measure')}" />
 
-            %{--<th><g:message code="servicebenefit.teamservices.label" default="Team service" /></th>--}%
+                <g:sortableColumn title="Action" property="edit" />
+
+
             </tr>
             </thead>
             <tbody>
@@ -302,7 +299,9 @@
 
                     <td>${fieldValue(bean: servicebenefitInstance, field: "benefitmeasure")}</td>
 
-                    %{--<td>${fieldValue(bean: servicebenefitInstance, field: "teamservices")}</td>--}%
+                    <td><g:link controller="servicebenefit" action="edit" name="edit" id="${servicebenefitInstance.id}">+Edit</g:link> </td>
+
+
 
                 </tr>
             </g:each>
@@ -313,7 +312,7 @@
 
 <g:if test="${teamserviceInstance?.competitors}">
 
-                    <div class="page-header"><h4><span class="badge badge-warning">5</span><g:message code="teamservice.competitors.label" default="Competitors" /></h4></div>
+                    <div class="page-header"><h4><span class="badge badge-info">5</span><g:message code="teamservice.competitors.label" default="Competitors" /></h4></div>
 
 			</g:if>
         <g:else test="${teamserviceInstance?.tools < 0}">
@@ -339,6 +338,8 @@
 
                 <g:sortableColumn property="teamservice" title="${message(code: 'servicecompetitor.teamservices.label', default: 'Service Link')}"/>
 
+                <g:sortableColumn title="Action" property="edit" />
+
             </tr>
             </thead>
             <tbody>
@@ -361,6 +362,8 @@
 
                     <td>${fieldValue(bean: servicecompetitorInstance.teamservices, field:"servicename")}</td>
 
+                    <td><g:link controller="servicecompetitor" action="edit" name="edit" id="${servicecompetitorInstance.id}">+Edit</g:link> </td>
+
                 </tr>
             </g:each>
             </tbody>
@@ -371,7 +374,7 @@
 
 <g:if test="${teamserviceInstance?.serviceenvironments}">
 
-                    <div class="page-header"><h4><span class="badge badge-warning">6</span><g:message code="teamservice.serviceenvironments.label" default="Service environment" /></h4></div>
+                    <div class="page-header"><h4><span class="badge badge-info">6</span><g:message code="teamservice.serviceenvironments.label" default="Service environment" /></h4></div>
 
             </g:if>
         <g:else test="${teamserviceInstance?.tools < 0}">
@@ -386,7 +389,7 @@
 
                 <g:sortableColumn property="successmeasure" title="${message(code: 'serviceenvironment.successmeasure.label', default: 'Success measures')}" />
 
-                %{--<th><g:message code="serviceenvironment.teamservices.label" default="Team service" /></th>--}%
+                <g:sortableColumn title="Action" property="edit" />
 
             </tr>
             </thead>
@@ -398,7 +401,7 @@
 
                     <td>${fieldValue(bean: serviceenvironmentInstance, field: "successmeasure")}</td>
 
-                    %{--<td>${fieldValue(bean: serviceenvironmentInstance, field: "teamservices")}</td>--}%
+                    <td><g:link controller="serviceenvironment" action="edit" name="edit" id="${serviceenvironmentInstance.id}">+Edit</g:link> </td>
 
                 </tr>
             </g:each>
@@ -409,7 +412,7 @@
 
 <g:if test="${teamserviceInstance?.swots}">
 
-                    <div class="page-header"><h4><span class="badge badge-warning">7</span><g:message code="teamservice.swots.label" default="Swot" /></h4></div>
+                    <div class="page-header"><h4><span class="badge badge-info">7</span><g:message code="teamservice.swots.label" default="Swot" /></h4></div>
 
 			</g:if>
         <g:else test="${teamserviceInstance?.tools < 0}">
@@ -431,6 +434,8 @@
 
                         <g:sortableColumn property="gaps" title="${message(code: 'swot.gaps.label', default: 'Gaps')}" />
 
+                        <g:sortableColumn title="Action" property="edit" />
+
                     </tr>
                     </thead>
                     <tbody>
@@ -449,6 +454,8 @@
 
                             <td>${fieldValue(bean: swotInstance, field: "gaps")}</td>
 
+                            <td><g:link controller="swot" action="edit" name="edit" id="${swotInstance.id}">+Edit</g:link> </td>
+
                         </tr>
                     </g:each>
                     </tbody>
@@ -456,7 +463,7 @@
 
 
 <g:if test="${teamserviceInstance?.servicelevels}">
-                <div class="page-header"><h4><span class="badge badge-warning">8</span><g:message code="teamservice.servicelevels.label" default="Service levels" /></h4></div>
+                <div class="page-header"><h4><span class="badge badge-info">8</span><g:message code="teamservice.servicelevels.label" default="Service levels" /></h4></div>
             </g:if>
         <g:else test="${teamserviceInstance?.tools < 0}">
             <p class="text-warning">You need to build your SLA for this service</p>
@@ -479,6 +486,8 @@
                 <g:sortableColumn property="implementrequire" title="${message(code: 'servicelevel.implementrequire.label', default: 'Implementation required')}" />
                 <g:sortableColumn property="servicelifetime" title="${message(code: 'servicelevel.servicelifetime.label', default: 'Lifetime of service')}" />
                 <g:sortableColumn property="frequencyservice" title="${message(code: 'servicelevel.frequencyservice.label', default: 'Frequency of service')}" />
+
+                <g:sortableColumn title="Action" property="edit" />
                         </tr>
                     </thead>
                 <tbody>
@@ -497,6 +506,8 @@
                     <td>${fieldValue(bean: servicelevelInstance, field: "implementrequire")}</td>
                     <td>${fieldValue(bean: servicelevelInstance, field: "servicelifetime")}</td>
                     <td>${fieldValue(bean: servicelevelInstance, field: "frequencyservice")}</td>
+
+                    <td><g:link controller="servicelevel" action="edit" name="edit" id="${servicelevelInstance.id}">+Edit</g:link> </td>
                 </tr>
                     </g:each>
                 </tbody>
@@ -534,5 +545,4 @@
         </div>
 	</body>
 </html>
-               <!--todo add in create links for new tools, costs, etc etc in show page -->
-<!-- todo - add in deleted button to each table of tools, cost etc to allow user easy delete option -->
+

@@ -23,6 +23,7 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 
+            <section>
             <div class="formArea">
             <div class="form-horizontal">
             <dl class="dl-horizontal">
@@ -47,7 +48,7 @@
 			
 				<g:if test="${costanalysisInstance?.cost}">
 
-                    <dt><span id="cost-label" class="property-label"><g:message code="costanalysis.cost.label" default="Cost" /></span> </dt>
+                    <dt><span id="cost-label" class="property-label"><g:message code="costanalysis.cost.label" default="Cost in Hours" /></span> </dt>
 
                     <dd>	<span class="property-value" aria-labelledby="cost-label"><g:fieldValue bean="${costanalysisInstance}" field="cost"/></span>  </dd>
 					
@@ -62,6 +63,15 @@
 					
 
 				</g:if>
+
+                <g:if test="${costanalysisInstance?.totalmoneycosts}">
+
+                    <dt><span id="totalmoneycosts-label" class="property-label"><g:message code="costanalysis.totalmoneycosts.label" default="Total" /></span>    </dt>
+
+                    <dd><span class="property-value" aria-labelledby="totalmoneycosts-label"><g:fieldValue bean="${costanalysisInstance}" field="totalmoneycosts"/></span></dd>
+
+
+                </g:if>
 			
 				<g:if test="${costanalysisInstance?.teamservices}">
 

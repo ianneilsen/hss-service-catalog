@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'servicecatagory.label', default: 'Servicecatagory')}" />
+		<g:set var="entityName" value="${message(code: 'servicecatagory.label', default: ' new Service catagory')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
 	<body>
@@ -16,7 +16,7 @@
 		</div>
 
 		<div id="create-servicecatagory" class="content scaffold-create" role="main">
-			<div class="breadcrumb"><h3><g:message code="default.create.label" args="[entityName]" /></h3></div>
+			<div class="breadcrumb"><h3><g:message code="default.add.label" args="[entityName]" /></h3></div>
 
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -28,15 +28,16 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-
+            <section>
             <div class="formArea">
+                <section>
             <div class="form-horizontal">
             <g:form action="save" >
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>
 				<fieldset class="buttons">
-					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" title="Save"  />
 				</fieldset>
 			</g:form>
             </div>

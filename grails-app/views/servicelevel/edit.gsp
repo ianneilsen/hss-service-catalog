@@ -34,7 +34,7 @@
 			</ul>
 			</g:hasErrors>
 
-
+            <section>
             <div class="formArea">
                 <div class="form-horizontal">
             <g:form method="post" >

@@ -28,14 +28,14 @@
 <div class="control-group">
 <div class="fieldcontain ${hasErrors(bean: costanalysisInstance, field: 'cost', 'error')} ">
 	<label class="control-label" for="cost">
-		<g:message code="costanalysis.cost.label" default="Cost" />
+		<g:message code="costanalysis.cost.label" default="Cost in resource hours" />
 		
 	</label>
     <div class="controls"><g:textField style="width: 270px;" name="cost" value="${costanalysisInstance?.cost}"/></div>
 </div>
 </div>
 
-<div class="formAreaRight">
+%{--<div class="formAreaRight">--}%
 
 
 <div class="control-group">
@@ -49,6 +49,16 @@
 </div>
 
 <div class="control-group">
+    <div class="fieldcontain ${hasErrors(bean: costanalysisInstance, field: 'totalmoneycosts', 'error')} ">
+        <label class="control-label" for="totalmoneycosts">
+            <g:message code="costanalysis.totalmoneycosts.label" default="Total \$ costs" />
+
+        </label>
+        <div class="controls"><g:textField style="width: 270px;" name="totalmoneycosts" value="${costanalysisInstance?.totalmoneycosts}"/></div>
+    </div>
+</div>
+
+<div class="control-group">
 <div class="fieldcontain ${hasErrors(bean: costanalysisInstance, field: 'teamservices', 'error')} required">
 	<label class="control-label" for="teamservices">
 		<g:message code="costanalysis.teamservices.label" default="Team service" />
@@ -57,4 +67,5 @@
     <div class="controls"><g:select id="teamservices" name="teamservices.id" from="${hss.service.catalog.Teamservice.list()}" optionKey="id" required="" value="${costanalysisInstance?.teamservices?.id}" class="many-to-one"/></div>
 </div>
 </div>
-</div>
+%{--
+</div>--}%

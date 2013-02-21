@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'servicelevel.label', default: 'Servicelevel')}" />
+		<g:set var="entityName" value="${message(code: 'servicelevel.label', default: 'Service level')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
@@ -12,19 +12,19 @@
         <div class="navbar" role="navigation">
             <ul class="nav" role="navigation">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-%{--				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>--}%
+
                 <li><g:link  action="show" controller="teamservice" id="${servicelevelInstance?.teamservices?.id}"><g:message code="Back to ${servicelevelInstance?.teamservices?.encodeAsHTML()}" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 
 		<div id="show-servicelevel" class="content scaffold-show" role="main">
-            <div class="breadcrumb"><h3><g:message code="default.show.label" args="[entityName]" /></h3>
+            <div class="breadcrumb"><h3><g:message code="default.show.label" args="[entityName]" /></h3></div>
 
 				<g:if test="${flash.message}">
 			        <div class="message" role="status">${flash.message}</div>
 			    </g:if>
 
+                <section>
         <div class="formArea">
             <div class="form-horizontal">
                 <dl class="dl-horizontal">
@@ -154,7 +154,7 @@
 
 				</g:if>
 			
-
+            </dl>
 
 			<g:form>
 				<fieldset class="btn">
@@ -163,6 +163,8 @@
 					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
 			</g:form>
+            </div>
+            </div>
 		</div>
 	</body>
 </html>

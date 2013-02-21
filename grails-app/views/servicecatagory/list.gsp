@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'servicecatagory.label', default: 'Servicecatagory')}" />
+		<g:set var="entityName" value="${message(code: 'servicecatagory.label', default: 'Service catagory')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
@@ -16,17 +16,17 @@
 			</ul>
 		</div>
 		<div id="list-servicecatagory" class="content scaffold-list" role="main">
-			<div class="breadcrumb"> <h1><g:message code="default.list.label" args="[entityName]" /></h1> </div>
+			<div class="breadcrumb"> <h3><g:message code="default.list.label" args="[entityName]" /></h3> </div>
 
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-
+             <section>
             <table class="eso-table">
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="catagoryname" title="${message(code: 'servicecatagory.catagoryname.label', default: 'Catagoryname')}" />
+						<g:sortableColumn property="catagoryname" title="${message(code: 'servicecatagory.catagoryname.label', default: 'Service catagory name')}" />
 					
 					</tr>
 				</thead>

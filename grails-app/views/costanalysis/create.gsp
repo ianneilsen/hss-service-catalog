@@ -16,7 +16,7 @@
 		</div>
 
 		<div id="create-costanalysis" class="content scaffold-create" role="main">
-            <div class="breadcrumb"> <h3><g:message code="default.show.label" args="[entityName]" /> for service <g:link controller="teamservice" action="show" id="${costanalysisInstance?.teamservices?.id}">${costanalysisInstance?.teamservices?.encodeAsHTML()}</g:link></h3></div>
+            <div class="breadcrumb"> <h3><g:message code="default.create.label" args="[entityName]" /> for service <g:link controller="teamservice" action="show" id="${costanalysisInstance?.teamservices?.id}">${costanalysisInstance?.teamservices?.encodeAsHTML()}</g:link></h3></div>
 
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -28,7 +28,7 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-
+            <section>
 			<div class="formArea">
               <div class="form-horizontal">
                 <g:form action="save" >

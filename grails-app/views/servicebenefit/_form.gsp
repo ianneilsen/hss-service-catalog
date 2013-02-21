@@ -7,7 +7,7 @@
 		<g:message code="servicebenefit.benefit.label" default="Service Benefit" />
 		
 	</label>
-	<div class="controls"><g:textArea name="benefit" cols="40" rows="5" maxlength="1000" value="${servicebenefitInstance?.benefit}"/>
+	<div class="controls"><g:textArea name="benefit" style="width: 400px;" cols="40" rows="5" maxlength="1000" value="${servicebenefitInstance?.benefit}"/>
     <p class="help-block">What benefit do you receive?</p></div>
     </div>
 </div>
@@ -18,7 +18,7 @@
 		<g:message code="servicebenefit.benefitmeasure.label" default="Service benefit measure" />
 		
 	</label>
-	<div class="controls"><g:textArea name="benefitmeasure" cols="40" rows="5" maxlength="1000" value="${servicebenefitInstance?.benefitmeasure}"/>
+	<div class="controls"><g:textArea name="benefitmeasure" style="width: 400px;" cols="40" rows="5" maxlength="1000" value="${servicebenefitInstance?.benefitmeasure}"/>
     <p class="help-block">How do you measure the benefit</p></div>
 </div>
 </div>

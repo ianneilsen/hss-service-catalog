@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'servicecatagory.label', default: 'Servicecatagory')}" />
+		<g:set var="entityName" value="${message(code: 'servicecatagory.label', default: 'Service catagory')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
@@ -17,17 +17,18 @@
 			</ul>
 		</div>
 		<div id="show-servicecatagory" class="content scaffold-show" role="main">
-			<div class="breadcrumb"><h1><g:message code="default.show.label" args="[entityName]" /></h1></div>
+			<div class="breadcrumb"><h3><g:message code="default.show.label" args="[entityName]" /></h3></div>
 
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 
+            <section>
             <ol class="property-list servicecatagory">
 			
 				<g:if test="${servicecatagoryInstance?.catagoryname}">
 				<li class="fieldcontain">
-					<span id="catagoryname-label" class="property-label"><g:message code="servicecatagory.catagoryname.label" default="Catagoryname" /></span>
+					<span id="catagoryname-label" class="property-label"><g:message code="servicecatagory.catagoryname.label" default="Catagory name:" /></span>
 					
 						<span class="property-value" aria-labelledby="catagoryname-label"><g:fieldValue bean="${servicecatagoryInstance}" field="catagoryname"/></span>
 					

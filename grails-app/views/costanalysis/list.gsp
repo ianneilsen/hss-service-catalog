@@ -12,7 +12,7 @@
         <div class="navbar" role="navigation">
             <ul class="nav">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				%{--<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>--}%
 			</ul>
 		</div>
 
@@ -23,33 +23,36 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 
+            <section>
             <table class="eso-table">
 				<thead>
 					<tr>
-					
-						<g:sortableColumn property="role" title="${message(code: 'costanalysis.role.label', default: 'role')}" />
-					
-						<g:sortableColumn property="reason" title="${message(code: 'costanalysis.reason.label', default: 'Reason')}" />
-					
-						<g:sortableColumn property="cost" title="${message(code: 'costanalysis.cost.label', default: 'Cost')}" />
 
-                        <g:sortableColumn property="othercosts" title="${message(code: 'costanalysis.othercosts.label', default: 'Other Costs')}" />
+                        <g:sortableColumn property="role" title="${message(code: 'costanalysis.role.label', default: 'Cost Role')}" />
+
+                        <g:sortableColumn property="reason" title="${message(code: 'costanalysis.reason.label', default: 'reason for this Cost')}" />
+
+                        <g:sortableColumn property="cost" title="${message(code: 'costanalysis.cost.label', default: 'Cost in Hrs')}" />
+
+                        <g:sortableColumn property="othercosts" title="${message(code: 'costanalysis.othercosts.label', default: 'Other costs')}" />
+
+                        <g:sortableColumn property="totalmoneycosts" title="${message(code: 'costanalysis.totalmoneycosts.label', default: 'Total $ costs')}" />
 
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${costanalysisInstanceList}" status="i" var="costanalysisInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${costanalysisInstance.id}">${fieldValue(bean: costanalysisInstance, field: "costname")}</g:link></td>
-					
-						<td>${fieldValue(bean: costanalysisInstance, field: "role")}</td>
-					
-						<td>${fieldValue(bean: costanalysisInstance, field: "reason")}</td>
-					
-						<td>${fieldValue(bean: costanalysisInstance, field: "cost")}</td>
+
+                        <td><g:link  controller="costanalysis" action="show" id="${costanalysisInstance.id}">${fieldValue(bean: costanalysisInstance, field: "role")}</g:link></td>
+
+                        <td>${fieldValue(bean: costanalysisInstance, field: "reason")}</td>
+
+                        <td>${fieldValue(bean: costanalysisInstance, field: "cost")}</td>
 
                         <td>${fieldValue(bean: costanalysisInstance, field: "othercosts")}</td>
+
+                        <td>${fieldValue(bean: costanalysisInstance, field: "totalmoneycosts")}</td>
 					
 					</tr>
 				</g:each>
@@ -63,3 +66,4 @@
         </div>
 	</body>
 </html>
+

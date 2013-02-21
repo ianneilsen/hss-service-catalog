@@ -30,8 +30,9 @@
 			    </ul>
 			</g:hasErrors>
     <!--form-->
- 			<div class="formArea">
-            <div class="form-horizontal">
+        <section>
+        <div class="formArea">
+                <div class="form-horizontal">
             <g:form action="save" >
 				<fieldset class="form">
 					<g:render template="form"/>
@@ -42,7 +43,6 @@
 				</fieldset>
             </g:form>
             </div>
-         </div>
 
         </div>
       </div>

@@ -1,5 +1,5 @@
 <%@ page import="hss.service.catalog.Teamservice" %>
-<%@ page import="hss.service.catalog.Servicecategory" %>
+<%@ page import="hss.service.catalog.Servicecatagory" %>
 
 <div class="formAreaLeft">
 <div class="control-group">
@@ -57,11 +57,17 @@
         </div>
     </div>
 
+
     <div class="control-group">
-        <label class="control-label">Service Catagory:</label>
-        <div class="controls"><g:select name="servicecatagory.id" from="${hss.service.catalog.Servicecatagory.list()}" optionKey="id" value="${teamserviceInstance?.servicecatagory?.id}"/> </div>
+        <div class="fieldcontain ${hasErrors(bean: teamserviceInstance.servicecatagory, field: 'catagoryname', 'error')}">
+            <label class="control-label" for="catagoryname">
+                <g:message code="teamservice.catagoryname.label" default="Service catagory" />
+
+            </label>
+        <div class="controls"><g:select name="servicecatagory.id" from="${hss.service.catalog.Servicecatagory.list()}" optionKey="id" require="" value="${teamserviceInstance?.servicecatagory?.id}" class="many-to-one"/></div>
     </div>
-   %{-- <g:select  name="pubproduct.id" from="${spotlight.content.Pubproduct.list()}" optionKey="id" required="" value="${publicationInstance?.pubproduct?.id}" class="many-to-one"/>--}%
+    </div>
+
     <div class="control-group">
         <div class="fieldcontain ${hasErrors(bean: teamserviceInstance, field: 'baselevelservices', 'error')} ">
             <label class="control-label" for="baselevelservices">

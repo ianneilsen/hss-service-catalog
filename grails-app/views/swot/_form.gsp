@@ -6,7 +6,7 @@
 		<g:message code="swot.strength.label" default="Strengths" />
 		
 	</label>
-	<div class="controls"><g:textArea name="strength" cols="40" rows="5" maxlength="500" value="${swotInstance?.strength}"/> </div>
+	<div class="controls"><g:textArea name="strength" style="width: 400px;" cols="40" rows="5" maxlength="500" value="${swotInstance?.strength}"/> </div>
 </div>
 </div>
 
@@ -16,7 +16,7 @@
         <g:message code="swot.weaknesses.label" default="Weaknesses" />
 
     </label>
-    <div class="controls"><g:textArea name="weaknesses" cols="40" rows="5" maxlength="500" value="${swotInstance?.weaknesses}"/> </div>
+    <div class="controls"><g:textArea name="weaknesses" style="width: 400px;" cols="40" rows="5" maxlength="500" value="${swotInstance?.weaknesses}"/> </div>
 </div>
 </div>
 
@@ -26,7 +26,7 @@
 		<g:message code="swot.opportunities.label" default="Opportunities" />
 		
 	</label>
-	<div class="controls" style="width: 400px"><g:textArea name="opportunities" cols="40" rows="5" maxlength="500" value="${swotInstance?.opportunities}"/> </div>
+	<div class="controls" style="width: 400px"><g:textArea name="opportunities" style="width: 400px;" cols="40" rows="5" maxlength="500" value="${swotInstance?.opportunities}"/> </div>
 </div>
 </div>
 
@@ -36,7 +36,7 @@
 		<g:message code="swot.threats.label" default="Threats" />
 		
 	</label>
-	<div class="controls"> <g:textArea name="threats" cols="40" rows="5" maxlength="500" value="${swotInstance?.threats}"/> </div>
+	<div class="controls"> <g:textArea name="threats"  style="width: 400px;" cols="40" rows="5" maxlength="500" value="${swotInstance?.threats}"/> </div>
 </div>
 </div>
 
@@ -46,7 +46,7 @@
 		<g:message code="swot.gaps.label" default="Gaps" />
 		
 	</label>
-	<div class="controls"> <g:textArea name="gaps" cols="40" rows="5" maxlength="500" value="${swotInstance?.gaps}"/> </div>
+	<div class="controls"> <g:textArea name="gaps" style="width: 400px;" cols="40" rows="5" maxlength="500" value="${swotInstance?.gaps}"/> </div>
 </div>
 </div>
 

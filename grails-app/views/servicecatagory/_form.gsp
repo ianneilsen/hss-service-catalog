@@ -4,10 +4,10 @@
 
 <div class="fieldcontain ${hasErrors(bean: servicecatagoryInstance, field: 'catagoryname', 'error')} ">
 	<label for="catagoryname">
-		<g:message code="servicecatagory.catagoryname.label" default="Catagoryname" />
+		<g:message code="servicecatagory.catagoryname.label" default="Service Catagory name" />
 		
 	</label>
-	<g:textField name="catagoryname" maxlength="170" value="${servicecatagoryInstance?.catagoryname}"/>
+	<g:textField autofocus="true" name="catagoryname" maxlength="170" value="${servicecatagoryInstance?.catagoryname}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: servicecatagoryInstance, field: 'teamservices', 'error')} ">

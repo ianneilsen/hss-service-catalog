@@ -12,7 +12,7 @@
         <div class="navbar" role="navigation">
             <ul class="nav">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+
 			</ul>
 		</div>
 		<div id="list-serviceuser" class="content scaffold-list" role="main">
@@ -20,6 +20,7 @@
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
+            <section>
 			<table class="eso-table">
 				<thead>
 					<tr>
@@ -36,7 +37,7 @@
 
                         <g:sortableColumn property="peakusetimes" title="${message(code: 'serviceuser.peakusetimes.label', default: 'Peak use times')}" />
 
-                        <g:sortableColumn property="frequencyofserviceoffering" title="${message(code: 'serviceuser.frequencyofserviceoffering.label', default: 'frequencyofserviceoffering')}" />
+                        <g:sortableColumn property="frequencyofserviceoffering" title="${message(code: 'serviceuser.frequencyofserviceoffering.label', default: 'Frequency of service offering')}" />
 					
 						<th><g:message code="serviceuser.teamservices.label" default="Team Service" /></th>
 					

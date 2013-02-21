@@ -24,6 +24,7 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 
+            <section>
             <div class="formArea">
                 <div class="form-horizontal">
                    <dl class="dl-horizontal">

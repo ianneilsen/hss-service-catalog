@@ -30,6 +30,7 @@
 			</ul>
 			</g:hasErrors>
         <!-- form -->
+        <section>
             <div class="formArea">
                 <div class="form-horizontal">
                 <g:form action="save" >
