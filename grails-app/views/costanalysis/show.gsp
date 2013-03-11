@@ -63,7 +63,7 @@
 					
 
 				</g:if>
-
+%{--
                 <g:if test="${costanalysisInstance?.totalmoneycosts}">
 
                     <dt><span id="totalmoneycosts-label" class="property-label"><g:message code="costanalysis.totalmoneycosts.label" default="Total" /></span>    </dt>
@@ -71,7 +71,7 @@
                     <dd><span class="property-value" aria-labelledby="totalmoneycosts-label"><g:fieldValue bean="${costanalysisInstance}" field="totalmoneycosts"/></span></dd>
 
 
-                </g:if>
+                </g:if>--}%
 			
 				<g:if test="${costanalysisInstance?.teamservices}">
 

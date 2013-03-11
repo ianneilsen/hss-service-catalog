@@ -1,4 +1,5 @@
 <%@ page import="hss.service.catalog.Teamservice" %>
+<%@ page import="hss.service.catalog.Team" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -11,11 +12,7 @@
         <div class="navbar" role="navigation">
             <ul class="nav" role="navigation">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				%{--<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>--}%
-                <li><g:link  action="show" controller="teamservice" id="${teamserviceInstance.id}">
-                    <g:message code="Cancel ${teamserviceInstance?.id?.encodeAsHTML()}" args="[entityName]" />
-                </g:link>
-                </li>
+				<li><g:link  controller="team" action="show" name="team.id" id="${teamserviceInstance?.team?.id}"><g:message code="Cancel" /></g:link></li>
 			</ul>
 		</div>
 
@@ -51,7 +48,5 @@
     </div>
 	</body>
 </html>
-     <!--todo ensure service is saved first before allowing user to move on to tools, costs etc -->
 <!-- todo not picking up service id correctly when adding in 1 to 7 items for service -->
-<!-- todo - allow more than one url to be included along with a explanation filed for url -->
 <!-- todo blank out or hide team id field at bottom of form -->

@@ -80,7 +80,8 @@ class SwotController {
         }
 
         flash.message = message(code: 'default.updated.message', args: [message(code: 'swot.label', default: 'Swot'), swotInstance.id])
-        redirect(action: "show", id: swotInstance.id)
+       /* redirect(action: "show", id: swotInstance.id)*/
+        redirect(controller: "teamservice", action: "show", id: params.id)
     }
 
     def delete(Long id) {

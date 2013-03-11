@@ -8,34 +8,25 @@
 		<g:set var="entityName" value="${message(code: 'team.label', default: 'Team')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
-	<body>
+<body>
     <div class="eso-inner">
-		<div class="navbar" role="navigation">
-			<ul class="nav">
+        <div class="navbar" role="navigation">
+            <ul class="nav">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-%{--				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-                <li><g:link controller="teamservice" class="list" action="list"><g:message code="Service list" args="[entityName]" /></g:link></li>
-				<li><g:link controller="teamtool" class="list" action="list"><g:message code="Tool list" args="[entityName]" /></g:link></li>
-                <li><g:link controller="serviceuser" class="list" action="list"><g:message code="Service Users list" args="[entityName]" /></g:link></li>
-                <li><g:link controller="servicebenefit" class="list" action="list"><g:message code="Service Benefits list" args="[entityName]" /></g:link></li>
-                <li><g:link controller="costanalysis" class="list" action="list"><g:message code="Costs for services list" args="[entityName]" /></g:link></li>
-                <li><g:link controller="servicecompetitor" class="list" action="list"><g:message code="Service Competitiors list" args="[entityName]" /></g:link></li>
-                <li><g:link controller="serviceenvironment" class="list" action="list"><g:message code="Service Environment" args="[entityName]" /></g:link></li>
-                <li><g:link controller="swot" class="list" action="list"><g:message code="SWOT" args="[entityName]" /></g:link></li>--}%
+
                 <li><g:link controller="teamservice" action="create" params="['team.id': teamInstance?.id]">${message(code: 'ADD a new service', args: [message(code: 'teamservice.label', default: 'a team service')])}</g:link></li>
 			</ul>
 		</div>
 
 		<div id="show-team" class="content scaffold-show" role="main">
-		<div class="breadcrumb"><h3>Service provider information</h3> </div>
+		<div class="breadcrumb"><h4>Provider info</h4></div>
 
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 
-           %{-- <div class="formArea">--}%
-            %{--<div class="form-horizontal">--}%
-
+           <section>
+            <div class="form-horizontal">
             <dl class="dl-horizontal">
 
 				<g:if test="${teamInstance?.teamname}">
@@ -65,6 +56,14 @@
 
                 </g:if>
 
+                <g:if test="${teamInstance?.teammembers}">
+
+                    <dt>	<span id="teammembers-label" class="property-label"><g:message code="team.teammembers.label" default="Team Members" /></span>     </dt>
+
+                    <dd>		<span class="property-value" aria-labelledby="teammembers-label"><a href="<g:createLink url="${teamInstance?.teammembers}"/>">${teamInstance?.teammembers}</a> </span>    </dd>
+
+                </g:if>
+
                 <g:if test="${teamInstance?.lastUpdated}">
 
                     <dt>	<span id="lastUpdated-label" class="property-label"><g:message code="team.lastUpdated.label" default="Last Updated" /></span>   </dt>
@@ -74,32 +73,28 @@
 
                 </g:if>
 			
-	%{--			<g:if test="${teamInstance?.teamservices}">
-
-				<dt>	<span id="teamservices-label" class="property-label"><g:message code="team.teamservices.label" default="Team Services list" /></span>      </dt>
-					
-						<g:each in="${teamInstance.teamservices}" var="t">
-				<dd><span class="property-value" aria-labelledby="teamservices-label"><g:link controller="teamservice" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></span>  </dd>
-						</g:each>
-
-				</g:if>--}%
 
                 <dt>	<span id="teamservicescount-label" class="property-label"><g:message code="Services total" default="Total services" /></span>      </dt>
                 <dd>${teamInstance?.teamservices?.size()}</dd>
+
+               %{-- <img src="${resource(dir: "images", file: 'orgchart.png')}"/>--}%
+               %{-- <img style="padding-left: 70px;" src="${resource(dir: 'images', file: 'RAP_logo_col_sml_w5.png')}" alt="PA Team"/>--}%
 
             </dl>
                 <g:form>
                     <fieldset class="btn">
                         <g:hiddenField name="id" value="${teamInstance?.id}" />
                         <div class="btn btn-primary"> <g:link class="edit" action="edit" id="${teamInstance?.id}"><g:message code="default.button.edit.label" default="Edit Team" /></g:link></div>
-                        <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                        <g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'This will delete the team! Are you sure?')}');" />
                     </fieldset>
                 </g:form>
 
+            </div>
 
-            <section>
-                <g:link controller="teamservice" action="create" params="['team.id': teamInstance?.id]">${message(code: '<b>+<b> ADD a new team service', args: [message(code: 'teamservice.label', default: 'a new team service')])}</g:link>
-            <table class="eso-table">
+               <section>
+                <g:link controller="teamservice" action="create" params="['team.id': teamInstance?.id]">${message(code: '<b>+ ADD a new team service</b>', args: [message(code: 'teamservice.label', default: 'a new team service')])}</g:link>
+
+                <table class="eso-table">
                     <thead>
                     <tr>
 
@@ -114,8 +109,6 @@
                         <g:sortableColumn property="baselevelservices" title="${message(code: 'teamservice.baselevelservices.label', default: 'Base service offering')}" />
 
                         <g:sortableColumn property="coreresponsibility" title="${message(code: 'teamservice.coreresponsibility.label', default: 'Core Responsibility')}" />
-
-                        %{--<g:sortableColumn property="competencyalignment" title="${message(code: 'teamservice.competencyalignment.label', default: 'Competency Alignment')}" />--}%
 
                         <g:sortableColumn property="lastUpdated" title="${message(code: 'teamservice.lastUpdated.label', default: 'Last Updated')}" />
 
@@ -144,8 +137,6 @@
 
                             <td>${fieldValue(bean: teamserviceInstance, field: "coreresponsibility")}</td>
 
-                            %{--<td>${fieldValue(bean: teamserviceInstance, field: "competencyalignment")}</td>--}%
-
                             <td>${fieldValue(bean: teamserviceInstance, field: "lastUpdated")}</td>
 
                             <td>${fieldValue(bean: teamserviceInstance, field: "serviceactive")}</td>
@@ -156,15 +147,20 @@
 
                         </tr>
                     </g:each>
+
                     </tbody>
+
                 </table>
+
             </div>
 
 
 		</div>
-    %{--  </div>
-    </div>--}%
+      </div>
+
   </body>
 </html>
-       <!-- todo move edit and delete buttons inside table -->
+
 <!--todo show service categories on landing page -->
+<!--todo provide new link to erc docs charter -->
+<!-- todo link back to orgchart from team page, use team name or team group or provide a new link with heading "group members"-->

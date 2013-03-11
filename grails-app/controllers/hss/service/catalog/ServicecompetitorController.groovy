@@ -80,7 +80,8 @@ class ServicecompetitorController {
         }
 
         flash.message = message(code: 'default.updated.message', args: [message(code: 'servicecompetitor.label', default: 'Servicecompetitor'), servicecompetitorInstance.id])
-        redirect(action: "show", id: servicecompetitorInstance.id)
+       /* redirect(action: "show", id: servicecompetitorInstance.id)*/
+        redirect(controller: "teamservice", action: "show", id: params.id)
     }
 
     def delete(Long id) {

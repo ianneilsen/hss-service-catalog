@@ -35,6 +35,7 @@
 			<g:form method="post" >
 				<g:hiddenField name="id" value="${serviceenvironmentInstance?.id}" />
 				<g:hiddenField name="version" value="${serviceenvironmentInstance?.version}" />
+                <g:hiddenField name="teamservice.id" value="${serviceenvironmentInstance?.teamservices?.id}"/>
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>

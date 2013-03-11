@@ -61,6 +61,15 @@
 					
 
 				</g:if>
+
+                        <g:if test="${teamtoolInstance?.toolsatisfaction}">
+
+                            <dt><span id="toolsatisfaction-label" class="property-label"><g:message code="teamtool.toolsatisfaction.label" default="Tool Feedback" /></span></dt>
+
+                            <dd><span class="property-value" aria-labelledby="toolsatisfaction-label"><markdown:renderHtml><g:fieldValue bean="${teamtoolInstance}" field="toolsatisfaction"/></span></dd> </markdown:renderHtml>
+
+
+                        </g:if>
 			
 				<g:if test="${teamtoolInstance?.teamservices}">
 

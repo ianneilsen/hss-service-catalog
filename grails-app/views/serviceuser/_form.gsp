@@ -35,46 +35,46 @@
 </div>
 
 <div class="control-group">
-<div class="fieldcontain ${hasErrors(bean: serviceuserInstance, field: 'motivation', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: serviceuserInstance, field: 'motivation', 'error')}">
 	<label class="control-label" for="motivation">
 		<g:message code="serviceuser.motivation.label" default="Motivation" />
-		<span class="required-indicator">*</span>
+
 	</label>
-	<div class="controls"><g:textArea style="width: 400px;" name="motivation" cols="40" rows="5" maxlength="1000" required="" value="${serviceuserInstance?.motivation}"/>     </div>
+	<div class="controls"><g:textArea style="width: 400px;" name="motivation" cols="40" rows="5" maxlength="1000"value="${serviceuserInstance?.motivation}"/>     </div>
 
 </div>
 </div>
 
 <div class="control-group">
-    <div class="fieldcontain ${hasErrors(bean: serviceuserInstance, field: 'estimatedusers', 'error')} required">
+    <div class="fieldcontain ${hasErrors(bean: serviceuserInstance, field: 'estimatedusers', 'error')}">
         <label class="control-label" for="estimatedusers">
-            <g:message code="serviceuser.estimatedusers.label" default="Approximate total number of users" />
-            <span class="required-indicator">*</span>
+            <g:message code="serviceuser.estimatedusers.label" default="Approximate # of users" />
+
         </label>
-        <div class="controls"><g:field type="number" style="width: 100px;" name="estimatedusers" required="" value="${serviceuserInstance?.estimatedusers}"/></div>
+        <div class="controls"><g:field type="number" style="width: 100px;" name="estimatedusers" value="${serviceuserInstance?.estimatedusers}"/></div>
     </div>
 
 </div>
 
 <div class="control-group">
-    <div class="fieldcontain ${hasErrors(bean: serviceuserInstance, field: 'peakusetimes', 'error')} required">
+    <div class="fieldcontain ${hasErrors(bean: serviceuserInstance, field: 'peakusetimes', 'error')} ">
         <label class="control-label" for="peakusetimes">
             <g:message code="serviceuser.peakusetimes.label" default="Peak use times" />
-            <span class="required-indicator">*</span>
+
         </label>
-        <div class="controls"><g:textArea style="width: 400px;" name="peakusetimes" required="" value="${serviceuserInstance?.peakusetimes}"/></div>
+        <div class="controls"><g:textArea style="width: 400px;" name="peakusetimes" value="${serviceuserInstance?.peakusetimes}"/></div>
     </div>
 
 </div>
 
 <div class="control-group">
-    <div class="fieldcontain ${hasErrors(bean: serviceuserInstance, field: 'frequencyofserviceoffering', 'error')} required">
+    <div class="fieldcontain ${hasErrors(bean: serviceuserInstance, field: 'frequencyofserviceoffering', 'error')}">
         <label class="control-label" for="frequencyofserviceoffering">
             <g:message code="serviceuser.frequencyofserviceoffering.label" default="How frequently is service used?" />
-            <span class="required-indicator">*</span>
+
         </label>
-        <div class="controls"><g:textArea style="width: 400px;" name="frequencyofserviceoffering" required="" value="${serviceuserInstance?.frequencyofserviceoffering}"/>
-        <p class="help-block">How often does the users consume the service, i.e. 10 times a year, 20 hours a year</p></div>
+        <div class="controls"><g:textArea style="width: 400px;" name="frequencyofserviceoffering" value="${serviceuserInstance?.frequencyofserviceoffering}"/>
+        <p class="help-block">How often do the users consume this service, i.e. 10 times a year, 20 hours a year</p></div>
     </div>
 
 </div>
@@ -85,6 +85,7 @@
 		<g:message code="serviceuser.teamservices.label" default="Service used by this user" />
 		<span class="required-indicator">*</span>
 	</label>
-	<div class="controls"> <g:select id="teamservices" name="teamservices.id" from="${hss.service.catalog.Teamservice.list()}" optionKey="id" required="" value="${serviceuserInstance?.teamservices?.id}" class="many-to-one"/> </div>
-</div>
+	<div class="controls">
 
+  <g:select readonly="true" id="teamservices" name="teamservices.id" from="${hss.service.catalog.Teamservice.list()}" optionKey="id" required="" value="${serviceuserInstance?.teamservices?.id}" class="many-to-one"/></div>
+</div>

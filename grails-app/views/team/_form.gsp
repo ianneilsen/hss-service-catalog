@@ -7,7 +7,7 @@
 		<g:message code="team.teamname.label" default="Team Name" />
 		<span class="required-indicator">*</span>
 	</label>
-    <div class="controls"><g:textField style="width: 400px;" name="teamname" required="" value="${teamInstance?.teamname}"/>
+    <div class="controls"><g:textField autofocus="true"  style="width: 400px;" name="teamname" required="" value="${teamInstance?.teamname}"/>
     <p class="help-block">Your internal OrgChart group name</p> </div>
 </div>
 </div>
@@ -32,7 +32,16 @@
             <p class="help-block">The team managers name</p> </div>
     </div>
 </div>
-<!-- services -->          <!-- todo take out teamservices link at botttom of create new team page -->
+<div class="control-group">
+    <div class="fieldcontain ${hasErrors(bean: teamInstance, field: 'teammembers', 'error')}">
+        <label class="control-label" for="teammembers">
+            <g:message code="team.teammembers.label" default="Team Members" />
+            </label>
+        <div class="controls"><g:textField style="width: 400px;" name="teammembers" value="${teamInstance?.teammembers}"/>
+            <p class="help-block">Link to OrgChart to display team members.</p> </div>
+    </div>
+</div>
+<!-- services -->
 %{--<div class="control-group">
     <div class="fieldcontain ${hasErrors(bean: teamInstance, field: 'teamservices', 'error')} ">
 	<label class="control-label" for="teamservices">

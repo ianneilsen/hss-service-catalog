@@ -15,8 +15,8 @@ class Serviceuser {
     static constraints = {
         users(blank: false)
         role(blank: false)
-        howtheyuse(blank: false, size: 2..1000)
-        motivation(blank: false, size: 2..1000)
+        howtheyuse(blank: true, size: 2..1000)
+        motivation(blank: true, size: 2..1000)
         peakusetimes(size: 2..150)
         frequencyofserviceoffering(size: 2..100)
     }
@@ -25,3 +25,4 @@ class Serviceuser {
      role
     }
 }
+//split field frequency of offering into 2  1- how many times did the user request the service and how many times did the team supply the service.

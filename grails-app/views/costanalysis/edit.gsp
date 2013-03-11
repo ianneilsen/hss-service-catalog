@@ -35,6 +35,7 @@
 			<g:form method="post" >
 				<g:hiddenField name="id" value="${costanalysisInstance?.id}" />
 				<g:hiddenField name="version" value="${costanalysisInstance?.version}" />
+                <g:hiddenField name="teamservice.id" value="${costanalysisInstance?.teamservices?.id}"/>
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>

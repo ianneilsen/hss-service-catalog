@@ -6,7 +6,7 @@ class Costanalysis {
     String reason
     Double cost
     String othercosts
-    BigDecimal totalmoneycosts
+/*    BigDecimal totalmoneycosts*/
     Date dateCreated
     Date lastUpdated
 
@@ -17,7 +17,7 @@ class Costanalysis {
         reason()
         cost(blank: false)
         othercosts()
-        totalmoneycosts()
+/*        totalmoneycosts(blank: true)*/
         dateCreated()
         lastUpdated()
 

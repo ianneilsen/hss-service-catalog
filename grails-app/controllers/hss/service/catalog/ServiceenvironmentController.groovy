@@ -78,7 +78,8 @@ class ServiceenvironmentController {
         }
 
         flash.message = message(code: 'default.updated.message', args: [message(code: 'serviceenvironment.label', default: 'Serviceenvironment'), serviceenvironmentInstance.id])
-        redirect(action: "show", id: serviceenvironmentInstance.id)
+        /*redirect(action: "show", id: serviceenvironmentInstance.id)*/
+        redirect(controller: "teamservice", action: "show", id: params.id)
     }
 
     def delete(Long id) {

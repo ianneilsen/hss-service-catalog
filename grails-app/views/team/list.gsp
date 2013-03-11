@@ -11,10 +11,7 @@
         <script type="text/JavaScript" src="../js/plugins.js"></script>
         <script type="text/JavaScript" src="../js/lib/jquery-1.7.2.js"></script>
         <script type="text/JavaScript" src="../js/lib/dropdown.js"></script>
-     %{--   <script type="text/JavaScript" src="../js/lib/tab.js"></script>
-        <script type="text/JavaScript" src="../js/lib/modal.js"></script>--}%
-      %{--  <script type="text/JavaScript" src="../js/jquery-1.8.3.js"></script>
-        <script type="text/JavaScript" src="../js/jquery-1.8.3.min.js"></script>--}%
+
 
 	</head>
 	<body>

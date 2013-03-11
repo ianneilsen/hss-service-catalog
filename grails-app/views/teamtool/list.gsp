@@ -15,7 +15,8 @@
 				%{--<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>--}%
 			</ul>
 		</div>
-
+                        <!--todo show team name in table for list only -->
+                        <!--todo increase list size to show  -->
 		<div id="list-teamtool" class="content scaffold-list" role="main">
 		<div class="breadcrumb"><h3><g:message code="default.list.label" args="[entityName]" /></h3> </div>
 
@@ -34,6 +35,8 @@
 						<g:sortableColumn property="toolmotivation" title="${message(code: 'teamtool.toolmotivation.label', default: 'Tool Motivation')}" />
 					
 						<th><g:message code="teamtool.teamservices.label" default="Teamservices" /></th>
+
+                        <g:sortableColumn property="teamname" title="${message(code: 'teamtool.team.teamname.label', default: 'Team Name')}" />
 					
 					</tr>
 				</thead>
@@ -48,7 +51,8 @@
 						<td>${fieldValue(bean: teamtoolInstance, field: "toolmotivation")}</td>
 					
 						<td>${fieldValue(bean: teamtoolInstance, field: "teamservices")}</td>
-					
+
+                        <td>${fieldValue(bean: teamtoolInstance.teamservices.team, field: "teamname")}</td>
 					</tr>
 				</g:each>
 				</tbody>

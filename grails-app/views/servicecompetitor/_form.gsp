@@ -7,7 +7,7 @@
 		<g:message code="servicecompetitor.competitorname.label" default="Competitor name" />
 		<span class="required-indicator">*</span>
 	</label>
-	<div class="controls"> <g:textField name="competitorname" required="" value="${servicecompetitorInstance?.competitorname}"/> </div>
+	<div class="controls"> <g:textField autofocus="true" name="competitorname" required="" value="${servicecompetitorInstance?.competitorname}"/> </div>
 </div>
 </div>
 
@@ -34,7 +34,7 @@
 <div  class="control-group">
 <div class="fieldcontain ${hasErrors(bean: servicecompetitorInstance, field: 'compservicedifference', 'error')} ">
 	<label class="control-label" for="compservicedifference">
-		<g:message code="servicecompetitor.compservicedifference.label" default="Compservice difference" />
+		<g:message code="servicecompetitor.compservicedifference.label" default="Competitor service difference" />
 		
 	</label>
     <div class="controls"><g:textArea name="compservicedifference" cols="40" rows="5" maxlength="1000" value="${servicecompetitorInstance?.compservicedifference}"/>  </div>
@@ -56,10 +56,11 @@
 <div  class="control-group">
 <div class="fieldcontain ${hasErrors(bean: servicecompetitorInstance, field: 'competitorsmotivation', 'error')} ">
 	<label class="control-label" for="competitorsmotivation">
-		<g:message code="servicecompetitor.competitorsmotivation.label" default="Competitors motivation" />
+		<g:message code="servicecompetitor.competitorsmotivation.label" default="Competitors users motivation" />
 		
 	</label>
-    <div class="controls"><g:textArea name="competitorsmotivation" cols="40" rows="5" maxlength="1000" value="${servicecompetitorInstance?.competitorsmotivation}"/> </div>
+    <div class="controls"><g:textArea name="competitorsmotivation" cols="40" rows="5" maxlength="1000" value="${servicecompetitorInstance?.competitorsmotivation}"/>
+    <p class="help-block">Why are they using this service?</p> </div>
 </div>
 </div>
 
@@ -69,7 +70,8 @@
 		<g:message code="servicecompetitor.competitorvalue.label" default="Competitor value" />
 		
 	</label>
-<div class="controls"><g:textArea name="competitorvalue" cols="40" rows="5" maxlength="1000" value="${servicecompetitorInstance?.competitorvalue}"/> </div>
+<div class="controls"><g:textArea name="competitorvalue" cols="40" rows="5" maxlength="1000" value="${servicecompetitorInstance?.competitorvalue}"/>
+    <p class="help-block">What is the good things about their service?</p></div>
 </div>
 </div>
 

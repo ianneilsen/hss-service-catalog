@@ -31,7 +31,9 @@
 		
 	</label>
 	<div class="controls"> <g:textArea style="width: 400px;" name="coreresponsibility" cols="40" rows="5" maxlength="1000" value="${teamserviceInstance?.coreresponsibility}"/>
-    <p class="help-block">Core responsibility from your team compass</p></div>
+    <p class="help-block">Core responsibility from your team compass</p>
+        <p class="help-block">see <a href="https://redhat.hua.hrsmart.com/">Red Hat Compass</a> for the teams core responsiblity</p>
+        </div>
 </div>
 </div>
 
@@ -44,7 +46,7 @@
 	<div class="controls"> <g:textArea style="width: 400px;" name="competencyalignment" cols="40" rows="5" maxlength="1000" value="${teamserviceInstance?.competencyalignment}"/>
     <p class="help-block">Competency alignment from your team compass</p> </div>
 </div>
-</div>                                         <!-- todo - find better way or provide link to compass as short term measure to help explain the above RH alignments-->
+</div>
 
     <div class="control-group">
         <div class="fieldcontain ${hasErrors(bean: teamserviceInstance, field: 'servicecontact', 'error')} ">
@@ -71,7 +73,7 @@
     <div class="control-group">
         <div class="fieldcontain ${hasErrors(bean: teamserviceInstance, field: 'baselevelservices', 'error')} ">
             <label class="control-label" for="baselevelservices">
-                <g:message code="teamservice.baselevelservices.label" default="Base level services" />
+                <g:message code="teamservice.baselevelservices.label" default="Base level service" />
 
             </label>
             <div class="controls"> <g:textArea style="width: 400px;" cols="40" rows="5" name="baselevelservices" value="${teamserviceInstance?.baselevelservices}" type="text"/>
@@ -93,7 +95,7 @@
     <div class="control-group">
         <div class="fieldcontain ${hasErrors(bean: teamserviceInstance, field: 'serviceowner', 'error')} ">
             <label class="control-label" for="serviceowner">
-                <g:message code="teamservice.serviceowner.label" default="Key service owner" />
+                <g:message code="teamservice.serviceowner.label" default="Key service manager" />
 
             </label>
             <div class="controls"> <g:field name="serviceowner" value="${teamserviceInstance?.serviceowner}" type="text"/>
@@ -118,7 +120,7 @@
                 <g:message code="teamservice.servicedocumentation.label" default="Link to service documentation" />
 
             </label>
-            <div class="controls"> <g:field name="servicedocumentation" value="${teamserviceInstance?.servicedocumentation}" type="url"/>
+            <div class="controls"> <g:field  name="servicedocumentation" value="${teamserviceInstance?.servicedocumentation}" type="url"/>
                 <p class="help-block">URL link to service docs</p> </div>
         </div>
     </div>
@@ -130,11 +132,12 @@
                 <span class="required-indicator">*</span>
             </label>
             <div class="controls">
-                <g:select style="width: 255px;" id="team" name="team.id" from="${hss.service.catalog.Team.list()}" optionKey="id" required="" value="${teamserviceInstance?.team?.id}" class="many-to-one"/>
+                <g:select style="width: 255px;" readonly="true" id="team" name="team.id" from="${hss.service.catalog.Team.list()}" optionKey="id" required="" value="${teamserviceInstance?.team?.id}" class="many-to-one"/>
             </div>
         </div>
     </div>
 </div>
+         <!--todo team service is not picking up correctly when a user enters a new service for the team - this needs to show, not be selectable and select the correct service id -->
 
 %{--<div class="formAreaRight">
 

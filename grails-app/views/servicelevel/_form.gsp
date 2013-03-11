@@ -7,7 +7,7 @@
         <g:message code="servicelevel.slaname.label" default="SLA Name" />
 
     </label>
-    <div class="controls"> <g:textField style="width: 270px;" name="slaname" value="${servicelevelInstance?.slaname}"/></div>
+    <div class="controls"> <g:textField autofocus="true" style="width: 270px;" name="slaname" value="${servicelevelInstance?.slaname}"/></div>
 </div>
 </div>
 

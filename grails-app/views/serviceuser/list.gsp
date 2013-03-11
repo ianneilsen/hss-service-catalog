@@ -40,6 +40,8 @@
                         <g:sortableColumn property="frequencyofserviceoffering" title="${message(code: 'serviceuser.frequencyofserviceoffering.label', default: 'Frequency of service offering')}" />
 					
 						<th><g:message code="serviceuser.teamservices.label" default="Team Service" /></th>
+
+                        <g:sortableColumn property="teamname" params="${teamservices_id}" title="${message(code: 'serviceuser.team.teamname.label', default: 'Team Name')}" />
 					
 					</tr>
 				</thead>
@@ -62,6 +64,8 @@
                         <td>${fieldValue(bean: serviceuserInstance, field: "frequencyofserviceoffering")}</td>
 
                         <td>${fieldValue(bean: serviceuserInstance, field: "teamservices")}</td>
+
+                        <td>${fieldValue(bean: serviceuserInstance.teamservices.team, field: "teamname")}</td>
 					
 					</tr>
 				</g:each>

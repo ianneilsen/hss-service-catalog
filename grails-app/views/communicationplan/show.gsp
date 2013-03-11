@@ -98,113 +98,6 @@
 			
            %{--</section>--}%
 
-<!-- test code section -->
-          %{--  <div class="modal hide fade display-none" id="myModal4">
-                <div class="modal-header">
-                    <button data-dismiss="modal" class="close">×</button>
-                    <h3>Create</h3>
-                </div>
-                <div class="modal-body max-height450">
-                    <p>
-                    <form class="form-horizontal">
-                        <div class="control-group">
-                            <label class="control-label" for="input01">Reporter</label>
-                            <div class="controls">
-                                <input type="text" class="input-xlarge" id="input01">
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="input01">Start Date</label>
-                            <div class="controls">
-                                <input type="text" class="Datepicker  hasDatepicker" id="dp1357449851572">
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label">Impact</label>
-                            <div class="controls">
-                                <label class="radio inline">
-                                    <input type="radio" value="option1" id="inlineCheckbox1"> High
-                                </label>
-                                <label class="radio inline">
-                                    <input type="radio" value="option2" id="inlineCheckbox2"> Medium
-                                </label>
-                                <label class="radio inline">
-                                    <input type="radio" value="option3" id="inlineCheckbox3"> Low
-                                </label>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label">Response</label>
-                            <div class="controls">
-                                <label class="radio inline">
-                                    <input type="radio" value="option1" id="inlineCheckbox1"> Avoid
-                                </label>
-                                <label class="radio inline">
-                                    <input type="radio" value="option2" id="inlineCheckbox2"> Transfer
-                                </label>
-                                <label class="radio inline">
-                                    <input type="radio" value="option3" id="inlineCheckbox3"> Mitigate
-                                </label>
-                                <label class="radio inline">
-                                    <input type="radio" value="option3" id="inlineCheckbox3"> Accept
-                                </label>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label">Probability</label>
-                            <div class="controls">
-                                <label class="radio inline">
-                                    <input type="radio" value="option1" id="inlineCheckbox1"> High
-                                </label>
-                                <label class="radio inline">
-                                    <input type="radio" value="option2" id="inlineCheckbox2"> Medium
-                                </label>
-                                <label class="radio inline">
-                                    <input type="radio" value="option3" id="inlineCheckbox3"> Low
-                                </label>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label">Status</label>
-                            <div class="controls">
-                                <label class="radio inline">
-                                    <input type="radio" value="option1" id="inlineCheckbox1"> Open
-                                </label>
-                                <label class="radio inline">
-                                    <input type="radio" value="option2" id="inlineCheckbox2"> In Progress
-                                </label>
-                                <label class="radio inline">
-                                    <input type="radio" value="option3" id="inlineCheckbox3"> Resolved
-                                </label>
-                                <label class="radio inline">
-                                    <input type="radio" value="option3" id="inlineCheckbox3"> Reopened
-                                </label>
-                                <label class="radio inline">
-                                    <input type="radio" value="option3" id="inlineCheckbox3"> Closed
-                                </label>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="input01">Due Date</label>
-                            <div class="controls">
-                                <input type="text" class="Datepicker  hasDatepicker" id="dp1357449851573">
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="input01">Description</label>
-                            <div class="controls">
-                                <textarea rows="3" class="input-xlarge" id="textarea"></textarea>
-                            </div>
-                        </div>
-                    </form>
-                </p>
-                </div>
-                <div class="modal-footer">
-                    <a class="btn btn-primary" href="#">Save</a>
-                    <a data-dismiss="modal" class="btn" href="#">Close</a>
-                </div>
-            </div>
-            <div class="clear"><a class=" fl-right font-big" href="#myModal4" data-toggle="modal">+ Create</a></div>--}%
 <!--communciation table -->
                 <div class="add">
                     <g:link controller="communication" action="create" params="['communicationplan.id': communicationplanInstance?.id]">${message(code: '<b>+</b> ADD new communication', args: [message(code: 'communication.label', default: 'Communication')])}</g:link>
@@ -254,11 +147,11 @@
 
                                 <td>${fieldValue(bean: communicationInstance?.commlevel, field: "comlevelname")}</td>
 
-                                <td>${fieldValue(bean: communicationInstance, field: "purpose")}</td>
+                                <td><markdown:renderHtml>${fieldValue(bean: communicationInstance, field: "purpose")}</markdown:renderHtml></td>
 
-                                <td>${fieldValue(bean: communicationInstance, field: "targetGroups")}</td>
+                                <td><markdown:renderHtml>${fieldValue(bean: communicationInstance, field: "targetGroups")}</markdown:renderHtml></td>
 
-                                <td>${fieldValue(bean: communicationInstance, field: "expectations")}</td>
+                                <td><markdown:renderHtml>${fieldValue(bean: communicationInstance, field: "expectations")}</markdown:renderHtml></td>
 
                                 <td>${fieldValue(bean: communicationInstance, field: "communicator")}</td>
 
@@ -266,11 +159,11 @@
 
                                 <td>${fieldValue(bean: communicationInstance, field: "monitor")}</td>
 
-                                <td>${fieldValue(bean: communicationInstance, field: "commchannelsmedia")}</td>
+                                <td><markdown:renderHtml>${fieldValue(bean: communicationInstance, field: "commchannelsmedia")}</markdown:renderHtml></td>
 
                                 <td>${fieldValue(bean: communicationInstance, field: "timingfrequency")}</td>
 
-                                <td>${fieldValue(bean: communicationInstance, field: "processdetailsdescrip")}</td>
+                                <td><markdown:renderHtml>${fieldValue(bean: communicationInstance, field: "processdetailsdescrip")}</markdown:renderHtml></td>
 
                                 <td><g:link controller="communication" action="edit" name="edit" id="${communicationInstance.id}">+Edit</g:link> </td>
                             </tr>

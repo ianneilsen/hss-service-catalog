@@ -80,7 +80,8 @@ class ServicebenefitController {
         }
 
         flash.message = message(code: 'default.updated.message', args: [message(code: 'servicebenefit.label', default: 'Servicebenefit'), servicebenefitInstance.id])
-        redirect(action: "show", id: servicebenefitInstance.id)
+        /*redirect(action: "show", id: servicebenefitInstance.id)*/
+        redirect(controller: "teamservice", action: "show", id: params.id)
     }
 
     def delete(Long id) {

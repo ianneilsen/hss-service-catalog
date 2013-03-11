@@ -37,6 +37,10 @@
 						<g:sortableColumn property="threats" title="${message(code: 'swot.threats.label', default: 'Threats')}" />
 					
 						<g:sortableColumn property="gaps" title="${message(code: 'swot.gaps.label', default: 'Gaps')}" />
+
+                        <g:sortableColumn property="servicename" title="${message(code: 'swot.teamservice.servicename.label', default: 'Service Name')}" />
+
+                        <g:sortableColumn property="teamname" title="${message(code: 'swot.team.teamname.label', default: 'Team Name')}" />
 					
 					</tr>
 				</thead>
@@ -55,6 +59,10 @@
 						<td>${fieldValue(bean: swotInstance, field: "threats")}</td>
 					
 						<td>${fieldValue(bean: swotInstance, field: "gaps")}</td>
+
+                        <td>${fieldValue(bean: swotInstance.teamservices, field: "servicename")}</td>
+
+                        <td>${fieldValue(bean: swotInstance.teamservices.team, field: "teamname")}</td>
 					
 					</tr>
 				</g:each>

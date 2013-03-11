@@ -4,7 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class TeamserviceController {
 
-    static scaffold = true
+    static scaffold = Teamservice
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 

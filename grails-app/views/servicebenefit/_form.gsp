@@ -7,7 +7,7 @@
 		<g:message code="servicebenefit.benefit.label" default="Service Benefit" />
 		
 	</label>
-	<div class="controls"><g:textArea name="benefit" style="width: 400px;" cols="40" rows="5" maxlength="1000" value="${servicebenefitInstance?.benefit}"/>
+	<div class="controls"><g:textArea autofocus="true" name="benefit" style="width: 400px;" cols="40" rows="5" maxlength="1000" value="${servicebenefitInstance?.benefit}"/>
     <p class="help-block">What benefit do you receive?</p></div>
     </div>
 </div>

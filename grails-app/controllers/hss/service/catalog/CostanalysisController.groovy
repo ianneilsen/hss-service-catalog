@@ -80,7 +80,8 @@ class CostanalysisController {
         }
 
         flash.message = message(code: 'default.updated.message', args: [message(code: 'costanalysis.label', default: 'Costanalysis'), costanalysisInstance.id])
-        redirect(action: "show", id: costanalysisInstance.id)
+        //redirect(action: "show", id: costanalysisInstance.id)
+        redirect(controller: "teamservice", action: "show", id: params.id)
     }
 
     def delete(Long id) {

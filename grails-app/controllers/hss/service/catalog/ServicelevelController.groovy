@@ -78,7 +78,8 @@ class ServicelevelController {
         }
 
         flash.message = message(code: 'default.updated.message', args: [message(code: 'servicelevel.label', default: 'Servicelevel'), servicelevelInstance.id])
-        redirect(action: "show", id: servicelevelInstance.id)
+        /*redirect(action: "show", id: servicelevelInstance.id)*/
+        redirect(controller: "teamservice", action: "show", id: params.id)
     }
 
     def delete(Long id) {

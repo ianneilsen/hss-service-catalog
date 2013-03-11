@@ -80,7 +80,8 @@ class ServiceuserController {
         }
 
         flash.message = message(code: 'default.updated.message', args: [message(code: 'serviceuser.label', default: 'Serviceuser'), serviceuserInstance.id])
-        redirect(action: "show", id: serviceuserInstance.id)
+        //redirect(action: "show", id: serviceuserInstance.id)
+        redirect(controller: "teamservice", action: "show", id: params.id)
     }
 
     def delete(Long id) {

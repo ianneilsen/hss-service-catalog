@@ -59,9 +59,9 @@
 					
 						<td><markdown:renderHtml>${fieldValue(bean: communicationplanInstance, field: "planoverview")}</markdown:renderHtml></td>
 					
-						<td>${fieldValue(bean: communicationplanInstance, field: "planmeasures")}</td>
+						<td><markdown:renderHtml>${fieldValue(bean: communicationplanInstance, field: "planmeasures")}</markdown:renderHtml></td>
 					
-						<td>${fieldValue(bean: communicationplanInstance, field: "planchanges")}</td>
+						<td><markdown:renderHtml>${fieldValue(bean: communicationplanInstance, field: "planchanges")}</markdown:renderHtml></td>
 					
 					</tr>
 				</g:each>

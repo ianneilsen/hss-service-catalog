@@ -31,11 +31,12 @@
 			<div class="formArea">
             <div class="form-horizontal">
             <g:form action="save" >
+                <g:hiddenField name="teamservice.id" value="${serviceuserInstance?.teamservices?.id}"/>
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>
 				<fieldset class="buttons">
-					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+					<g:submitButton name="create" class="save" id="${serviceuserInstance?.teamservices?.id}" value="${message(code: 'default.button.create.label', default: 'Create')}" />
 				</fieldset>
 			</g:form>
             </div>
@@ -45,4 +46,3 @@
         </div>
 	</body>
 </html>
-                 <!--todo trying to access servicelevel fields for some reason when creating a new user -->

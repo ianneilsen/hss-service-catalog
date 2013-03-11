@@ -1,9 +1,11 @@
 <%@ page import="hss.service.catalog.Teamtool" %>
+<%@ page import="hss.service.catalog.Teamservice" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'teamtool.label', default: 'Teamtool')}" />
+		<g:set var="entityName" value="${message(code: 'teamtool.label', default: 'Team tool')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
 	</head>
 	<body>
@@ -11,8 +13,6 @@
         <div class="navbar" role="navigation">
 			<ul class="nav">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				%{--<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>--}%
 			</ul>
 		</div>
     <!-- bread n errors -->
@@ -35,8 +35,9 @@
 		    <g:form method="post" >
 				<g:hiddenField name="id" value="${teamtoolInstance?.id}" />
 				<g:hiddenField name="version" value="${teamtoolInstance?.version}" />
+                <g:hiddenField name="teamservice.id" value="${teamtoolInstance?.teamservices?.id}"/>
 				<fieldset class="form">
-					<g:render template="form"/>
+                   <g:render template="form"/>
 				</fieldset>
 				<fieldset class="buttons">
 					<g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />

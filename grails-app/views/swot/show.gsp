@@ -82,6 +82,15 @@
 					
 
 				</g:if>
+
+                        <g:if test="${swotInstance?.swotAnalysis}">
+
+                            <dt><span id="swotAnalysis-label" class="property-label"><g:message code="swot.swotAnalysis.label" default="SWOT Analysis" /></span>      </dt>
+
+                            <dd><span class="property-value" aria-labelledby="gaps-label"><markdown:renderHtml><g:fieldValue bean="${swotInstance}" field="swotAnalysis"/></markdown:renderHtml></span>  </dd>
+
+
+                        </g:if>
 			
 				<g:if test="${swotInstance?.teamservices}">
 

@@ -1,4 +1,5 @@
 <%@ page import="hss.service.catalog.Teamtool" %>
+<%@ page import="hss.service.catalog.Teamservice" %>
 
 
 <div class="control-group">
@@ -7,7 +8,7 @@
 		<g:message code="teamtool.toolname.label" default="Tool Name" />
 		
 	</label>
-	<div class="controls"><g:textField style="width: 400px;" name="toolname" value="${teamtoolInstance?.toolname}" autofocus="true"/>
+	<div class="controls"><g:textField style="width: 400px;" name="toolname" required="" value="${teamtoolInstance?.toolname}" autofocus="true"/>
     <p class="help-block">Name of tool used?</p></div>
 </div>
 </div>
@@ -33,14 +34,25 @@
     <p class="help-block">What motivates your team to use this tool?</p></div>
 </div>
 </div>
+<div class="control-group">
+    <div class="fieldcontain ${hasErrors(bean: teamtoolInstance, field: 'toolsatisfaction', 'error')} ">
+        <label class="control-label" for="toolsatisfaction">
+            <g:message code="teamtool.toolsatisfaction.label" default="Tool Feedback" />
+
+        </label>
+        <div class="controls"><g:textArea style="width: 400px;" name="toolsatisfaction" cols="40" rows="5" maxlength="1000" value="${teamtoolInstance?.toolsatisfaction}"/>
+            <p class="help-block">Do you have any feedback on this tool, are you happy or disatisfied?</br>What would you change about this tool?</br>Are there other interesting tools that do the same job?</p></div>
+    </div>
+</div>
 
 <div class="control-group">
-<div class="fieldcontain ${hasErrors(bean: teamtoolInstance, field: 'teamservices', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: teamtoolInstance, field: 'teamservices', 'error')}">
 	<label class="control-label" for="teamservices">
 		<g:message code="teamtool.teamservices.label" default="Team Service" />
-		<span class="required-indicator">*</span>
+        <span class="required-indicator">*</span>
 	</label>
-	<div class="controls"><g:select id="teamservices" name="teamservices.id" from="${hss.service.catalog.Teamservice.list()}" optionKey="id" required="" value="${teamtoolInstance?.teamservices?.id}" class="many-to-one"/>
-    %{--<p class="help-block">Services for this tool</p>--}%</div>
+      <g:hiddenField name="teamservice.id" id="${teamtoolInstance?.teamservices?.id}"/>
+	<div class="controls"><g:select id="teamservicesId" name="teamservicesId" from="${hss.service.catalog.Teamservice.list()}" optionKey="id" required="" value="${teamtoolInstance?.teamservices?.id}" class="many-to-one"/></div>
 </div>
 </div>
+

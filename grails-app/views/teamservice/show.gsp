@@ -5,7 +5,7 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'teamservice.label', default: 'Team service')}" />
-		<title><g:message code="default.show.label" args="[entityName]" /></title>
+		<title>${teamserviceInstance?.servicename} service</title>
 	</head>
 	<body>
 		<div class="eso-inner">
@@ -26,7 +26,7 @@
 		</div>
 
 		<div id="show-teamservice" class="content scaffold-show" role="main">
-			<div class="breadcrumb"><h3>Service provider <g:link controller="team" action="show" id="${teamserviceInstance?.team?.id}">${teamserviceInstance?.team?.teamname?.encodeAsHTML()}</g:link> for service ${teamserviceInstance?.servicename}</h3></div>
+			<div class="breadcrumb"><h4>Service "${teamserviceInstance?.servicename}" for team <g:link controller="team" action="show" id="${teamserviceInstance?.team?.id}">${teamserviceInstance?.team?.teamname?.encodeAsHTML()}</g:link></h4></div>
 
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -87,7 +87,7 @@
 
             <dt><span id="baselevelservices-label" class="property-label"><g:message code="teamservice.baselevelservices.label" default="Base level of service offering:" /></span>    </dt>
 
-            <dd><span class="property-value" aria-labelledby="baselevelservices-label"><g:fieldValue bean="${teamserviceInstance}" field="baselevelservices"/></span></dd>
+            <dd><span class="property-value" aria-labelledby="baselevelservices-label"><markdown:renderHtml><g:fieldValue bean="${teamserviceInstance}" field="baselevelservices"/></markdown:renderHtml></span></dd>
 
         </g:if>
 
@@ -101,7 +101,7 @@
 
         <g:if test="${teamserviceInstance?.serviceowner}">
 
-            <dt><span id="serviceowner-label" class="property-label"><g:message code="teamservice.serviceowner.label" default="Key owner of this service:" /></span>    </dt>
+            <dt><span id="serviceowner-label" class="property-label"><g:message code="teamservice.serviceowner.label" default="Key manager of this service:" /></span>    </dt>
 
             <dd><span class="property-value" aria-labelledby="serviceowner-label"><g:fieldValue bean="${teamserviceInstance}" field="serviceowner"/></span></dd>
 
@@ -119,9 +119,12 @@
 
             <dt><span id="servicedocumentation-label" class="property-label"><g:message code="teamservice.servicedocumentation.label" default="Link to documents" /></span></dt>
 
-            <dd><span class="property-value" aria-labelledby="servicedocumentation-label"><g:fieldValue bean="${teamserviceInstance}" field="servicedocumentation"/></span></dd>
+            <dd><span class="property-value" aria-labelledby="servicedocumentation-label">
+                <a href="<g:createLink url="${teamserviceInstance?.servicedocumentation}"/>">${teamserviceInstance?.servicedocumentation?.encodeAsHTML()}</a>%{--<g:fieldValue bean="${teamserviceInstance}" field="servicedocumentation"/>--}%</span></dd>
 
         </g:if>
+
+<div class="alert alert-block"><h4>All information</h4> below is internal only</div>
 
             <g:if test="${teamserviceInstance?.tools}">
 
@@ -133,7 +136,7 @@
         <g:else test="${teamserviceInstance?.tools < 0}">
             <p class="text-warning">You need to add in some tools</p>
         </g:else>
-                <div class="btn btn-mini"><g:link controller="teamtool" action="create" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add a tool', args: [message(code: 'teamtool.label', default: 'Team Tools')])}</g:link></div>
+   <div class="btn btn-mini"><g:link controller="teamtool" action="create" id="${teamserviceInstance.id}" params="['teamservice.id': teamserviceInstance?.id]">${message(code: 'Add a tool', args: [message(code: 'teamtool.label', default: 'Team Tools')])}</g:link></div>
                     <table class="eso-table">
                         <thead>
                         <tr>
@@ -157,7 +160,7 @@
 
                                 <td>${fieldValue(bean: teamtoolInstance, field: "toolmotivation")}</td>
 
-                                <td><g:link controller="teamtool" action="edit" name="edit" id="${teamtoolInstance.id}">+Edit</g:link> </td>
+                                <td><g:link controller="teamtool" action="edit" name="edit" id="${teamtoolInstance?.id}">+Edit</g:link> </td>
 
                             </tr>
                         </g:each>
@@ -199,7 +202,7 @@
             <g:each in="${teamserviceInstance.servicesusers}" status="i" var="serviceuserInstance">
                 <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-                    <td><g:link action="show" id="${serviceuserInstance.id}">${fieldValue(bean: serviceuserInstance, field: "users")}</g:link></td>
+                    <td><g:link controller="serviceuser" action="show" id="${serviceuserInstance.id}">${fieldValue(bean: serviceuserInstance, field: "users")}</g:link></td>
 
                     <td>${fieldValue(bean: serviceuserInstance, field: "role")}</td>
 
@@ -234,15 +237,15 @@
                     <tr>
 
 
-                       <g:sortableColumn property="role" title="${message(code: 'costanalysis.role.label', default: 'Cost Role')}" />
+                       <g:sortableColumn property="role" title="${message(code: 'costanalysis.role.label', default: 'Service Suppliers')}" />
 
-                        <g:sortableColumn property="reason" title="${message(code: 'costanalysis.reason.label', default: 'reason for this Cost')}" />
+                        <g:sortableColumn property="reason" title="${message(code: 'costanalysis.reason.label', default: 'Why this supplier')}" />
 
                         <g:sortableColumn property="cost" title="${message(code: 'costanalysis.cost.label', default: 'Cost in Hrs')}" />
 
                         <g:sortableColumn property="othercosts" title="${message(code: 'costanalysis.othercosts.label', default: 'Other costs')}" />
 
-                        <g:sortableColumn property="totalmoneycosts" title="${message(code: 'costanalysis.totalmoneycosts.label', default: 'Total $ costs')}" />
+
 
                        <g:sortableColumn title="Action" property="edit" />
 
@@ -260,7 +263,7 @@
 
                             <td>${fieldValue(bean: costanalysisInstance, field: "othercosts")}</td>
 
-                            <td>${fieldValue(bean: costanalysisInstance, field: "totalmoneycosts")}</td>
+
 
                             <td><g:link controller="costanalysis" action="edit" name="edit" id="${costanalysisInstance.id}">+Edit</g:link> </td>
 
@@ -295,7 +298,7 @@
             <g:each in="${teamserviceInstance.servicebenefits}" status="i" var="servicebenefitInstance">
                 <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-                    <td><g:link action="show" id="${servicebenefitInstance.id}">${fieldValue(bean: servicebenefitInstance, field: "benefit")}</g:link></td>
+                    <td><g:link controller="servicebenefit" action="show" id="${servicebenefitInstance.id}">${fieldValue(bean: servicebenefitInstance, field: "benefit")}</g:link></td>
 
                     <td>${fieldValue(bean: servicebenefitInstance, field: "benefitmeasure")}</td>
 
@@ -346,7 +349,7 @@
             <g:each in="${teamserviceInstance.competitors}" status="i" var="servicecompetitorInstance">
                 <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-                    <td><g:link action="show" id="${servicecompetitorInstance.id}">${fieldValue(bean: servicecompetitorInstance, field: "competitorname")}</g:link></td>
+                    <td><g:link controller="servicecompetitor" action="show" id="${servicecompetitorInstance.id}">${fieldValue(bean: servicecompetitorInstance, field: "competitorname")}</g:link></td>
 
                     <td>${fieldValue(bean: servicecompetitorInstance, field: "competitorservice")}</td>
 
@@ -397,7 +400,7 @@
             <g:each in="${teamserviceInstance.serviceenvironments}" status="i" var="serviceenvironmentInstance">
                 <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-                    <td><g:link action="show" id="${serviceenvironmentInstance.id}">${fieldValue(bean: serviceenvironmentInstance, field: "successfactors")}</g:link></td>
+                    <td><g:link controller="serviceenvironment" action="show" id="${serviceenvironmentInstance.id}">${fieldValue(bean: serviceenvironmentInstance, field: "successfactors")}</g:link></td>
 
                     <td>${fieldValue(bean: serviceenvironmentInstance, field: "successmeasure")}</td>
 

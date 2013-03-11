@@ -6,7 +6,7 @@
 		<g:message code="swot.strength.label" default="Strengths" />
 		
 	</label>
-	<div class="controls"><g:textArea name="strength" style="width: 400px;" cols="40" rows="5" maxlength="500" value="${swotInstance?.strength}"/> </div>
+	<div class="controls"><g:textArea autofocus="true" name="strength" style="width: 400px;" cols="40" rows="5" maxlength="500" value="${swotInstance?.strength}"/> </div>
 </div>
 </div>
 
@@ -48,6 +48,16 @@
 	</label>
 	<div class="controls"> <g:textArea name="gaps" style="width: 400px;" cols="40" rows="5" maxlength="500" value="${swotInstance?.gaps}"/> </div>
 </div>
+</div>
+
+<div class="control-group">
+    <div class="fieldcontain ${hasErrors(bean: swotInstance, field: 'swotAnalysis', 'error')} ">
+        <label class="control-label" for="swotAnalysis">
+            <g:message code="swot.swotAnalysis.label" default="SWOT Analysis" />
+
+        </label>
+        <div class="controls"> <g:textArea name="swotAnalysis" style="width: 500px;" cols="50" rows="7" maxlength="500" value="${swotInstance?.swotAnalysis}"/> </div>
+    </div>
 </div>
 
 <div class="control-group">

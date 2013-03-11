@@ -2,11 +2,7 @@ package hss.service.catalog
 
 import org.springframework.dao.DataIntegrityViolationException
 
-
-
 class TeamController {
-
-    static scaffold = true
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 

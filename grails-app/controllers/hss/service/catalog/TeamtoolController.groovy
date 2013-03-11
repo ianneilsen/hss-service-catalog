@@ -1,10 +1,11 @@
 package hss.service.catalog
 
 import org.springframework.dao.DataIntegrityViolationException
+import hss.service.catalog.Teamservice
 
 class TeamtoolController {
 
-    static scaffold = true
+    static scaffold = Teamtool
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -17,7 +18,20 @@ class TeamtoolController {
         [teamtoolInstanceList: Teamtool.list(params), teamtoolInstanceTotal: Teamtool.count()]
     }
 
+
+    def show(Long id) {
+        def teamtoolInstance = Teamtool.get(id)
+        if (!teamtoolInstance) {
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'teamtool.label', default: 'Teamtool'), id])
+            redirect(action: "list")
+            return
+        }
+
+        [teamtoolInstance: teamtoolInstance]
+    }
+
     def create() {
+       //teamtoolInstance.setTeamservice(chainModel?.Teamservice)
         [teamtoolInstance: new Teamtool(params)]
     }
 
@@ -29,18 +43,8 @@ class TeamtoolController {
         }
 
         flash.message = message(code: 'default.created.message', args: [message(code: 'teamtool.label', default: 'Teamtool'), teamtoolInstance.id])
+        /*forward(controller: "teamservice", action: "show", id: params.id)*/
         redirect(action: "show", id: teamtoolInstance.id)
-    }
-
-    def show(Long id) {
-        def teamtoolInstance = Teamtool.get(id)
-        if (!teamtoolInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'teamtool.label', default: 'Teamtool'), id])
-            redirect(action: "list")
-            return
-        }
-
-        [teamtoolInstance: teamtoolInstance]
     }
 
     def edit(Long id) {
@@ -80,7 +84,8 @@ class TeamtoolController {
         }
 
         flash.message = message(code: 'default.updated.message', args: [message(code: 'teamtool.label', default: 'Teamtool'), teamtoolInstance.id])
-        redirect(action: "show", id: teamtoolInstance.id)
+        //redirect(action: "show", id: teamtoolInstance.id)
+        redirect(controller: "teamservice", action: "show", id: params.id)
     }
 
     def delete(Long id) {

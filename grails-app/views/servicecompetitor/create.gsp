@@ -33,6 +33,7 @@
             <div class="formArea">
                 <div class="form-horizontal">
                     <g:form action="save" >
+                        <g:hiddenField name="teamservice.id" value="${servicecompetitorInstance?.teamservices?.id}"/>
                         <fieldset class="form">
                             <g:render template="form"/>
                         </fieldset>

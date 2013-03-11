@@ -53,7 +53,7 @@
 	</label>
 	<div class="controls"> 
 <ul class="one-to-many">
-<g:each in="${communicationplanInstance?.communications?}" var="c">
+<g:each in="${communicationplanInstance?.communications}" var="c">
     <li><g:link controller="communication" action="show" id="${c.id}">${c?.id?.encodeAsHTML()} | ${c?.communication}</g:link></li>
 </g:each>
 <li class="add">

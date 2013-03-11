@@ -7,7 +7,7 @@
 		<g:message code="serviceenvironment.successfactors.label" default="Success factors" />
 		<span class="required-indicator">*</span>
 	</label>
-	<div class="controls"> <g:textArea name="successfactors" style="width: 400px;" cols="40" rows="5" maxlength="1000" required="" value="${serviceenvironmentInstance?.successfactors}"/> </div>
+	<div class="controls"> <g:textArea autofocus="true" name="successfactors" style="width: 400px;" cols="40" rows="5" maxlength="1000" required="" value="${serviceenvironmentInstance?.successfactors}"/> </div>
 </div>
 </div>
 
