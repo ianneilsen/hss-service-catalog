@@ -12,10 +12,7 @@
         <div class="navbar" role="navigation">
             <ul class="nav">
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                %{--<li><g:link  action="show" controller="communicationplan" id="${communicationplanInstance?.id}">
-                    <g:message code="Cancel" />
-                </g:link>
-                </li>--}%
+
                 <li><g:link controller="communicationplan" action="show" id="${communicationInstance?.commplan?.id}"> Cancel</g:link></li>
 			</ul>
 		</div>

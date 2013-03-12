@@ -76,14 +76,14 @@
 
 					<dt><span id="expectations-label" class="property-label"><g:message code="communication.expectations.label" default="Expectations" /></span></dt>
 					
-						<dd><span class="property-value" aria-labelledby="expectations-label"><g:fieldValue bean="${communicationInstance}" field="expectations"/></span></dd>
+						<dd><span class="property-value" aria-labelledby="expectations-label"><markdown:renderHtml><g:fieldValue bean="${communicationInstance}" field="expectations"/></markdown:renderHtml></span></dd>
 					
 
 				</g:if>
 			
 				<g:if test="${communicationInstance?.communicator}">
 
-					<dt><span id="communicator-label" class="property-label"><g:message code="communication.communicator.label" default="Communicator" /></span></dt>
+					<dt><span id="communicator-label" class="property-label"><g:message code="communication.communicator.label" default="Communicator/s" /></span></dt>
 					
 						<dd><span class="property-value" aria-labelledby="communicator-label"><g:fieldValue bean="${communicationInstance}" field="communicator"/></span></dd>
 					
@@ -92,13 +92,22 @@
 			
 				<g:if test="${communicationInstance?.datacollector}">
 
-					<dt><span id="datacollector-label" class="property-label"><g:message code="communication.datacollector.label" default="Datacollector" /></span></dt>
+					<dt><span id="datacollector-label" class="property-label"><g:message code="communication.datacollector.label" default="Data collector" /></span></dt>
 					
 						<dd><span class="property-value" aria-labelledby="datacollector-label"><g:fieldValue bean="${communicationInstance}" field="datacollector"/></span></dd>
 					
 
 				</g:if>
-			
+
+                        <g:if test="${communicationInstance?.commsmeasure}">
+
+                            <dt><span id="commsmeasure-label" class="property-label"><g:message code="communication.commsmeasure.label" default="Comms effectiveness measure" /></span></dt>
+
+                            <dd><span class="property-value" aria-labelledby="commsmeasure-label"><g:fieldValue bean="${communicationInstance}" field="commsmeasure"/></span></dd>
+
+
+                        </g:if>
+
 				<g:if test="${communicationInstance?.monitor}">
 
 					<dt><span id="monitor-label" class="property-label"><g:message code="communication.monitor.label" default="Monitor" /></span></dt>
@@ -110,16 +119,16 @@
 			
 				<g:if test="${communicationInstance?.commchannelsmedia}">
 
-					<dt><span id="commchannelsmedia-label" class="property-label"><g:message code="communication.commchannelsmedia.label" default="Commchannelsmedia" /></span></dt>
+					<dt><span id="commchannelsmedia-label" class="property-label"><g:message code="communication.commchannelsmedia.label" default="Comm' channels/media" /></span></dt>
 					
-						<dd><span class="property-value" aria-labelledby="commchannelsmedia-label"><g:fieldValue bean="${communicationInstance}" field="commchannelsmedia"/></span></dd>
+						<dd><span class="property-value" aria-labelledby="commchannelsmedia-label"><markdown:renderHtml><g:fieldValue bean="${communicationInstance}" field="commchannelsmedia"/></markdown:renderHtml></span></dd>
 					
 
 				</g:if>
 			
 				<g:if test="${communicationInstance?.timingfrequency}">
 
-					<dt><span id="timingfrequency-label" class="property-label"><g:message code="communication.timingfrequency.label" default="Timingfrequency" /></span></dt>
+					<dt><span id="timingfrequency-label" class="property-label"><g:message code="communication.timingfrequency.label" default="Timing frequency of comm'" /></span></dt>
 					
 						<dd><span class="property-value" aria-labelledby="timingfrequency-label"><g:fieldValue bean="${communicationInstance}" field="timingfrequency"/></span></dd>
 					
@@ -128,7 +137,7 @@
 			
 				<g:if test="${communicationInstance?.processdetailsdescrip}">
 
-					<dt><span id="processdetailsdescrip-label" class="property-label"><g:message code="communication.processdetailsdescrip.label" default="Processdetailsdescrip" /></span></dt>
+					<dt><span id="processdetailsdescrip-label" class="property-label"><g:message code="communication.processdetailsdescrip.label" default="Process details/description" /></span></dt>
 					
 						<dd><span class="property-value" aria-labelledby="processdetailsdescrip-label"><markdown:renderHtml><g:fieldValue bean="${communicationInstance}" field="processdetailsdescrip"/></markdown:renderHtml></span></dd>
 					

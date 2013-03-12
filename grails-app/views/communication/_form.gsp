@@ -31,7 +31,7 @@
 		
 	</label>
 	<div class="controls"> <g:textArea name="purpose" style="width: 400px;" cols="40" rows="5" value="${communicationInstance?.purpose}"/>
-    <p class="help-inline">Why do we want to communicate this information and changes?;</br> What is the goal of the communication?</br> Can the information support decision making?  </br>Field takes markdown in textarea</p></div>
+    <p class="help-inline">Why do we want to communicate this information and changes?;</br> What is the goal of the communication?</br> Can the information support decision making?  </br><i>Field takes markdown in textarea</i></p></div>
 </div>
 </div>
 
@@ -42,7 +42,7 @@
 		
 	</label>
 	<div class="controls"> <g:textArea name="targetGroups" style="width: 400px;" cols="40" rows="5" value="${communicationInstance?.targetGroups}"/>
-        <p class="help-inline">Who will receive this information/internal and external groups?</p></div>
+        <p class="help-inline">Who will receive this information/internal and external groups?</br><i>Field takes markdown in textarea</i></p></div>
 </div>
 </div>
 
@@ -53,39 +53,50 @@
 		
 	</label>
 	<div class="controls"> <g:textArea style="width: 400px;" cols="40" rows="5" name="expectations" value="${communicationInstance?.expectations}"/>
-        <p class="help-inline">What are the target groups expectations for this communication?</p></div>
+        <p class="help-inline">What are the target groups expectations for this communication?</br><i>Field takes markdown in textarea</i></p></div>
 </div>
 </div>
 
 <div class="control-group">
 <div class="fieldcontain ${hasErrors(bean: communicationInstance, field: 'communicator', 'error')} ">
 	<label class="control-label" for="communicator">
-		<g:message code="communication.communicator.label" default="Communicator" />
+		<g:message code="communication.communicator.label" default="Communicator/s" />
 		
 	</label>
-	<div class="controls"> <g:textField name="communicator" value="${communicationInstance?.communicator}"/>
-        <p class="help-inline">Who is responsible for delivering the communication?</p></div>
+	<div class="controls"> <g:textField style="width: 400px;" name="communicator" value="${communicationInstance?.communicator}"/>
+        <p class="help-inline">Who is responsible for delivering the communication?(can use multiple people)</p></div>
 </div>
 </div>
 
 <div class="control-group">
 <div class="fieldcontain ${hasErrors(bean: communicationInstance, field: 'datacollector', 'error')} ">
 	<label class="control-label" for="datacollector">
-		<g:message code="communication.datacollector.label" default="Data collector" />
+		<g:message code="communication.datacollector.label" default="Data collector/s" />
 		
 	</label>
-	<div class="controls"> <g:textField name="datacollector" value="${communicationInstance?.datacollector}"/>
+	<div class="controls"> <g:textField style="width: 400px;" name="datacollector" value="${communicationInstance?.datacollector}"/>
         <p class="help-inline">Who will prepare and generate the required information and content?</p></div>
 </div>
 </div>
 
 <div class="control-group">
+    <div class="fieldcontain ${hasErrors(bean: communicationInstance, field: 'commsmeasure', 'error')} ">
+        <label class="control-label" for="commsmeasure">
+            <g:message code="communication.commsmeasure.label" default="Effective measurement" />
+
+        </label>
+        <div class="controls"> <g:textArea style="width: 400px;" cols="30" rows="5" name="commsmeasure" value="${communicationInstance?.commsmeasure}"/>
+            <p class="help-inline">How do we measure the effectiveness of the communications?</br><i>Field takes markdown in textarea</i></p></div>
+    </div>
+</div>
+            <!-- todo - add in communication effeciveness or measure field to show users how to meausre success of comms -->
+<div class="control-group">
 <div class="fieldcontain ${hasErrors(bean: communicationInstance, field: 'monitor', 'error')} ">
 	<label class="control-label" for="monitor">
-		<g:message code="communication.monitor.label" default="Monitor" />
+		<g:message code="communication.monitor.label" default="Monitor/s" />
 		
 	</label>
-	<div class="controls"> <g:textField name="monitor" value="${communicationInstance?.monitor}"/>
+	<div class="controls"> <g:textField style="width: 400px;" name="monitor" value="${communicationInstance?.monitor}"/>
         <p class="help-inline">Who will ensure that the communications process is followed</br> and is responsible for tracking the performance in delivering the communication?</p></div>
 </div>
 </div>
@@ -97,7 +108,7 @@
 		
 	</label>
 	<div class="controls"> <g:textArea style="width: 400px;" cols="40" rows="5" name="commchannelsmedia" value="${communicationInstance?.commchannelsmedia}"/>
-        <p class="help-inline">How will we communicate or share the information?</br> e.g. report, email, or portal. </p></div>
+        <p class="help-inline">How will we communicate or share the information?</br> <i>e.g. report, email, or portal.</i> </p></div>
 </div>
 </div>
 
@@ -107,7 +118,7 @@
 		<g:message code="communication.timingfrequency.label" default="Timing/frequency" />
 		
 	</label>
-	<div class="controls"> <g:textField name="timingfrequency" value="${communicationInstance?.timingfrequency}"/>
+	<div class="controls"> <g:textField style="width: 300px;" name="timingfrequency" value="${communicationInstance?.timingfrequency}"/>
         <p class="help-inline">Time frame and frequency for the distribution of required information.</p></div>
 </div>
 </div>
@@ -118,8 +129,8 @@
 		<g:message code="communication.processdetailsdescrip.label" default="Process details description" />
 		
 	</label>
-	<div class="controls"> <g:textArea style="width: 400px;" name="processdetailsdescrip" cols="40" rows="5" maxlength="2000" value="${communicationInstance?.processdetailsdescrip}"/>
-        <p class="help-inline">What is the process that needs to be followed for this communication?</br> What content / details needs to be included in this communication?</br>Field takes markdown in textarea</p></div>
+	<div class="controls"> <g:textArea style="width: 600px;" name="processdetailsdescrip" cols="40" rows="10" maxlength="2000" value="${communicationInstance?.processdetailsdescrip}"/>
+        <p class="help-inline">What is the process that needs to be followed for this communication?</br> What content / details needs to be included in this communication?</br><i>Field takes markdown in textarea</i></p></div>
 </div>
 </div>
 

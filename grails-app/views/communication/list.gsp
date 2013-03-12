@@ -1,4 +1,3 @@
-
 <%@ page import="hss.communications.plan.Communication" %>
 <!DOCTYPE html>
 <html>

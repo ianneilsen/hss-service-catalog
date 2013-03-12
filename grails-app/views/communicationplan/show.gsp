@@ -1,19 +1,30 @@
 <%@  page import="hss.communications.plan.Commlevel" %>
 <%@ page import="hss.communications.plan.Communicationplan" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'communicationplan.label', default: 'Plans')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
-       %{-- <link href="../css/report.css" rel="stylesheet" type="text/css">--}%
         <script type="text/JavaScript" src="../js/eso-theme.js"></script>
         <script type="text/JavaScript" src="../js/plugins.js"></script>
         <script type="text/JavaScript" src="../js/lib/jquery-1.7.2.js"></script>
         <script type="text/JavaScript" src="../js/lib/modal.js"></script>
         <script type="text/JavaScript" src="../js/lib/tab.js"></script>
 
+ %{--       <g:javascript library="/lib/tab.js" />--}%
 
+%{--        <r:script>$('#myTab a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        })</r:script>
+
+        <g:javascript>
+            $(function() {
+                $('#form').dialog('open');
+            });
+        </g:javascript>--}%
 	</head>
 	<body>
 
@@ -23,7 +34,6 @@
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 
-		%{--		<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>--}%
 			</ul>
 		</div>
 		<div id="show-communicationplan" class="content scaffold-show" role="main">
@@ -32,18 +42,9 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 
-            <section>
-                <ul class="nav nav-tabs" id="myTab" data-tabs="tabs">
-                    <li class="active"><a href="#PLANMAME">Plan Overview</a></li>
-                    <li class=""><a href="#MEASURES">Measures</a></li>
-                    <li class=""><a href="#CHANGES">Changes</a></li>
-                </ul>
 
-                <div class="tab-content">
-                    <div class="tab-pane active" id="BRD">
-                        <section>
-
-                            <div class="page-header clear"></div>
+                  <section>
+                <div class="well well-small">
                             <g:if test="${communicationplanInstance?.planname}">
 
                                 <dt><span id="planname-label" class="property-label"><g:message code="communicationplan.planname.label" default="Plan name" /></span></dt>
@@ -52,6 +53,7 @@
 
 
                             </g:if>
+
 
                             <g:if test="${communicationplanInstance?.planoverview}">
 
@@ -64,11 +66,7 @@
 
                     </div>
 
-
-
-                    <div class="tab-pane fade" id="MEASURES">
-
-                           <div class="page-header clear"></div>
+                <div class="well well-small">
                             <g:if test="${communicationplanInstance?.planmeasures}">
 
                                 <dt><span id="planmeasures-label" class="property-label"><g:message code="communicationplan.planmeasures.label" default="Plan measures" /></span></dt>
@@ -80,10 +78,7 @@
 
                     </div>
 
-
-
-                    <div class="tab-pane fade" id="CHANGES">
-
+               <div class="well well-small">
                            <g:if test="${communicationplanInstance?.planchanges}">
 
                                 <dt><span id="planchanges-label" class="property-label"><g:message code="communicationplan.planchanges.label" default="Plan changes" /></span></dt>
@@ -93,10 +88,6 @@
 
                             </g:if>
                     </div>
-
-                </div>
-			
-           %{--</section>--}%
 
 <!--communciation table -->
                 <div class="add">
@@ -123,6 +114,8 @@
                             <g:sortableColumn property="communicator" title="${message(code: 'communications.communicator.label', default: 'Communicator')}" />
 
                             <g:sortableColumn property="datacollector" title="${message(code: 'communications.datacollector.label', default: 'Datacollector')}" />
+
+                            <g:sortableColumn property="commsmeasure" title="${message(code: 'communications.commsmeasure.label', default: 'Comms Measure')}" />
 
                             <g:sortableColumn property="monitor" title="${message(code: 'communications.monitor.label', default: 'Monitor')}" />
 
@@ -157,6 +150,8 @@
 
                                 <td>${fieldValue(bean: communicationInstance, field: "datacollector")}</td>
 
+                                <td><markdown:renderHtml>${fieldValue(bean: communicationInstance, field: "commsmeasure")}</markdown:renderHtml></td>
+
                                 <td>${fieldValue(bean: communicationInstance, field: "monitor")}</td>
 
                                 <td><markdown:renderHtml>${fieldValue(bean: communicationInstance, field: "commchannelsmedia")}</markdown:renderHtml></td>
@@ -172,8 +167,6 @@
                     </table>
 
 				</g:if>
-			
-			</dl>
 <!-- action items -->
 			<g:form>
 				<fieldset class="btn">

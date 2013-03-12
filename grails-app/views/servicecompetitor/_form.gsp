@@ -71,7 +71,7 @@
 		
 	</label>
 <div class="controls"><g:textArea name="competitorvalue" cols="40" rows="5" maxlength="1000" value="${servicecompetitorInstance?.competitorvalue}"/>
-    <p class="help-block">What is the good things about their service?</p></div>
+    <p class="help-block">What is good about competitors service?</p></div>
 </div>
 </div>
 
@@ -85,5 +85,3 @@
 </div>
 </div>
 </div>
-
-<!-- todo put in field descriptions under each label  -->

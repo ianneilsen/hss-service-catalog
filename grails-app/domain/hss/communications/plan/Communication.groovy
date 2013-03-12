@@ -12,6 +12,7 @@ class Communication {
     String communicator
     String datacollector
     String monitor
+    String commsmeasure
     String commchannelsmedia
     String timingfrequency
     String processdetailsdescrip
@@ -24,6 +25,7 @@ class Communication {
         communicator()
         datacollector()
         monitor()
+        commsmeasure()
         commchannelsmedia()
         timingfrequency()
         processdetailsdescrip(size: 2..2000)
